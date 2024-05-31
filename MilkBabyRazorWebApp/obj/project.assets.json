@@ -2807,11 +2807,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\PRN221\\Project\\NET1702_PRN221_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyRazorWebApp\\MilkBabyRazorWebApp.csproj",
+      "projectUniqueName": "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyRazorWebApp\\MilkBabyRazorWebApp.csproj",
       "projectName": "MilkBabyRazorWebApp",
-      "projectPath": "D:\\PRN221\\Project\\NET1702_PRN221_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyRazorWebApp\\MilkBabyRazorWebApp.csproj",
+      "projectPath": "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyRazorWebApp\\MilkBabyRazorWebApp.csproj",
       "packagesPath": "C:\\Users\\NGOC MINH\\.nuget\\packages\\",
-      "outputPath": "D:\\PRN221\\Project\\NET1702_PRN221_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyRazorWebApp\\obj\\",
+      "outputPath": "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyRazorWebApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\NGOC MINH\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2828,11 +2828,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\PRN221\\Project\\NET1702_PRN221_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyBusiness\\MilkBabyBusiness.csproj": {
-              "projectPath": "D:\\PRN221\\Project\\NET1702_PRN221_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyBusiness\\MilkBabyBusiness.csproj"
+            "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyBusiness\\MilkBabyBusiness.csproj": {
+              "projectPath": "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyBusiness\\MilkBabyBusiness.csproj"
             },
-            "D:\\PRN221\\Project\\NET1702_PRN221_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyData\\MilkBabyData.csproj": {
-              "projectPath": "D:\\PRN221\\Project\\NET1702_PRN221_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyData\\MilkBabyData.csproj"
+            "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyData\\MilkBabyData.csproj": {
+              "projectPath": "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyData\\MilkBabyData.csproj"
             }
           }
         }
@@ -2868,13 +2868,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.106/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1900",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Error occurred while getting package vulnerability data: The download of 'https://api.nuget.org/v3-vulnerabilities/2024.05.29.05.30.01/vulnerability.base.json' timed out because no data was received for 60000ms."
-    }
-  ]
+  }
 }
