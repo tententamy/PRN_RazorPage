@@ -9,3 +9,15 @@ F:\Net1702_PRN211_MilkBaby\Source\Net1702_221_3_MilkBaby\MilkBabyCommon\obj\Debu
 F:\Net1702_PRN211_MilkBaby\Source\Net1702_221_3_MilkBaby\MilkBabyCommon\obj\Debug\net8.0\refint\MilkBabyCommon.dll
 F:\Net1702_PRN211_MilkBaby\Source\Net1702_221_3_MilkBaby\MilkBabyCommon\obj\Debug\net8.0\MilkBabyCommon.pdb
 F:\Net1702_PRN211_MilkBaby\Source\Net1702_221_3_MilkBaby\MilkBabyCommon\obj\Debug\net8.0\ref\MilkBabyCommon.dll
+D:\Pru_Project\PRN_RazorPage\MilkBabyCommon\bin\Debug\net8.0\MilkBabyCommon.deps.json
+D:\Pru_Project\PRN_RazorPage\MilkBabyCommon\bin\Debug\net8.0\MilkBabyCommon.dll
+D:\Pru_Project\PRN_RazorPage\MilkBabyCommon\bin\Debug\net8.0\MilkBabyCommon.pdb
+D:\Pru_Project\PRN_RazorPage\MilkBabyCommon\obj\Debug\net8.0\MilkBabyCommon.GeneratedMSBuildEditorConfig.editorconfig
+D:\Pru_Project\PRN_RazorPage\MilkBabyCommon\obj\Debug\net8.0\MilkBabyCommon.AssemblyInfoInputs.cache
+D:\Pru_Project\PRN_RazorPage\MilkBabyCommon\obj\Debug\net8.0\MilkBabyCommon.AssemblyInfo.cs
+D:\Pru_Project\PRN_RazorPage\MilkBabyCommon\obj\Debug\net8.0\MilkBabyCommon.csproj.CoreCompileInputs.cache
+D:\Pru_Project\PRN_RazorPage\MilkBabyCommon\obj\Debug\net8.0\MilkBabyCommon.sourcelink.json
+D:\Pru_Project\PRN_RazorPage\MilkBabyCommon\obj\Debug\net8.0\MilkBabyCommon.dll
+D:\Pru_Project\PRN_RazorPage\MilkBabyCommon\obj\Debug\net8.0\refint\MilkBabyCommon.dll
+D:\Pru_Project\PRN_RazorPage\MilkBabyCommon\obj\Debug\net8.0\MilkBabyCommon.pdb
+D:\Pru_Project\PRN_RazorPage\MilkBabyCommon\obj\Debug\net8.0\ref\MilkBabyCommon.dll

@@ -10,6 +10,7 @@ namespace MilkBabyData
 {
         public class UnitOfWork
         {
+            private CustomerRepository _customerRepository;
             private ProductRepository _product;
             private Net1702Prn221MilkBabyContext _unitOfWorkContext;
 
@@ -26,5 +27,14 @@ namespace MilkBabyData
                     return _product ??= new Repository.ProductRepository(_unitOfWorkContext);
             }
             }
+
+        public CustomerRepository CustomerRepository
+        {
+            get
+            {
+                /* return _product ??= new Repository.ProductRepository();*/
+                return _customerRepository ??= new Repository.CustomerRepository(_unitOfWorkContext);
+            }
         }
+    }
 }

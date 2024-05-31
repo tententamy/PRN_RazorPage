@@ -29,7 +29,7 @@ public partial class Net1702Prn221MilkBabyContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer("data source=THANHPHONG\\MSSQL01;initial catalog=NET1702_PRN221_MilkBaby;user id=sa;password=12345;Integrated Security=True;TrustServerCertificate=True");
+        optionsBuilder.UseSqlServer("data source=(local);initial catalog=NET1702_PRN221_MilkBaby;user id=sa;password=12345;Integrated Security=True;TrustServerCertificate=True");
         base.OnConfiguring(optionsBuilder);
     }
 
