@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MilkBabyData")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3b941d13e1e7d01b8b700089369cec679b22b062")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e6e34355c6bf146b8c69135017fdbca1864f727b")]
 [assembly: System.Reflection.AssemblyProductAttribute("MilkBabyData")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MilkBabyData")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
