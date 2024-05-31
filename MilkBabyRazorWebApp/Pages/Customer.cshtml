@@ -40,10 +40,9 @@
                 <td class="text-center">@customer.CustomerAddress</td>
                 <td class="text-center">@customer.CustomerImg</td>
                 <td class="text-center">
-                    <form method="post" asp-page-handler="Delete" asp-route-id="@customer.CustomerId" class="d-inline">
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
-                    <button type="button" class="btn btn-primary" onclick="showEditCustomerModal('@customer.CustomerId', '@customer.CustomerName', '@customer.CustomerEmail', '@customer.CustomerPhone', '@customer.CustomerAddress', '@customer.CustomerImg')">Edit</button>
+
+                    <button type="button" class="btn btn-danger" onclick="remove('@customer.CustomerId')">Remove</button>
+                    <button type="button" class="btn btn-danger" onclick="edit('@customer.CustomerId')">Edit</button>
                 </td>
             </tr>
         }
@@ -64,14 +63,14 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="customerId">Id</label>
-                                <input asp-for="Customer.CustomerId" class="form-control" id="customerId" />
+                                <label for="customerName">Tên</label>
+                                <input asp-for="Customer.CustomerName" class="form-control" id="customerName" />
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="customerName">Tên</label>
-                                <input asp-for="Customer.CustomerName" class="form-control" id="customerName" />
+                                <label for="customerEmail">Email</label>
+                                <input asp-for="Customer.CustomerEmail" class="form-control" id="customerEmail" />
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -84,12 +83,6 @@
                             <div class="form-group">
                                 <label for="customerPhone">Số điện thoại</label>
                                 <input asp-for="Customer.CustomerPhone" class="form-control" id="customerPhone" />
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="customerEmail">Email</label>
-                                <input asp-for="Customer.CustomerEmail" class="form-control" id="customerEmail" />
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -112,57 +105,90 @@
     </div>
 </div>
 
-<!-- Edit Customer Modal -->
-<div class="modal fade" id="editCustomerModal" tabindex="-1" aria-labelledby="editCustomerModalLabel" aria-hidden="true">
+<!-- Remove Customer Modal -->
+-<div class="modal fade" id="RemoveModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form method="post" asp-page-handler="Edit">
+            <form method="post" asp-page-handler="Delete">
                 @Html.AntiForgeryToken()
+                <input type="hidden" asp-for="Customer.CustomerId" id="CustomerIdRemove" />
+
                 <div class="modal-header">
-                    <h5 class="modal-title" id="editCustomerModalLabel">Chỉnh sửa khách hàng</h5>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Remove Confirm</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <input type="hidden" asp-for="Customer.CustomerId" id="editCustomerId" />
+                    Are you sure you want to delete this customer?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Yes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Customer Modal -->
+<div class="modal fade" id="EditModal" tabindex="-1" aria-labelledby="CustomerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post" asp-page-handler="Update">
+                @Html.AntiForgeryToken()
+                <input asp-for="Customer.CustomerId" type="hidden" id="CustomerId" />
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="CustomerModalLabel">Edit Customer</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="editCustomerName">Tên</label>
-                                <input asp-for="Customer.CustomerName" class="form-control" id="editCustomerName" />
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="editCustomerAddress">Địa chỉ</label>
-                                <input asp-for="Customer.CustomerAddress" class="form-control" id="editCustomerAddress" />
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="editCustomerPhone">Số điện thoại</label>
-                                <input asp-for="Customer.CustomerPhone" class="form-control" id="editCustomerPhone" />
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="editCustomerEmail">Email</label>
-                                <input asp-for="Customer.CustomerEmail" class="form-control" id="editCustomerEmail" />
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="editCustomerImg">Hình ảnh</label>
-                                <input asp-for="Customer.CustomerImg" class="form-control" id="editCustomerImg" />
+                        <div class="col-md-12">
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label for="CustomerId">CustomerId</label>
+                                    <input id="CustomerId" class="form-control" readonly />
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="CustomerName">Tên</label>
+                                    <input id="CustomerName" asp-for="Customer.CustomerName" class="form-control" />
+                                    <span asp-validation-for="Customer.CustomerName" class="text-danger"></span>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <label>@Model.Message</label>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label for="CustomerBirthDate">Email</label>
+                                    <input id="CustomerEmail" asp-for="Customer.CustomerEmail" class="form-control" />
+                                    <span asp-validation-for="Customer.CustomerEmail" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="CustomerPhone">Phone</label>
+                                    <input id="CustomerPhone" asp-for="Customer.CustomerPhone" class="form-control" />
+                                    <span asp-validation-for="Customer.CustomerPhone" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label for="CustomerAddress">Address</label>
+                                    <input id="CustomerAddress" asp-for="Customer.CustomerAddress" class="form-control" />
+                                    <span asp-validation-for="Customer.CustomerAddress" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="CustomerImg">Image</label>
+                                    <input id="CustomerImg" asp-for="Customer.CustomerImg" class="form-control" />
+                                    <span asp-validation-for="Customer.CustomerImg" class="text-danger"></span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Lưu</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </form>
         </div>
@@ -175,14 +201,30 @@
             $('#addCustomerModal').modal('show');
         }
 
-        function showEditCustomerModal(customerId, customerName, customerEmail, customerPhone, customerAddress, customerImg) {
-            $('#editCustomerId').val(customerId);
-            $('#editCustomerName').val(customerName);
-            $('#editCustomerAddress').val(customerAddress);
-            $('#editCustomerPhone').val(customerPhone);
-            $('#editCustomerEmail').val(customerEmail);
-            $('#editCustomerImg').val(customerImg);
-            $('#editCustomerModal').modal('show');
+        function remove(customerId) {
+            document.getElementById('CustomerIdRemove').value = customerId;
+            $('#RemoveModal').modal('show');
+        }
+
+        function edit(customerId) {
+            // Gui yeu cau Ajax de lay thong tin Customer
+            $.ajax({
+                url: '@Url.Page("Customer", "Update")',
+                type: 'GET',
+                data: { customerId: customerId },
+                success: function (data) {
+                    // Hien thi cac gia tri cua Customer trong Modal
+                    $('#EditModal #CustomerId').val(data.customerId);
+                    $('#EditModal #CustomerName').val(data.customerName);
+                    $('#EditModal #CustomerEmail').val(data.customerEmail);
+                    $('#EditModal #CustomerPhone').val(data.customerPhone);
+                    $('#EditModal #CustomerAddress').val(data.customerAddress);
+                    $('#EditModal #CustomerImg').val(data.customerImg);
+
+                    // Open Modal
+                    $('#EditModal').modal('show');
+                }
+            });
         }
     </script>
 }

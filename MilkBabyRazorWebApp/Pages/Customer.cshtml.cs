@@ -28,22 +28,43 @@ namespace MilkBabyRazorWebApp.Pages
             return Page();
         }
 
-        public IActionResult OnPostEdit()
+        public IActionResult OnGetUpdate(Guid customerId)
+        {
+            var result = _customerBusiness.GetById(customerId);
+            if (result.Result.Data != null)
+            {
+                Customer = result.Result.Data as Customer;
+
+            }
+            else
+            {
+
+                TempData["ErrorMessage"] = result.Result.Message;
+            }
+            return new JsonResult(Customer);
+        }
+
+        public IActionResult OnPostUpdate()
         {
             var existingCustomer = GetCustomerById(Customer.CustomerId);
             if (existingCustomer != null)
             {
-                UpdateCustomer(Customer);
+                existingCustomer.CustomerName = Customer.CustomerName;
+                existingCustomer.CustomerEmail = Customer.CustomerEmail;
+                existingCustomer.CustomerPhone = Customer.CustomerPhone;
+                existingCustomer.CustomerAddress = Customer.CustomerAddress;
+                existingCustomer.CustomerImg = Customer.CustomerImg;
+                UpdateCustomer(existingCustomer);
             }
             Customers = GetCustomer();
             return RedirectToPage();
         }
 
-        public IActionResult OnPostDelete(Guid customerId)
+        public IActionResult OnPostDelete()
         {
-            if (GetCustomerById(customerId) != null)
+            if (GetCustomerById(Customer.CustomerId) != null)
             {
-                DeleteCustomer(customerId);
+                DeleteCustomer(Customer.CustomerId);
             }
             Customers = GetCustomer();
             return RedirectToPage();

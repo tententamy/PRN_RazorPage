@@ -12,6 +12,10 @@ F:\Net1702_PRN211_MilkBaby\Source\Net1702_221_3_MilkBaby\MilkBabyData\obj\Debug\
 F:\Net1702_PRN211_MilkBaby\Source\Net1702_221_3_MilkBaby\MilkBabyData\obj\Debug\net8.0\MilkBabyData.pdb
 F:\Net1702_PRN211_MilkBaby\Source\Net1702_221_3_MilkBaby\MilkBabyData\obj\Debug\net8.0\MilkBabyData.genruntimeconfig.cache
 F:\Net1702_PRN211_MilkBaby\Source\Net1702_221_3_MilkBaby\MilkBabyData\obj\Debug\net8.0\ref\MilkBabyData.dll
+D:\Pru_Project\PRN_RazorPage\MilkBabyData\bin\Debug\net8.0\MilkBabyData.deps.json
+D:\Pru_Project\PRN_RazorPage\MilkBabyData\bin\Debug\net8.0\MilkBabyData.runtimeconfig.json
+D:\Pru_Project\PRN_RazorPage\MilkBabyData\bin\Debug\net8.0\MilkBabyData.dll
+D:\Pru_Project\PRN_RazorPage\MilkBabyData\bin\Debug\net8.0\MilkBabyData.pdb
 D:\Pru_Project\PRN_RazorPage\MilkBabyData\obj\Debug\net8.0\MilkBabyData.csproj.AssemblyReference.cache
 D:\Pru_Project\PRN_RazorPage\MilkBabyData\obj\Debug\net8.0\MilkBabyData.GeneratedMSBuildEditorConfig.editorconfig
 D:\Pru_Project\PRN_RazorPage\MilkBabyData\obj\Debug\net8.0\MilkBabyData.AssemblyInfoInputs.cache
@@ -21,9 +25,5 @@ D:\Pru_Project\PRN_RazorPage\MilkBabyData\obj\Debug\net8.0\MilkBabyData.sourceli
 D:\Pru_Project\PRN_RazorPage\MilkBabyData\obj\Debug\net8.0\MilkBabyData.dll
 D:\Pru_Project\PRN_RazorPage\MilkBabyData\obj\Debug\net8.0\refint\MilkBabyData.dll
 D:\Pru_Project\PRN_RazorPage\MilkBabyData\obj\Debug\net8.0\MilkBabyData.pdb
-D:\Pru_Project\PRN_RazorPage\MilkBabyData\bin\Debug\net8.0\MilkBabyData.deps.json
-D:\Pru_Project\PRN_RazorPage\MilkBabyData\bin\Debug\net8.0\MilkBabyData.runtimeconfig.json
-D:\Pru_Project\PRN_RazorPage\MilkBabyData\bin\Debug\net8.0\MilkBabyData.dll
-D:\Pru_Project\PRN_RazorPage\MilkBabyData\bin\Debug\net8.0\MilkBabyData.pdb
 D:\Pru_Project\PRN_RazorPage\MilkBabyData\obj\Debug\net8.0\MilkBabyData.genruntimeconfig.cache
 D:\Pru_Project\PRN_RazorPage\MilkBabyData\obj\Debug\net8.0\ref\MilkBabyData.dll

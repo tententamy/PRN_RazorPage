@@ -1,8 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using MilkBabyBusiness.Base;
+﻿using MilkBabyBusiness.Base;
 using MilkBabyCommon;
 using MilkBabyData;
-using MilkBabyData.DAO;
 using MilkBabyData.Models;
 using System;
 using System.Collections.Generic;
@@ -10,22 +8,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MilkBabyBusiness
+namespace MilkBabyBusiness.Category
 {
-    public interface IProductBusiness
+    public interface IVendorBusiness
     {
         Task<IBusinessResult> GetAll();
         Task<IBusinessResult> GetById(Guid id);
-        Task<IBusinessResult> Save(Product product);
-        Task<IBusinessResult> Update(Product product);
+        Task<IBusinessResult> Save(Vendor vendor);
+        Task<IBusinessResult> Update(Vendor vendor);
         Task<IBusinessResult> DeleteById(Guid id);
     }
 
-    public class ProductBusiness : IProductBusiness
-    {
+    public class VendorBusiness : IVendorBusiness
+    { 
         private readonly UnitOfWork _unitOfWork;
 
-        public ProductBusiness()
+        public VendorBusiness()
         {
             _unitOfWork ??= new UnitOfWork();
         }
@@ -37,7 +35,7 @@ namespace MilkBabyBusiness
                 #region Business rule
                 #endregion
 
-                var products = await _unitOfWork.ProductRepository.GetAllAsync();
+                var products = await _unitOfWork.VendorRepository.GetAllAsync();
 
                 if (products == null)
                 {
@@ -61,7 +59,7 @@ namespace MilkBabyBusiness
                 #region Business rule
                 #endregion
 
-                var product = await _unitOfWork.ProductRepository.GetByIdAsync(id);
+                var product = await _unitOfWork.VendorRepository.GetByIdAsync(id);
 
                 if (product == null)
                 {
@@ -78,11 +76,12 @@ namespace MilkBabyBusiness
             }
         }
 
-        public async Task<IBusinessResult> Save(Product product)
+        public async Task<IBusinessResult> Save(Vendor vendor)
         {
+    
             try
             {
-                int result = await _unitOfWork.ProductRepository.CreateAsync(product);
+                int result = await _unitOfWork.VendorRepository.CreateAsync(vendor);
                 if (result > 0)
                 {
                     return new BusinessResult(Const.SUCCESS_CREATE_CODE, Const.SUCCESS_CREATE_MSG);
@@ -98,11 +97,11 @@ namespace MilkBabyBusiness
             }
         }
 
-        public async Task<IBusinessResult> Update(Product product)
+        public async Task<IBusinessResult> Update(Vendor vendor)
         {
             try
             {
-                await _unitOfWork.ProductRepository.UpdateAsync(product);
+                await _unitOfWork.VendorRepository.UpdateAsync(vendor);
                 return new BusinessResult(Const.SUCCESS_UPDATE_CODE, Const.SUCCESS_UPDATE_MSG);
             }
             catch (Exception ex)
@@ -115,10 +114,10 @@ namespace MilkBabyBusiness
         {
             try
             {
-                var product = await _unitOfWork.ProductRepository.GetByIdAsync(id);
-                if (product != null)
+                var vendor = await _unitOfWork.VendorRepository.GetByIdAsync(id);
+                if (vendor != null)
                 {
-                    await _unitOfWork.ProductRepository.RemoveAsync(product);
+                    await _unitOfWork.VendorRepository.RemoveAsync(vendor);
                     return new BusinessResult(Const.SUCCESS_DELETE_CODE, Const.SUCCESS_DELETE_MSG);
                 }
                 else
@@ -131,5 +130,7 @@ namespace MilkBabyBusiness
                 return new BusinessResult(Const.ERROR_EXCEPTION, ex.ToString());
             }
         }
+
+        
     }
 }
