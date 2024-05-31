@@ -12,6 +12,8 @@ namespace MilkBabyBusiness.Base
         public string? Message { get; set; }
         public object? Data { get; set; }
 
+        public bool Success => throw new NotImplementedException();
+
         public BusinessResult()
         {
             Status = -1;

@@ -11,6 +11,6 @@ namespace MilkBabyBusiness.Base
         int Status { get; set; }
         string? Message { get; set; }
         object? Data { get; set; }
-
+        bool Success { get; }
     }
 }

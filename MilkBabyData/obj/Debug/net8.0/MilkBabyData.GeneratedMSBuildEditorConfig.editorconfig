@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MilkBabyData
-build_property.ProjectDir = D:\PRN221\Project\NET1702_PRN221_MilkBaby\Source\Net1702_221_3_MilkBaby\MilkBabyData\
+build_property.ProjectDir = F:\Net1702_PRN211_MilkBaby\Source\Net1702_221_3_MilkBaby\MilkBabyData\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

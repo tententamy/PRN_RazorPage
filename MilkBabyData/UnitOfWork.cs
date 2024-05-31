@@ -8,22 +8,23 @@ using System.Threading.Tasks;
 
 namespace MilkBabyData
 {
-    public class UnitOfWork
-    {
-        private Net1702Prn221MilkBabyContext _unitOfWorkContext;
-        private CustomerRepository _customer;
+        public class UnitOfWork
+        {
+            private ProductRepository _product;
+            private Net1702Prn221MilkBabyContext _unitOfWorkContext;
+
         public UnitOfWork()
         {
             _unitOfWorkContext ??= new Net1702Prn221MilkBabyContext();
         }
 
-        public CustomerRepository CustomerRepository
+        public ProductRepository ProductRepository
         {
-            get 
-            {
-                /*return _customer ??= new Repository.CustomerRepository();*/
-                return _customer ??= new Repository.CustomerRepository(_unitOfWorkContext);
+                get
+                {
+                   /* return _product ??= new Repository.ProductRepository();*/
+                    return _product ??= new Repository.ProductRepository(_unitOfWorkContext);
+            }
             }
         }
-    }
 }
