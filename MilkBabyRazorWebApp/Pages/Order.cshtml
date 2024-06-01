@@ -1,4 +1,203 @@
 ﻿@page
 @model MilkBabyRazorWebApp.Pages.OrderModel
 @{
+    ViewData["Title"] = "Orders";
+    var orderList = Model.Orders;
+}
+
+<div class="text-center">
+    <h1 class="display-6">Quản lý đơn hàng</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-12 text-end">
+        <button type="button" class="btn btn-primary" onclick="showAddOrderModal();">
+            Thêm
+        </button>
+    </div>
+</div>
+
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <tr>
+            @* <th class="card-title text-center">Order Id</th> *@
+            <th class="card-title text-center">Customer Id</th>
+            <th class="card-title text-center">Order Date</th>
+            <th class="card-title text-center">Total Amount</th>
+            <th class="card-title text-center">Voucher</th>
+            <th class="card-title text-center">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in orderList)
+        {
+            <tr>
+                @* <td class="text-center">@order.OrderId</td> *@
+                <td class="text-center">@order.CustomerId</td>
+                <td class="text-center">@order.OrderDate?.ToString("yyyy-MM-dd")</td>
+                <td class="text-center">@order.TotalAmount</td>
+                <td class="text-center">@order.Voucher</td>
+                <td class="text-center">
+                    <button type="button" class="btn btn-danger" onclick="remove('@order.OrderId')">Remove</button>
+                    <button type="button" class="btn btn-primary" onclick="edit('@order.OrderId')">Edit</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Add Order Modal -->
+<div class="modal fade" id="addOrderModal" tabindex="-1" aria-labelledby="addOrderModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post" asp-page-handler="Add">
+                @Html.AntiForgeryToken()
+                <div class="modal-header">
+                    <h5 class="modal-title" id="orderModalLabel">Giao dịch đơn hàng</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="customerId">Customer Id</label>
+                                <input asp-for="Order.CustomerId" class="form-control" id="customerId" />
+                            </div>
+                        </div>
+                        @* <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="orderDate">Order Date</label>
+                                <input asp-for="Order.OrderDate" class="form-control" id="orderDate" />
+                            </div>
+                        </div> *@
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="totalAmount">Total Amount</label>
+                                <input asp-for="Order.TotalAmount" class="form-control" id="totalAmount" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="voucher">Voucher</label>
+                                <input asp-for="Order.Voucher" class="form-control" id="voucher" />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label>@Model.Message</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Lưu</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Remove Order Modal -->
+<div class="modal fade" id="RemoveModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post" asp-page-handler="Delete">
+                @Html.AntiForgeryToken()
+                <input type="hidden" asp-for="Order.OrderId" id="OrderIdRemove" />
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Remove Confirm</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete this order?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Yes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Order Modal -->
+<div class="modal fade" id="EditModal" tabindex="-1" aria-labelledby="OrderModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post" asp-page-handler="Update">
+                @Html.AntiForgeryToken()
+                <input asp-for="Order.OrderId" type="hidden" id="OrderId" />
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="OrderModalLabel">Edit Order</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="CustomerId">Customer Id</label>
+                                <input id="CustomerId" asp-for="Order.CustomerId" class="form-control" />
+                            </div>
+                        </div>
+                        @* <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="OrderDate">Order Date</label>
+                                <input id="OrderDate" asp-for="Order.OrderDate" class="form-control" />
+                            </div>
+                        </div> *@
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="TotalAmount">Total Amount</label>
+                                <input id="TotalAmount" asp-for="Order.TotalAmount" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="Voucher">Voucher</label>
+                                <input id="Voucher" asp-for="Order.Voucher" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+        function showAddOrderModal() {
+            $('#addOrderModal').modal('show');
+        }
+
+        function remove(orderId) {
+            document.getElementById('OrderIdRemove').value = orderId;
+            $('#RemoveModal').modal('show');
+        }
+
+        function edit(orderId) {
+            // Gui yeu cau Ajax de lay thong tin Order
+            $.ajax({
+                url: '@Url.Page("Order", "Update")',
+                type: 'GET',
+                data: { orderId: orderId },
+                success: function (data) {
+                    // Hien thi cac gia tri cua Order trong Modal
+                    $('#EditModal #OrderId').val(data.orderId);
+                    $('#EditModal #CustomerId').val(data.customerId);
+                    //$('#EditModal #OrderDate').val(data.orderDate);
+                    $('#EditModal #TotalAmount').val(data.totalAmount);
+                    $('#EditModal #Voucher').val(data.voucher);
+
+                    // Open Modal
+                    $('#EditModal').modal('show');
+                }
+            });
+        }
+    </script>
 }

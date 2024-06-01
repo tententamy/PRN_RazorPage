@@ -13,7 +13,10 @@ namespace MilkBabyData
             private CustomerRepository _customerRepository;
             private ProductRepository _product;
             private VendorRepository _vendorRepository;
-        private Net1702Prn221MilkBabyContext _unitOfWorkContext;
+            private OrderItemRepository _orderItemRepository;
+            private OrderRepository _orderRepository;
+            private ReviewRepository _reviewRepository;
+            private Net1702Prn221MilkBabyContext _unitOfWorkContext;
 
         public UnitOfWork()
         {
@@ -44,6 +47,33 @@ namespace MilkBabyData
             {
                 /* return _vendorRepository ??= new Repository.VendorRepository();*/
                 return _vendorRepository ??= new Repository.VendorRepository(_unitOfWorkContext);
+            }
+        }
+
+        public OrderRepository OrderRepository
+        {
+            get
+            {
+                /* return _vendorRepository ??= new Repository.VendorRepository();*/
+                return _orderRepository ??= new Repository.OrderRepository(_unitOfWorkContext);
+            }
+        }
+
+        public OrderItemRepository OrderItemRepository
+        {
+            get
+            {
+                /* return _vendorRepository ??= new Repository.VendorRepository();*/
+                return _orderItemRepository ??= new Repository.OrderItemRepository(_unitOfWorkContext);
+            }
+        }
+
+        public ReviewRepository ReviewRepository
+        {
+            get
+            {
+                /* return _vendorRepository ??= new Repository.VendorRepository();*/
+                return _reviewRepository ??= new Repository.ReviewRepository(_unitOfWorkContext);
             }
         }
     }

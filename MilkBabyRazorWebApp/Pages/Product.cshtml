@@ -20,12 +20,14 @@
 <table class="table table-bordered table-striped table-hover">
     <thead>
         <tr>
-            <th class="card-title text-center">Id</th>
+            @* <th class="card-title text-center">Id</th> *@
             <th class="card-title text-center">Name</th>
             <th class="card-title text-center">Description</th>
             <th class="card-title text-center">Price</th>
             <th class="card-title text-center">Quantity</th>
             <th class="card-title text-center">Category</th>
+            <th class="card-title text-center">DateStart</th>
+            <th class="card-title text-center">DateEnd</th>
             <th class="card-title text-center">Image</th>
             <th class="card-title text-center">Action</th>
         </tr>
@@ -34,12 +36,14 @@
         @foreach (var product in productList)
         {
             <tr>
-                <td class="text-center">@product.ProductId</td>
+                @* <td class="text-center">@product.ProductId</td> *@
                 <td class="text-center">@product.ProductName</td>
                 <td class="text-center">@product.ProductDescription</td>
                 <td class="text-center">@product.ProductPrice</td>
                 <td class="text-center">@product.ProductQuantity</td>
                 <td class="text-center">@product.ProductCategory</td>
+                <td class="text-center">@product.ProductDateStart</td>
+                <td class="text-center">@product.ProductDateEnd</td>
                 <td class="text-center">@product.ProductImg</td>
                 <td class="text-center">
                     <button type="button" class="btn btn-danger" onclick="remove('@product.ProductId')">Remove</button>
@@ -90,6 +94,18 @@
                             <div class="form-group">
                                 <label for="productCategory">Danh mục</label>
                                 <input asp-for="Product.ProductCategory" class="form-control" id="productCategory" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="productDateStart">Ngày Sản Xuất</label>
+                                <input asp-for="Product.ProductDateStart" type="Date" class="form-control" id="productDateStart" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="productDateEnd">Ngày Hết Hạn</label>
+                                <input asp-for="Product.ProductDateEnd" type="Date" class="form-control" id="productDateEnd" />
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -189,6 +205,16 @@
                                     <input id="ProductCategory" asp-for="Product.ProductCategory" class="form-control" />
                                     <span asp-validation-for="Product.ProductCategory" class="text-danger"></span>
                                 </div>
+                                 <div class="col-md-6">
+                                    <label for="ProductDateStart">Ngày Sản Xuất</label>
+                                    <input id="ProductCategory" asp-for="Product.ProductDateStart" type="Date" class="form-control" />
+                                    <span asp-validation-for="Product.ProductDateStart" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="ProductDateEnd">Ngày Hết Hạn</label>
+                                    <input id="ProductCategory" asp-for="Product.ProductDateEnd" type="Date" class="form-control" />
+                                    <span asp-validation-for="Product.ProductDateEnd" class="text-danger"></span>
+                                </div>
                                 <div class="col-md-6">
                                     <label for="ProductImg">Hình ảnh</label>
                                     <input id="ProductImg" asp-for="Product.ProductImg" class="form-control" />
@@ -232,6 +258,8 @@
                     $('#EditModal #ProductPrice').val(data.productPrice);
                     $('#EditModal #ProductQuantity').val(data.productQuantity);
                     $('#EditModal #ProductCategory').val(data.productCategory);
+                    $('#EditModal #ProductDateStart').val(data.productDateStart);
+                    $('#EditModal #ProductDateEnd').val(data.productDateEnd);
                     $('#EditModal #ProductImg').val(data.productImg);
 
                     // Open Modal

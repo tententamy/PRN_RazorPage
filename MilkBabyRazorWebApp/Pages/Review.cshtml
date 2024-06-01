@@ -1,4 +1,232 @@
 ﻿@page
 @model MilkBabyRazorWebApp.Pages.ReviewModel
 @{
+    ViewData["Title"] = "Review";
+    var reviewList = Model.Reviews;
+}
+
+<div class="text-center">
+    <h1 class="display-6">Quản lý đánh giá</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-12 text-end">
+        <button type="button" class="btn btn-primary" onclick="showAddReviewModal();">
+            Thêm
+        </button>
+    </div>
+</div>
+
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <tr>
+            @* <th class="card-title text-center">Id</th> *@
+            <th class="card-title text-center">Product Id</th>
+            <th class="card-title text-center">Customer Id</th>
+            <th class="card-title text-center">Rating</th>
+            <th class="card-title text-center">Review Text</th>
+            <th class="card-title text-center">Review Date</th>
+            <th class="card-title text-center">Review Img</th>
+            <th class="card-title text-center">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var review in reviewList)
+        {
+            <tr>
+                @* <td class="text-center">@review.ReviewId</td> *@
+                <td class="text-center">@review.ProductId</td>
+                <td class="text-center">@review.CustomerId</td>
+                <td class="text-center">@review.Rating</td>
+                <td class="text-center">@review.ReviewText</td>
+                <td class="text-center">@review.ReviewDate?.ToString("yyyy-MM-dd")</td>
+                <td class="text-center">@review.ReviewImg</td>
+                <td class="text-center">
+                    <button type="button" class="btn btn-danger" onclick="remove('@review.ReviewId')">Remove</button>
+                    <button type="button" class="btn btn-danger" onclick="edit('@review.ReviewId')">Edit</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Add Review Modal -->
+<div class="modal fade" id="addReviewModal" tabindex="-1" aria-labelledby="addReviewModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post" asp-page-handler="Add">
+                @Html.AntiForgeryToken()
+                <div class="modal-header">
+                    <h5 class="modal-title" id="reviewModalLabel">Thêm Đánh Giá</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="productId">Product Id</label>
+                                <input asp-for="Review.ProductId" class="form-control" id="productId" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="customerId">Customer Id</label>
+                                <input asp-for="Review.CustomerId" class="form-control" id="customerId" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="rating">Rating</label>
+                                <input asp-for="Review.Rating" class="form-control" id="rating" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="reviewText">Review Text</label>
+                                <input asp-for="Review.ReviewText" class="form-control" id="reviewText" />
+                            </div>
+                        </div>
+                       @*  <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="reviewDate">Review Date</label>
+                                <input asp-for="Review.ReviewDate" class="form-control" id="reviewDate" />
+                            </div>
+                        </div> *@
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="reviewImg">Review Img</label>
+                                <input asp-for="Review.ReviewImg" class="form-control" id="reviewImg" />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label>@Model.Message</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Lưu</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Remove Review Modal -->
+<div class="modal fade" id="RemoveModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post" asp-page-handler="Delete">
+                @Html.AntiForgeryToken()
+                <input type="hidden" asp-for="Review.ReviewId" id="ReviewIdRemove" />
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Remove Confirm</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Bạn có chắc chắn muốn xóa?
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Đồng ý</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Review Modal -->
+<div class="modal fade" id="EditModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post" asp-page-handler="Update">
+                @Html.AntiForgeryToken()
+                <input type="hidden" asp-for="Review.ReviewId" id="ReviewId" />
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Review</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label for="ProductId">Product Id</label>
+                                    <input id="ProductId" asp-for="Review.ProductId" class="form-control" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="CustomerId">Customer Id</label>
+                                    <input id="CustomerId" asp-for="Review.CustomerId" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label for="Rating">Rating</label>
+                                    <input id="Rating" asp-for="Review.Rating" class="form-control" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="ReviewText">Review Text</label>
+                                    <input id="ReviewText" asp-for="Review.ReviewText" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group row">
+                               @*  <div class="col-md-6">
+                                    <label for="ReviewDate">Review Date</label>
+                                    <input id="ReviewDate" asp-for="Review.ReviewDate" class="form-control" />
+                                </div> *@
+                                <div class="col-md-6">
+                                    <label for="ReviewImg">Review Img</label>
+                                    <input id="ReviewImg" asp-for="Review.ReviewImg" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+        function showAddReviewModal() {
+            $('#addReviewModal').modal('show');
+        }
+
+        function remove(reviewId) {
+            document.getElementById('ReviewIdRemove').value = reviewId;
+            $('#RemoveModal').modal('show');
+        }
+
+        function edit(reviewId) {
+            // Gui yeu cau Ajax de lay thong tin Review
+            $.ajax({
+                url: '@Url.Page("Review", "Update")',
+                type: 'GET',
+                data: { reviewId: reviewId },
+                success: function (data) {
+                    // Hien thi cac gia tri cua Review trong Modal
+                    $('#EditModal #ReviewId').val(data.reviewId);
+                    $('#EditModal #ProductId').val(data.productId);
+                    $('#EditModal #CustomerId').val(data.customerId);
+                    $('#EditModal #Rating').val(data.rating);
+                    $('#EditModal #ReviewText').val(data.reviewText);
+                    //$('#EditModal #ReviewDate').val(data.reviewDate);
+                    $('#EditModal #ReviewImg').val(data.reviewImg);
+
+                    // Open Modal
+                    $('#EditModal').modal('show');
+                }
+            });
+        }
+    </script>
 }

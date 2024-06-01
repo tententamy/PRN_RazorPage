@@ -20,7 +20,7 @@
 <table class="table table-bordered table-striped table-hover">
     <thead>
         <tr>
-            <th class="card-title text-center">Id</th>
+            @* <th class="card-title text-center">Id</th> *@
             <th class="card-title text-center">Name</th>
             <th class="card-title text-center">Email</th>
             <th class="card-title text-center">Phone</th>
@@ -33,7 +33,7 @@
         @foreach (var customer in customerList)
         {
             <tr>
-                <td class="text-center">@customer.CustomerId</td>
+                @* <td class="text-center">@customer.CustomerId</td> *@
                 <td class="text-center">@customer.CustomerName</td>
                 <td class="text-center">@customer.CustomerEmail</td>
                 <td class="text-center">@customer.CustomerPhone</td>
