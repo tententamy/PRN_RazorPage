@@ -14,7 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MilkBabyWebApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< Updated upstream
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ed801a2684997e1fbcb3f49c097d299fde515ebf")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+428349a4ac1ab32a8472e4d1667be31915cd375c")]
+>>>>>>> Stashed changes
 [assembly: System.Reflection.AssemblyProductAttribute("MilkBabyWebApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MilkBabyWebApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

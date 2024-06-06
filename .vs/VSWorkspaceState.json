@@ -1,6 +1,7 @@
 {
   "ExpandedNodes": [
     "",
+<<<<<<< Updated upstream
     "\\MilkBabyCommon",
     "\\MilkBabyData",
     "\\MilkBabyRazorWebApp",
@@ -8,5 +9,11 @@
     "\\MilkBabyRazorWebApp\\Properties"
   ],
   "SelectedNode": "\\MilkBabyRazorWebApp\\Pages\\Index.cshtml.cs",
+=======
+    "\\MilkBabyRazorWebApp",
+    "\\MilkBabyRazorWebApp\\Pages"
+  ],
+  "SelectedNode": "\\MilkBabyRazorWebApp\\Pages\\Review.cshtml",
+>>>>>>> Stashed changes
   "PreviewInSolutionExplorer": false
 }

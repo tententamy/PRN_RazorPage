@@ -30,14 +30,43 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+<<<<<<< Updated upstream
+=======
+[C:/Users/Admin/Downloads/PRJ301_3W/PRN_RazorPage/MilkBabyRazorWebApp/Pages/Order.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/Downloads/PRJ301_3W/PRN_RazorPage/MilkBabyRazorWebApp/Pages/Orderitem.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJpdGVtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+>>>>>>> Stashed changes
 [C:/Users/Admin/Downloads/PRJ301_3W/PRN_RazorPage/MilkBabyRazorWebApp/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+<<<<<<< Updated upstream
+=======
+[C:/Users/Admin/Downloads/PRJ301_3W/PRN_RazorPage/MilkBabyRazorWebApp/Pages/Product.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/Downloads/PRJ301_3W/PRN_RazorPage/MilkBabyRazorWebApp/Pages/Review.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmV2aWV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+>>>>>>> Stashed changes
 [C:/Users/Admin/Downloads/PRJ301_3W/PRN_RazorPage/MilkBabyRazorWebApp/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+<<<<<<< Updated upstream
+=======
+[C:/Users/Admin/Downloads/PRJ301_3W/PRN_RazorPage/MilkBabyRazorWebApp/Pages/Vendor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmVuZG9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+>>>>>>> Stashed changes
 [C:/Users/Admin/Downloads/PRJ301_3W/PRN_RazorPage/MilkBabyRazorWebApp/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

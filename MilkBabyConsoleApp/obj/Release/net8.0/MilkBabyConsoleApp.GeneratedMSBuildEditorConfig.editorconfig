@@ -7,12 +7,7 @@ build_property.InvariantGlobalization =
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
-<<<<<<<< Updated upstream:MilkBabyData/obj/Release/net8.0/MilkBabyData.GeneratedMSBuildEditorConfig.editorconfig
-build_property.RootNamespace = MilkBabyData
-build_property.ProjectDir = C:\Users\Admin\Downloads\PRJ301_3W\PRN_RazorPage\MilkBabyData\
-========
 build_property.RootNamespace = MilkBabyConsoleApp
 build_property.ProjectDir = C:\Users\Admin\Downloads\PRJ301_3W\PRN_RazorPage\MilkBabyConsoleApp\
->>>>>>>> Stashed changes:MilkBabyConsoleApp/obj/Debug/net8.0/MilkBabyConsoleApp.GeneratedMSBuildEditorConfig.editorconfig
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
