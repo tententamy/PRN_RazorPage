@@ -5,25 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MilkBabyWpfApp.UI"
         mc:Ignorable="d"
-        Title="wProduct" Height="450" Width="1500">
+        Title="wProduct" Height="450" Width="1800">
     <Grid>
         <StackPanel Orientation="Vertical">
-            <GroupBox Header="Product Form" Margin="10">
+            <GroupBox Header="Product Form" Margin="10" Height="85">
                 <Grid Height="50">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="80"/>
-                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="150"/>
                         <ColumnDefinition Width="80"/>
-                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="150"/>
                         <ColumnDefinition Width="80"/>
-                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="150"/>
                         <ColumnDefinition Width="80"/>
-                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="150"/>
                         <ColumnDefinition Width="80"/>
-                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="150"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" Grid.Row="0" Content="Id" HorizontalAlignment="Left" VerticalContentAlignment="Center" />
@@ -36,6 +40,10 @@
                     <TextBox Grid.Column="7" Grid.Row="0" x:Name="txtPrice" Height="25" Text="{Binding Path=Product.ProductPrice, Mode=TwoWay}"  Margin="5"  Width="100" HorizontalAlignment="Left"/>
                     <Label Grid.Column="8" Grid.Row="0" Content="Description" HorizontalAlignment="Left" VerticalContentAlignment="Center" />
                     <TextBox Grid.Column="9" Grid.Row="0" x:Name="txtDesription" Height="25" Text="{Binding Path=Product.ProdcutDescription, Mode=TwoWay}"  Margin="5"  Width="100" HorizontalAlignment="Left"/>
+                    <Label Grid.Column="10" Grid.Row="0" Content="Date Start" HorizontalAlignment="Left" VerticalContentAlignment="Center" />
+                    <DatePicker Grid.Column="11" Grid.Row="0" x:Name="dpDateStart" SelectedDate="{Binding Path=Product.ProductDateStart, Mode=TwoWay}" Margin="5" Width="100" HorizontalAlignment="Left"/>
+                    <Label Grid.Column="12" Grid.Row="0" Content="Date End" HorizontalAlignment="Left" VerticalContentAlignment="Center" />
+                    <DatePicker Grid.Column="13" Grid.Row="0" x:Name="dpDateEnd" SelectedDate="{Binding Path=Product.ProductDateEnd, Mode=TwoWay}" Margin="5" Width="100" HorizontalAlignment="Left"/>
                 </Grid>
             </GroupBox>
             <StackPanel Height="40" Orientation="Horizontal" HorizontalAlignment="Right">
@@ -49,7 +57,9 @@
                         <DataGridTextColumn Header="Name" Binding="{Binding Path=ProductName}" Visibility="Visible"/>
                         <DataGridTextColumn Header="Price" Binding="{Binding Path=ProductPrice}" Width="100"  IsReadOnly="True"/>
                         <DataGridTextColumn Header="Quantity" Binding="{Binding Path=ProductQuantity}" Width="100"  IsReadOnly="True"/>
-                        <DataGridTextColumn Header="Desription" Binding="{Binding Path=ProductDescription}" Width="50"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Desription" Binding="{Binding Path=ProductDescription}" Width="120"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Date Start" Binding="{Binding Path=ProductDateStart}" Width="120"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Date End" Binding="{Binding Path=ProductDateEnd}" Width="120"  IsReadOnly="True"/>
                         <DataGridTemplateColumn Width="50">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>

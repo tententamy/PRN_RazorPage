@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,51 +32,55 @@ namespace MilkBabyWpfApp.UI
             LoadGridProducts();
 
         }
-        private async void ButtonSave_Click(object sender, RoutedEventArgs e) {
+        private async void ButtonSave_Click(object sender, RoutedEventArgs e)
+        {
             try
             {
+                    Guid idTmp = new Guid();
+                    Guid.TryParse(txtProductId.Text, out idTmp);
+                    var item = await _business.GetById(idTmp);
+                    DateOnly? startDate = dpDateStart.SelectedDate.HasValue ? DateOnly.FromDateTime(dpDateStart.SelectedDate.Value) : null;
+                    DateOnly? endDate = dpDateEnd.SelectedDate.HasValue ? DateOnly.FromDateTime(dpDateEnd.SelectedDate.Value) : null;
 
-                Guid idTmp = new Guid();
-                Guid.TryParse(txtProductId.Text, out idTmp);
-                var item = await _business.GetById(idTmp);
-                if (item.Data == null)
-                {
-                    var product = new Product()
+                    if (item.Data == null)
                     {
-                        ProductId = Guid.NewGuid(), 
-                        ProductName = txtName.Text,
-                        ProductPrice = decimal.Parse(txtPrice.Text), 
-                        ProductQuantity = int.Parse(txtQuantity.Text), 
-                        ProductDescription = txtDesription.Text,
-                    };
-                    var result = await _business.Save(product);
-                    MessageBox.Show(result.Message, "Save");
-                }
-                else
-                {
-                    var product = item.Data as Product;
-                    product.ProductName = txtName.Text;
-                    product.ProductPrice = decimal.Parse(txtPrice.Text);
-                    product.ProductQuantity = int.Parse(txtQuantity.Text);
-                    product.ProductDescription = txtDesription.Text;
-                    var result = await _business.Update(product);
-                    MessageBox.Show(result.Message, "Update");
-                }
-                txtProductId.Text = string.Empty;
-                txtName.Text = string.Empty;
-                txtPrice.Text = string.Empty;
-                txtDesription.Text = string.Empty;
-                txtQuantity.Text = string.Empty;
-                this.LoadGridProducts();
-                this.ClearTextBoxes();
+                        var product = new Product()
+                        {
+                            ProductId = Guid.NewGuid(),
+                            ProductName = txtName.Text,
+                            ProductPrice = decimal.Parse(txtPrice.Text),
+                            ProductQuantity = int.Parse(txtQuantity.Text),
+                            ProductDescription = txtDesription.Text,
+                            ProductDateStart = startDate ?? DateOnly.MinValue,
+                            ProductDateEnd = endDate ?? DateOnly.MinValue
+                        };
+                        var result = await _business.Save(product);
+                        MessageBox.Show(result.Message, "Save");
+                    }
+                    else
+                    {
+                        var product = item.Data as Product;
+                        product.ProductName = txtName.Text;
+                        product.ProductPrice = decimal.Parse(txtPrice.Text);
+                        product.ProductQuantity = int.Parse(txtQuantity.Text);
+                        product.ProductDescription = txtDesription.Text;
+                        product.ProductDateStart = startDate ?? DateOnly.MinValue;
+                        product.ProductDateEnd = endDate ?? DateOnly.MinValue;
+                        var result = await _business.Update(product);
+                        MessageBox.Show(result.Message, "Update");
+                    }
+                
+              
+
+                LoadGridProducts();
+                ClearTextBoxes();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Error");
+                MessageBox.Show(ex.Message, "Error");
             }
-
-
         }
+
         private void ButtonCancel_Click(object sender, RoutedEventArgs e) { }
         private async void grdProduct_ButtonDelete_Click(object sender, RoutedEventArgs e) {
 
@@ -119,6 +124,8 @@ namespace MilkBabyWpfApp.UI
                 txtPrice.Text = product.ProductPrice.ToString();
                 txtQuantity.Text = product.ProductQuantity.ToString();
                 txtDesription.Text = product.ProductDescription;
+                dpDateStart.Text = product.ProductDateStart.ToString();
+                dpDateEnd.Text = product.ProductDateEnd.ToString();
             }
         }
 
@@ -145,6 +152,8 @@ namespace MilkBabyWpfApp.UI
             txtPrice.Text = string.Empty;
             txtDesription.Text = string.Empty;
             txtQuantity.Text = string.Empty;
+            dpDateStart.Text = string.Empty;
+            dpDateEnd.Text = string.Empty;
         }
 
 

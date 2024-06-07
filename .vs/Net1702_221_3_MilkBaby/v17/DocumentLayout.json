@@ -1,0 +1,190 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\prngit\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{68335F23-8114-48A1-BB4F-7ADA6AF60067}|MilkBabyWpfApp\\MilkBabyWpfApp.csproj|f:\\prngit\\milkbabywpfapp\\ui\\wproduct.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{68335F23-8114-48A1-BB4F-7ADA6AF60067}|MilkBabyWpfApp\\MilkBabyWpfApp.csproj|solutionrelative:milkbabywpfapp\\ui\\wproduct.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{68335F23-8114-48A1-BB4F-7ADA6AF60067}|MilkBabyWpfApp\\MilkBabyWpfApp.csproj|f:\\prngit\\milkbabywpfapp\\ui\\wproduct.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{68335F23-8114-48A1-BB4F-7ADA6AF60067}|MilkBabyWpfApp\\MilkBabyWpfApp.csproj|solutionrelative:milkbabywpfapp\\ui\\wproduct.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5245539-8036-4D86-93BE-C2C24A3373DB}|MilkBabyRazorWebApp\\MilkBabyRazorWebApp.csproj|f:\\prngit\\milkbabyrazorwebapp\\pages\\vendor.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A5245539-8036-4D86-93BE-C2C24A3373DB}|MilkBabyRazorWebApp\\MilkBabyRazorWebApp.csproj|solutionrelative:milkbabyrazorwebapp\\pages\\vendor.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5245539-8036-4D86-93BE-C2C24A3373DB}|MilkBabyRazorWebApp\\MilkBabyRazorWebApp.csproj|F:\\prngit\\milkbabyrazorwebapp\\pages\\review.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A5245539-8036-4D86-93BE-C2C24A3373DB}|MilkBabyRazorWebApp\\MilkBabyRazorWebApp.csproj|solutionrelative:milkbabyrazorwebapp\\pages\\review.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5245539-8036-4D86-93BE-C2C24A3373DB}|MilkBabyRazorWebApp\\MilkBabyRazorWebApp.csproj|F:\\prngit\\milkbabyrazorwebapp\\pages\\product.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A5245539-8036-4D86-93BE-C2C24A3373DB}|MilkBabyRazorWebApp\\MilkBabyRazorWebApp.csproj|solutionrelative:milkbabyrazorwebapp\\pages\\product.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5245539-8036-4D86-93BE-C2C24A3373DB}|MilkBabyRazorWebApp\\MilkBabyRazorWebApp.csproj|F:\\prngit\\milkbabyrazorwebapp\\pages\\orderitem.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A5245539-8036-4D86-93BE-C2C24A3373DB}|MilkBabyRazorWebApp\\MilkBabyRazorWebApp.csproj|solutionrelative:milkbabyrazorwebapp\\pages\\orderitem.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5245539-8036-4D86-93BE-C2C24A3373DB}|MilkBabyRazorWebApp\\MilkBabyRazorWebApp.csproj|F:\\prngit\\milkbabyrazorwebapp\\pages\\order.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A5245539-8036-4D86-93BE-C2C24A3373DB}|MilkBabyRazorWebApp\\MilkBabyRazorWebApp.csproj|solutionrelative:milkbabyrazorwebapp\\pages\\order.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5245539-8036-4D86-93BE-C2C24A3373DB}|MilkBabyRazorWebApp\\MilkBabyRazorWebApp.csproj|F:\\prngit\\milkbabyrazorwebapp\\pages\\customer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A5245539-8036-4D86-93BE-C2C24A3373DB}|MilkBabyRazorWebApp\\MilkBabyRazorWebApp.csproj|solutionrelative:milkbabyrazorwebapp\\pages\\customer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5245539-8036-4D86-93BE-C2C24A3373DB}|MilkBabyRazorWebApp\\MilkBabyRazorWebApp.csproj|F:\\prngit\\milkbabyrazorwebapp\\pages\\product.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5245539-8036-4D86-93BE-C2C24A3373DB}|MilkBabyRazorWebApp\\MilkBabyRazorWebApp.csproj|solutionrelative:milkbabyrazorwebapp\\pages\\product.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{26341fe2-71dd-46fd-bb1b-2e51a92a0d64}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "wProduct.xaml.cs",
+              "DocumentMoniker": "F:\\prngit\\MilkBabyWpfApp\\UI\\wProduct.xaml.cs",
+              "RelativeDocumentMoniker": "MilkBabyWpfApp\\UI\\wProduct.xaml.cs",
+              "ToolTip": "F:\\prngit\\MilkBabyWpfApp\\UI\\wProduct.xaml.cs",
+              "RelativeToolTip": "MilkBabyWpfApp\\UI\\wProduct.xaml.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAAAgwCYAAAA8AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-07T09:36:57.976Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "wProduct.xaml",
+              "DocumentMoniker": "F:\\prngit\\MilkBabyWpfApp\\UI\\wProduct.xaml",
+              "RelativeDocumentMoniker": "MilkBabyWpfApp\\UI\\wProduct.xaml",
+              "ToolTip": "F:\\prngit\\MilkBabyWpfApp\\UI\\wProduct.xaml",
+              "RelativeToolTip": "MilkBabyWpfApp\\UI\\wProduct.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-07T09:36:52.279Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Vendor.cshtml",
+              "DocumentMoniker": "F:\\prngit\\MilkBabyRazorWebApp\\Pages\\Vendor.cshtml",
+              "RelativeDocumentMoniker": "MilkBabyRazorWebApp\\Pages\\Vendor.cshtml",
+              "ToolTip": "F:\\prngit\\MilkBabyRazorWebApp\\Pages\\Vendor.cshtml",
+              "RelativeToolTip": "MilkBabyRazorWebApp\\Pages\\Vendor.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACIAAABDAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-07T09:36:29.355Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Review.cshtml",
+              "DocumentMoniker": "F:\\prngit\\MilkBabyRazorWebApp\\Pages\\Review.cshtml",
+              "RelativeDocumentMoniker": "MilkBabyRazorWebApp\\Pages\\Review.cshtml",
+              "ToolTip": "F:\\prngit\\MilkBabyRazorWebApp\\Pages\\Review.cshtml",
+              "RelativeToolTip": "MilkBabyRazorWebApp\\Pages\\Review.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-07T09:36:30.766Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "OrderItem.cshtml",
+              "DocumentMoniker": "F:\\prngit\\MilkBabyRazorWebApp\\Pages\\OrderItem.cshtml",
+              "RelativeDocumentMoniker": "MilkBabyRazorWebApp\\Pages\\OrderItem.cshtml",
+              "ToolTip": "F:\\prngit\\MilkBabyRazorWebApp\\Pages\\OrderItem.cshtml",
+              "RelativeToolTip": "MilkBabyRazorWebApp\\Pages\\OrderItem.cshtml",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAACIAAABJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-07T09:36:30.772Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Order.cshtml",
+              "DocumentMoniker": "F:\\prngit\\MilkBabyRazorWebApp\\Pages\\Order.cshtml",
+              "RelativeDocumentMoniker": "MilkBabyRazorWebApp\\Pages\\Order.cshtml",
+              "ToolTip": "F:\\prngit\\MilkBabyRazorWebApp\\Pages\\Order.cshtml",
+              "RelativeToolTip": "MilkBabyRazorWebApp\\Pages\\Order.cshtml",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAACIAAABBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-07T09:36:30.773Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Customer.cshtml",
+              "DocumentMoniker": "F:\\prngit\\MilkBabyRazorWebApp\\Pages\\Customer.cshtml",
+              "RelativeDocumentMoniker": "MilkBabyRazorWebApp\\Pages\\Customer.cshtml",
+              "ToolTip": "F:\\prngit\\MilkBabyRazorWebApp\\Pages\\Customer.cshtml",
+              "RelativeToolTip": "MilkBabyRazorWebApp\\Pages\\Customer.cshtml",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAACMAAABHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-07T09:36:30.774Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Product.cshtml",
+              "DocumentMoniker": "F:\\prngit\\MilkBabyRazorWebApp\\Pages\\Product.cshtml",
+              "RelativeDocumentMoniker": "MilkBabyRazorWebApp\\Pages\\Product.cshtml",
+              "ToolTip": "F:\\prngit\\MilkBabyRazorWebApp\\Pages\\Product.cshtml",
+              "RelativeToolTip": "MilkBabyRazorWebApp\\Pages\\Product.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAA8AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-07T09:36:30.775Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Product.cshtml.cs",
+              "DocumentMoniker": "F:\\prngit\\MilkBabyRazorWebApp\\Pages\\Product.cshtml.cs",
+              "RelativeDocumentMoniker": "MilkBabyRazorWebApp\\Pages\\Product.cshtml.cs",
+              "ToolTip": "F:\\prngit\\MilkBabyRazorWebApp\\Pages\\Product.cshtml.cs",
+              "RelativeToolTip": "MilkBabyRazorWebApp\\Pages\\Product.cshtml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-07T09:36:30.776Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
