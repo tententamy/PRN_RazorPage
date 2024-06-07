@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyConsoleApp\\MilkBabyConsoleApp.csproj": {}
+    "F:\\Net1702_PRN211_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyConsoleApp\\MilkBabyConsoleApp.csproj": {}
   },
   "projects": {
-    "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyBusiness\\MilkBabyBusiness.csproj": {
+    "F:\\Net1702_PRN211_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyBusiness\\MilkBabyBusiness.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyBusiness\\MilkBabyBusiness.csproj",
+        "projectUniqueName": "F:\\Net1702_PRN211_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyBusiness\\MilkBabyBusiness.csproj",
         "projectName": "MilkBabyBusiness",
-        "projectPath": "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyBusiness\\MilkBabyBusiness.csproj",
-        "packagesPath": "C:\\Users\\NGOC MINH\\.nuget\\packages\\",
-        "outputPath": "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyBusiness\\obj\\",
+        "projectPath": "F:\\Net1702_PRN211_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyBusiness\\MilkBabyBusiness.csproj",
+        "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
+        "outputPath": "F:\\Net1702_PRN211_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyBusiness\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\NGOC MINH\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,11 +28,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyCommon\\MilkBabyCommon.csproj": {
-                "projectPath": "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyCommon\\MilkBabyCommon.csproj"
+              "F:\\Net1702_PRN211_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyCommon\\MilkBabyCommon.csproj": {
+                "projectPath": "F:\\Net1702_PRN211_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyCommon\\MilkBabyCommon.csproj"
               },
-              "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyData\\MilkBabyData.csproj": {
-                "projectPath": "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyData\\MilkBabyData.csproj"
+              "F:\\Net1702_PRN211_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyData\\MilkBabyData.csproj": {
+                "projectPath": "F:\\Net1702_PRN211_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyData\\MilkBabyData.csproj"
               }
             }
           }
@@ -41,6 +41,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -62,21 +67,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.106/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyCommon\\MilkBabyCommon.csproj": {
+    "F:\\Net1702_PRN211_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyCommon\\MilkBabyCommon.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyCommon\\MilkBabyCommon.csproj",
+        "projectUniqueName": "F:\\Net1702_PRN211_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyCommon\\MilkBabyCommon.csproj",
         "projectName": "MilkBabyCommon",
-        "projectPath": "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyCommon\\MilkBabyCommon.csproj",
-        "packagesPath": "C:\\Users\\NGOC MINH\\.nuget\\packages\\",
-        "outputPath": "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyCommon\\obj\\",
+        "projectPath": "F:\\Net1702_PRN211_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyCommon\\MilkBabyCommon.csproj",
+        "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
+        "outputPath": "F:\\Net1702_PRN211_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyCommon\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\NGOC MINH\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -96,6 +101,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -117,21 +127,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.106/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyConsoleApp\\MilkBabyConsoleApp.csproj": {
+    "F:\\Net1702_PRN211_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyConsoleApp\\MilkBabyConsoleApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyConsoleApp\\MilkBabyConsoleApp.csproj",
+        "projectUniqueName": "F:\\Net1702_PRN211_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyConsoleApp\\MilkBabyConsoleApp.csproj",
         "projectName": "MilkBabyConsoleApp",
-        "projectPath": "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyConsoleApp\\MilkBabyConsoleApp.csproj",
-        "packagesPath": "C:\\Users\\NGOC MINH\\.nuget\\packages\\",
-        "outputPath": "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyConsoleApp\\obj\\",
+        "projectPath": "F:\\Net1702_PRN211_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyConsoleApp\\MilkBabyConsoleApp.csproj",
+        "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
+        "outputPath": "F:\\Net1702_PRN211_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyConsoleApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\NGOC MINH\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -145,8 +155,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyBusiness\\MilkBabyBusiness.csproj": {
-                "projectPath": "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyBusiness\\MilkBabyBusiness.csproj"
+              "F:\\Net1702_PRN211_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyBusiness\\MilkBabyBusiness.csproj": {
+                "projectPath": "F:\\Net1702_PRN211_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyBusiness\\MilkBabyBusiness.csproj"
               }
             }
           }
@@ -155,6 +165,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -176,21 +191,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.106/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyData\\MilkBabyData.csproj": {
+    "F:\\Net1702_PRN211_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyData\\MilkBabyData.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyData\\MilkBabyData.csproj",
+        "projectUniqueName": "F:\\Net1702_PRN211_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyData\\MilkBabyData.csproj",
         "projectName": "MilkBabyData",
-        "projectPath": "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyData\\MilkBabyData.csproj",
-        "packagesPath": "C:\\Users\\NGOC MINH\\.nuget\\packages\\",
-        "outputPath": "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyData\\obj\\",
+        "projectPath": "F:\\Net1702_PRN211_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyData\\MilkBabyData.csproj",
+        "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
+        "outputPath": "F:\\Net1702_PRN211_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyData\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\NGOC MINH\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -210,6 +225,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -247,7 +267,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.106/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

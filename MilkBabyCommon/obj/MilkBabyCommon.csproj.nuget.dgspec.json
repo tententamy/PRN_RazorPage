@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyCommon\\MilkBabyCommon.csproj": {}
+    "F:\\Net1702_PRN211_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyCommon\\MilkBabyCommon.csproj": {}
   },
   "projects": {
-    "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyCommon\\MilkBabyCommon.csproj": {
+    "F:\\Net1702_PRN211_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyCommon\\MilkBabyCommon.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyCommon\\MilkBabyCommon.csproj",
+        "projectUniqueName": "F:\\Net1702_PRN211_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyCommon\\MilkBabyCommon.csproj",
         "projectName": "MilkBabyCommon",
-        "projectPath": "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyCommon\\MilkBabyCommon.csproj",
-        "packagesPath": "C:\\Users\\NGOC MINH\\.nuget\\packages\\",
-        "outputPath": "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyCommon\\obj\\",
+        "projectPath": "F:\\Net1702_PRN211_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyCommon\\MilkBabyCommon.csproj",
+        "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
+        "outputPath": "F:\\Net1702_PRN211_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyCommon\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\NGOC MINH\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,6 +34,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -55,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.106/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

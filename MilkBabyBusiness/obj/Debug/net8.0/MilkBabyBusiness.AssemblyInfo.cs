@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MilkBabyBusiness")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fdb249662fcf932d7e9aaa27abb2510e0b4435e9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("MilkBabyBusiness")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MilkBabyBusiness")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
