@@ -10,14 +10,18 @@ namespace MilkBabyRazorWebApp.Pages
     public class ProductModel : PageModel
     {
         private readonly ProductBusiness _productBusiness = new ProductBusiness();
+        private readonly VendorBusiness _vendorBusiness = new VendorBusiness();
         public string Message { get; set; } = default;
         [BindProperty]
         public Product Product { get; set; } = default;
         public List<Product> Products { get; set; } = new List<Product>();
 
+        public List<Vendor> Vendors { get; set; } = new List<Vendor>();
+
         public void OnGet()
         {
             Products = GetProducts();
+            Vendors = GetVendors();
         }
 
         public IActionResult OnPost()
@@ -83,6 +87,16 @@ namespace MilkBabyRazorWebApp.Pages
             return new List<Product>();
         }
 
+        private List<Vendor> GetVendors()
+        {
+            var vendorResult = _vendorBusiness.GetAll();
+            if (vendorResult.Status > 0 && vendorResult.Result.Data != null)
+            {
+                return (List<Vendor>)vendorResult.Result.Data;
+            }
+            return new List<Vendor>();
+        }
+
         private void SaveProduct()
         {
             var productResult = _productBusiness.Save(Product);
@@ -132,6 +146,24 @@ namespace MilkBabyRazorWebApp.Pages
             }
             Message = "Product Not Exist!!";
             return null;
+        }
+
+        public string GetVendorNameByProductId(Guid productId)
+        {
+            var product = GetProductById(productId);
+            if (product != null && product.VendorId != null)
+            {
+                var vendorResult = _vendorBusiness.GetById(product.VendorId.Value);
+                if (vendorResult.Status > 0 && vendorResult.Result.Data != null)
+                {
+                    var vendor = (Vendor)vendorResult.Result.Data;
+                    if (vendor != null)
+                    {
+                        return vendor.VendorName;
+                    }
+                }
+            }
+            return string.Empty;
         }
 
         public string GetWelcomeMsg()
