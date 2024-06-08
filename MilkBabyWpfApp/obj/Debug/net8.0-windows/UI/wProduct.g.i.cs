@@ -133,7 +133,7 @@ namespace MilkBabyWpfApp.UI {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/MilkBabyWpfApp;component/ui/wproduct.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/MilkBabyWpfApp;V1.0.0.0;component/ui/wproduct.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\UI\wProduct.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

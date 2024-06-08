@@ -9,63 +9,63 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MilkBabyRazorWebApp
 build_property.RootNamespace = MilkBabyRazorWebApp
-build_property.ProjectDir = D:\PRN221\Project\NET1702_PRN221_MilkBaby\Source\Net1702_221_3_MilkBaby\MilkBabyRazorWebApp\
+build_property.ProjectDir = D:\Pru_Project\PRN_RazorPage\MilkBabyRazorWebApp\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\PRN221\Project\NET1702_PRN221_MilkBaby\Source\Net1702_221_3_MilkBaby\MilkBabyRazorWebApp
+build_property.MSBuildProjectDirectory = D:\Pru_Project\PRN_RazorPage\MilkBabyRazorWebApp
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/PRN221/Project/NET1702_PRN221_MilkBaby/Source/Net1702_221_3_MilkBaby/MilkBabyRazorWebApp/Pages/Customer.cshtml]
+[D:/Pru_Project/PRN_RazorPage/MilkBabyRazorWebApp/Pages/Customer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/PRN221/Project/NET1702_PRN221_MilkBaby/Source/Net1702_221_3_MilkBaby/MilkBabyRazorWebApp/Pages/Error.cshtml]
+[D:/Pru_Project/PRN_RazorPage/MilkBabyRazorWebApp/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/PRN221/Project/NET1702_PRN221_MilkBaby/Source/Net1702_221_3_MilkBaby/MilkBabyRazorWebApp/Pages/Index.cshtml]
+[D:/Pru_Project/PRN_RazorPage/MilkBabyRazorWebApp/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/PRN221/Project/NET1702_PRN221_MilkBaby/Source/Net1702_221_3_MilkBaby/MilkBabyRazorWebApp/Pages/Order.cshtml]
+[D:/Pru_Project/PRN_RazorPage/MilkBabyRazorWebApp/Pages/Order.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/PRN221/Project/NET1702_PRN221_MilkBaby/Source/Net1702_221_3_MilkBaby/MilkBabyRazorWebApp/Pages/OrderItem.cshtml]
+[D:/Pru_Project/PRN_RazorPage/MilkBabyRazorWebApp/Pages/OrderItem.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJJdGVtLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/PRN221/Project/NET1702_PRN221_MilkBaby/Source/Net1702_221_3_MilkBaby/MilkBabyRazorWebApp/Pages/Privacy.cshtml]
+[D:/Pru_Project/PRN_RazorPage/MilkBabyRazorWebApp/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/PRN221/Project/NET1702_PRN221_MilkBaby/Source/Net1702_221_3_MilkBaby/MilkBabyRazorWebApp/Pages/Product.cshtml]
+[D:/Pru_Project/PRN_RazorPage/MilkBabyRazorWebApp/Pages/Product.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/PRN221/Project/NET1702_PRN221_MilkBaby/Source/Net1702_221_3_MilkBaby/MilkBabyRazorWebApp/Pages/Review.cshtml]
+[D:/Pru_Project/PRN_RazorPage/MilkBabyRazorWebApp/Pages/Review.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmV2aWV3LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/PRN221/Project/NET1702_PRN221_MilkBaby/Source/Net1702_221_3_MilkBaby/MilkBabyRazorWebApp/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Pru_Project/PRN_RazorPage/MilkBabyRazorWebApp/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/PRN221/Project/NET1702_PRN221_MilkBaby/Source/Net1702_221_3_MilkBaby/MilkBabyRazorWebApp/Pages/Vendor.cshtml]
+[D:/Pru_Project/PRN_RazorPage/MilkBabyRazorWebApp/Pages/Vendor.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmVuZG9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/PRN221/Project/NET1702_PRN221_MilkBaby/Source/Net1702_221_3_MilkBaby/MilkBabyRazorWebApp/Pages/_ViewImports.cshtml]
+[D:/Pru_Project/PRN_RazorPage/MilkBabyRazorWebApp/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/PRN221/Project/NET1702_PRN221_MilkBaby/Source/Net1702_221_3_MilkBaby/MilkBabyRazorWebApp/Pages/_ViewStart.cshtml]
+[D:/Pru_Project/PRN_RazorPage/MilkBabyRazorWebApp/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/PRN221/Project/NET1702_PRN221_MilkBaby/Source/Net1702_221_3_MilkBaby/MilkBabyRazorWebApp/Pages/Shared/_Layout.cshtml]
+[D:/Pru_Project/PRN_RazorPage/MilkBabyRazorWebApp/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-tgztgj0rks

@@ -117,7 +117,7 @@ namespace MilkBabyWpfApp.UI {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/MilkBabyWpfApp;component/ui/worderitem.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/MilkBabyWpfApp;V1.0.0.0;component/ui/worderitem.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\UI\wOrderItem.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
