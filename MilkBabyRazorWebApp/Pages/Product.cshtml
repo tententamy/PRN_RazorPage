@@ -28,7 +28,7 @@
             <th class="card-title text-center">Category</th>
             <th class="card-title text-center">DateStart</th>
             <th class="card-title text-center">DateEnd</th>
-            
+            <th class="card-title text-center">Vendor</th>
             <th class="card-title text-center">Action</th>
         </tr>
     </thead>
@@ -44,6 +44,7 @@
                 <td class="text-center">@product.ProductCategory</td>
                 <td class="text-center">@product.ProductDateStart</td>
                 <td class="text-center">@product.ProductDateEnd</td>
+                <td class="text-center">@Model.GetVendorNameByProductId(product.ProductId)</td>
                 
                 <td class="text-center">
                     <button type="button" class="btn btn-danger" onclick="remove('@product.ProductId')">Remove</button>
@@ -106,6 +107,18 @@
                             <div class="form-group">
                                 <label for="productDateEnd">Ngày Hết Hạn</label>
                                 <input asp-for="Product.ProductDateEnd" type="Date" class="form-control" id="productDateEnd" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="productVendor">Nhà cung cấp</label>
+                                <select asp-for="Product.VendorId" class="form-control" id="productVendor">
+                                    <option value="">-- Chọn nhà cung cấp --</option>
+                                    @foreach (var vendor in Model.Vendors)
+                                    {
+                                        <option value="@vendor.VendorId">@vendor.VendorName</option>
+                                    }
+                                </select>
                             </div>
                         </div>
                       
