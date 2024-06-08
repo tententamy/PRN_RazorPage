@@ -1,4 +1,5 @@
-﻿using MilkBabyData.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using MilkBabyData.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,12 @@ namespace MilkBabyData.Repository
     {
         public OrderItemRepository() { }
         public OrderItemRepository(Net1702Prn221MilkBabyContext context) : base(context) => _context = context;
+
+        public async Task<List<OrderItem>> GetByOrderIdAsync(Guid orderId)
+        {
+            return await _context.OrderItems
+                                 .Where(oi => oi.OrderId == orderId)
+                                 .ToListAsync();
+        }
     }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "P1oVCC+MJAGBU/FGSnjBLVIJXLh4DH09q9U9NNBMWatt3SHrMJw3+HYCCvfvh8+8fWsV/5j51jz/WK0mxCsLjw==",
+  "dgSpecHash": "/jaFsSk9m6Nt+lEwtFwl9/SXorHfmsOK8NdwOa4BymrPZEXBI4TKp4KGano7q2vR27aRN8Vs6qwKfjdp7R6ZWw==",
   "success": true,
-  "projectFilePath": "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyWpfApp\\MilkBabyWpfApp.csproj",
+  "projectFilePath": "D:\\PRN221\\Project\\NET1702_PRN221_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyWpfApp\\MilkBabyWpfApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\NGOC MINH\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\NGOC MINH\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

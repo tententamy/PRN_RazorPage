@@ -130,5 +130,29 @@ namespace MilkBabyBusiness.Category
                 return new BusinessResult(Const.ERROR_EXCEPTION, ex.ToString());
             }
         }
+
+        public async Task<IBusinessResult> GetByOrderId(Guid orderId)
+        {
+            try
+            {
+                #region Business rule
+                #endregion
+
+                var product = await _unitOfWork.OrderItemRepository.GetByOrderIdAsync(orderId);
+
+                if (product == null)
+                {
+                    return new BusinessResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA__MSG);
+                }
+                else
+                {
+                    return new BusinessResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, product);
+                }
+            }
+            catch (Exception ex)
+            {
+                return new BusinessResult(Const.ERROR_EXCEPTION, ex.Message);
+            }
+        }
     }
 }

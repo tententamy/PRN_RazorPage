@@ -40,6 +40,7 @@
                 <td class="text-center">
                     <button type="button" class="btn btn-danger" onclick="remove('@order.OrderId')">Remove</button>
                     <button type="button" class="btn btn-primary" onclick="edit('@order.OrderId')">Edit</button>
+                    <button type="button" class="btn btn-info" onclick="details('@order.OrderId')">Details</button>
                 </td>
             </tr>
         }
@@ -50,7 +51,7 @@
 <div class="modal fade" id="addOrderModal" tabindex="-1" aria-labelledby="addOrderModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form method="post" asp-page-handler="Add">
+            <form method="post" asp-page-handler="Create">
                 @Html.AntiForgeryToken()
                 <div class="modal-header">
                     <h5 class="modal-title" id="orderModalLabel">Giao dịch đơn hàng</h5>
@@ -169,6 +170,26 @@
     </div>
 </div>
 
+<!-- Detail Order Modal -->
+<div class="modal fade" id="DetailModal" tabindex="-1" aria-labelledby="DetailModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="DetailModalLabel">Order Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="orderDetailsContent">
+                    <!-- Order details will be loaded here by JavaScript -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 @section scripts {
     <script type="text/javascript">
         function showAddOrderModal() {
@@ -199,5 +220,34 @@
                 }
             });
         }
+
+        function details(orderId) {
+            $.ajax({
+                url: '@Url.Page("Order", "Details")',
+                type: 'GET',
+                data: { orderId: orderId },
+                success: function (data) {
+                    if (data && data.orderItems) {
+                        var content = '<ul>';
+                        data.orderItems.forEach(function (item) {
+                            content += '<li>Product: ' + item.productName + ', Quantity: ' + item.productQuantity + ', Price: ' + item.productPrice + '</li>';
+                        });
+                        content += '</ul>';
+                        $('#orderDetailsContent').html(content);
+                        $('#DetailModal').modal('show');
+                    } else {
+                        // Handle case where no data or orderItems are returned
+                        $('#orderDetailsContent').html("No details found for this order.");
+                        $('#DetailModal').modal('show');
+                    }
+                },
+                error: function () {
+                    // Handle error case
+                    $('#orderDetailsContent').html("An error occurred while fetching order details.");
+                    $('#DetailModal').modal('show');
+                }
+            });
+        }
+
     </script>
 }

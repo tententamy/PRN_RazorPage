@@ -10,6 +10,8 @@ namespace MilkBabyRazorWebApp.Pages
     public class OrderModel : PageModel
     {
         private readonly OrderBusiness _orderBusiness = new OrderBusiness();
+        private readonly OrderItemBusiness _orderItemBusiness = new OrderItemBusiness();
+        private readonly ProductBusiness _productBusiness = new ProductBusiness();
         public string Message { get; set; } = default;
         [BindProperty]
         public Order Order { get; set; } = default;
@@ -67,6 +69,32 @@ namespace MilkBabyRazorWebApp.Pages
             Orders = GetOrders();
             return RedirectToPage();
         }
+
+       public IActionResult OnGetDetails(Guid orderId)
+{
+    var result = _orderBusiness.GetById(orderId);
+    if (result.Result.Data != null)
+    {
+        var order = result.Result.Data as Order;
+        var orderItems = _orderItemBusiness.GetByOrderId(orderId).Result.Data as List<OrderItem>;
+        var orderItemsWithProducts = new List<Product>();
+
+        foreach (var item in orderItems)
+        {
+            var productResult = _productBusiness.GetById(item.ProductId.Value);
+            if (productResult.Result.Data != null)
+            {
+                var product = productResult.Result.Data as Product;
+                orderItemsWithProducts.Add(product);
+            }
+        }
+
+        return new JsonResult(new { order, orderItems = orderItemsWithProducts });
+    }
+
+    return new JsonResult(null);
+}
+
 
         public List<Order> GetOrders()
         {
