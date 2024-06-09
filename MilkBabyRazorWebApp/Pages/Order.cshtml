@@ -230,7 +230,7 @@
                     if (data && data.orderItems) {
                         var content = '<ul>';
                         data.orderItems.forEach(function (item) {
-                            content += '<li>Product: ' + item.productName + ', Quantity: ' + item.productQuantity + ', Price: ' + item.productPrice + '</li>';
+                            content += '<li>Product: ' + item.productName + ', Price: ' + item.productPrice + '</li>';
                         });
                         content += '</ul>';
                         $('#orderDetailsContent').html(content);
