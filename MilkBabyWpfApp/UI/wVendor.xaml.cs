@@ -11,6 +11,7 @@ namespace MilkBabyWpfApp.UI
     {
         private readonly VendorBusiness _business;
 
+
         public wVendor()
         {
             InitializeComponent();

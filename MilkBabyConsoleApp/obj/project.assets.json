@@ -2801,19 +2801,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\NGOC MINH\\.nuget\\packages\\": {}
+    "C:\\Users\\admin1\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\PRN221\\Project\\NET1702_PRN221_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyConsoleApp\\MilkBabyConsoleApp.csproj",
+      "projectUniqueName": "D:\\WorkStation\\Git\\Pull02\\MilkBabyConsoleApp\\MilkBabyConsoleApp.csproj",
       "projectName": "MilkBabyConsoleApp",
-      "projectPath": "D:\\PRN221\\Project\\NET1702_PRN221_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyConsoleApp\\MilkBabyConsoleApp.csproj",
-      "packagesPath": "C:\\Users\\NGOC MINH\\.nuget\\packages\\",
-      "outputPath": "D:\\PRN221\\Project\\NET1702_PRN221_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyConsoleApp\\obj\\",
+      "projectPath": "D:\\WorkStation\\Git\\Pull02\\MilkBabyConsoleApp\\MilkBabyConsoleApp.csproj",
+      "packagesPath": "C:\\Users\\admin1\\.nuget\\packages\\",
+      "outputPath": "D:\\WorkStation\\Git\\Pull02\\MilkBabyConsoleApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\NGOC MINH\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\admin1\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2827,8 +2827,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\PRN221\\Project\\NET1702_PRN221_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyBusiness\\MilkBabyBusiness.csproj": {
-              "projectPath": "D:\\PRN221\\Project\\NET1702_PRN221_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyBusiness\\MilkBabyBusiness.csproj"
+            "D:\\WorkStation\\Git\\Pull02\\MilkBabyBusiness\\MilkBabyBusiness.csproj": {
+              "projectPath": "D:\\WorkStation\\Git\\Pull02\\MilkBabyBusiness\\MilkBabyBusiness.csproj"
             }
           }
         }
@@ -2837,6 +2837,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -2858,7 +2863,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.106/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

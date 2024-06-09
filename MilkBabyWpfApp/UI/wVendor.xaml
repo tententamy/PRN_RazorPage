@@ -34,20 +34,25 @@
                     <Label Grid.Column="0" Grid.Row="1" Content="Vendor Address" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
                     <TextBox Grid.Column="1" Grid.Row="1" x:Name="txtVendorAddress" Height="25" Text="{Binding Path=VendorAddress, Mode=TwoWay}" Margin="5" Width="180" HorizontalAlignment="Left"/>
 
+                    
+                    
                     <!-- Row 3: Vendor Phone -->
                     <Label Grid.Column="0" Grid.Row="2" Content="Vendor Phone" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
                     <TextBox Grid.Column="1" Grid.Row="2" x:Name="txtVendorPhone" Height="25" Text="{Binding Path=VendorPhone, Mode=TwoWay}" Margin="5" Width="180" HorizontalAlignment="Left"/>
 
+                    
                     <!-- Row 4: Vendor Email -->
                     <Label Grid.Column="0" Grid.Row="3" Content="Vendor Email" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
                     <TextBox Grid.Column="1" Grid.Row="3" x:Name="txtVendorEmail" Height="25" Text="{Binding Path=VendorEmail, Mode=TwoWay}" Margin="5" Width="180" HorizontalAlignment="Left"/>
                 </Grid>
             </GroupBox>
+            
 
             <StackPanel Height="40" Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button x:Name="ButtonSaveVendor" Content="Save" Height="30" Width="80" Click="ButtonSaveVendor_Click"/>
                 <Button x:Name="ButtonCancelVendor" Content="Cancel" Height="30" Width="80" Click="ButtonCancelVendor_Click"/>
             </StackPanel>
+            
 
             <StackPanel Height="210">
                 <DataGrid x:Name="grdVendor" AutoGenerateColumns="False" ItemsSource="{Binding Vendors}" CanUserAddRows="False" Height="200" Margin="10" MouseDoubleClick="grdVendor_MouseDoubleClick" SelectionMode="Single" SelectionUnit="FullRow">
