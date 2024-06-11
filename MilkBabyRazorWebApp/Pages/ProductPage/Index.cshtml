@@ -1,0 +1,84 @@
+﻿@page
+@model MilkBabyRazorWebApp.Pages.ProductPage.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].ProductDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].ProductPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].ProductQuantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].ProductDateStart)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].ProductDateEnd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].ProductCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].ProductImg)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].Vendor)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Product) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductQuantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductDateStart)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductDateEnd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductCategory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductImg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vendor.VendorName)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ProductId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ProductId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ProductId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

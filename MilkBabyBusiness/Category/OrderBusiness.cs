@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MilkBabyBusiness.Category
 {
-    public interface IOrderBusiness
+    public interface IOrderBusiness 
     {
         Task<IBusinessResult> GetAll();
         Task<IBusinessResult> GetById(Guid id);
@@ -19,7 +19,7 @@ namespace MilkBabyBusiness.Category
         Task<IBusinessResult> DeleteById(Guid id);
     }
 
-    public class OrderBusiness
+    public class OrderBusiness : IOrderBusiness
     {
         private readonly UnitOfWork _unitOfWork;
 

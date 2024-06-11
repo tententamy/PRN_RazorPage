@@ -59,6 +59,7 @@ namespace MilkBabyRazorWebApp.Pages
                 existingProduct.ProductDateEnd = Product.ProductDateEnd;
                 existingProduct.ProductCategory = Product.ProductCategory;
                 existingProduct.ProductImg = Product.ProductImg;
+                existingProduct.VendorId = Product.VendorId;
                 UpdateProduct(existingProduct);
             }
             Products = GetProducts();

@@ -32,3 +32,15 @@ D:\PRN221\Project\NET1702_PRN221_MilkBaby\Source\Net1702_221_3_MilkBaby\MilkBaby
 D:\PRN221\Project\NET1702_PRN221_MilkBaby\Source\Net1702_221_3_MilkBaby\MilkBabyCommon\obj\Debug\net8.0\refint\MilkBabyCommon.dll
 D:\PRN221\Project\NET1702_PRN221_MilkBaby\Source\Net1702_221_3_MilkBaby\MilkBabyCommon\obj\Debug\net8.0\MilkBabyCommon.pdb
 D:\PRN221\Project\NET1702_PRN221_MilkBaby\Source\Net1702_221_3_MilkBaby\MilkBabyCommon\obj\Debug\net8.0\ref\MilkBabyCommon.dll
+F:\gitprn\MilkBabyCommon\bin\Debug\net8.0\MilkBabyCommon.deps.json
+F:\gitprn\MilkBabyCommon\bin\Debug\net8.0\MilkBabyCommon.dll
+F:\gitprn\MilkBabyCommon\bin\Debug\net8.0\MilkBabyCommon.pdb
+F:\gitprn\MilkBabyCommon\obj\Debug\net8.0\MilkBabyCommon.GeneratedMSBuildEditorConfig.editorconfig
+F:\gitprn\MilkBabyCommon\obj\Debug\net8.0\MilkBabyCommon.AssemblyInfoInputs.cache
+F:\gitprn\MilkBabyCommon\obj\Debug\net8.0\MilkBabyCommon.AssemblyInfo.cs
+F:\gitprn\MilkBabyCommon\obj\Debug\net8.0\MilkBabyCommon.csproj.CoreCompileInputs.cache
+F:\gitprn\MilkBabyCommon\obj\Debug\net8.0\MilkBabyCommon.sourcelink.json
+F:\gitprn\MilkBabyCommon\obj\Debug\net8.0\MilkBabyCommon.dll
+F:\gitprn\MilkBabyCommon\obj\Debug\net8.0\refint\MilkBabyCommon.dll
+F:\gitprn\MilkBabyCommon\obj\Debug\net8.0\MilkBabyCommon.pdb
+F:\gitprn\MilkBabyCommon\obj\Debug\net8.0\ref\MilkBabyCommon.dll

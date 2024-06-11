@@ -1,4 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿/*// See https://aka.ms/new-console-template for more information
 using MilkBabyBusiness;
 using MilkBabyData.Models;
 
@@ -145,4 +145,4 @@ else
     Console.WriteLine($"Failed to get product by ID {productId}. Error: {productToUpdateResult.Message}");
 }
 
-Console.ReadLine();
+Console.ReadLine();*/

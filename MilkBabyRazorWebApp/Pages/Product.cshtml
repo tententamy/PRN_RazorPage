@@ -223,6 +223,19 @@
                                     <input id="ProductDateEnd" asp-for="Product.ProductDateEnd" type="Date" class="form-control" />
                                     <span asp-validation-for="Product.ProductDateEnd" class="text-danger"></span>
                                 </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="productVendor">Nhà cung cấp</label>
+                                        <select asp-for="Product.VendorId" class="form-control" id="productVendor">
+                                            <option value="">-- Chọn nhà cung cấp --</option>
+                                            @foreach (var vendor in Model.Vendors)
+                                            {
+                                                <option value="@vendor.VendorId">@vendor.VendorName</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
                                 
                             </div>
                         </div>
@@ -265,6 +278,7 @@
                     $('#EditModal #ProductDateStart').val(data.productDateStart);
                     $('#EditModal #ProductDateEnd').val(data.productDateEnd);
                     $('#EditModal #ProductImg').val(data.productImg);
+                    $('#EditModal #productVendor').val(data.vendorId);
 
                     // Open Modal
                     $('#EditModal').modal('show');
