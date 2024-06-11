@@ -1,0 +1,78 @@
+﻿@page
+@model MilkBabyRazorWebApp.Pages.ReviewPage.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Review</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Review.CustomerId" class="control-label"></label>
+                <select asp-for="Review.CustomerId" class="form-control" asp-items="ViewBag.CustomerId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Review.ProductId" class="control-label"></label>
+                <select asp-for="Review.ProductId" class="form-control" asp-items="ViewBag.ProductId"></select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Review.Rating" class="control-label"></label>
+                <input asp-for="Review.Rating" class="form-control" />
+                <span asp-validation-for="Review.Rating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Review.ReviewText" class="control-label"></label>
+                <input asp-for="Review.ReviewText" class="form-control" />
+                <span asp-validation-for="Review.ReviewText" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Review.ReviewDate" class="control-label"></label>
+                <input asp-for="Review.ReviewDate" class="form-control" type="date" />
+                <span asp-validation-for="Review.ReviewDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Review.ReviewImg" class="control-label"></label>
+                <input asp-for="Review.ReviewImg" class="form-control" />
+                <span asp-validation-for="Review.ReviewImg" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        document.querySelector("form").addEventListener("submit", function (e) {
+            const rating = document.querySelector('input[name="Review.Rating"]').value;
+            const reviewDate = document.querySelector('input[name="Review.ReviewDate"]').value;
+
+            if (rating < 1 || rating > 5) {
+                e.preventDefault();
+                alert("Rating must be between 1 and 5.");
+            }
+
+            if (!reviewDate) {
+                e.preventDefault();
+                alert("Review Date is required.");
+            }
+        });
+    </script>
+}
