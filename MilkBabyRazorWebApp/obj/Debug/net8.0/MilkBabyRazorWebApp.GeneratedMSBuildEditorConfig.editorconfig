@@ -1,11 +1,19 @@
 is_global = true
 build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MilkBabyRazorWebApp
 build_property.RootNamespace = MilkBabyRazorWebApp
@@ -22,6 +30,26 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/PRN221/Project/NET1702_PRN221_MilkBaby/Source/Net1702_221_3_MilkBaby/MilkBabyRazorWebApp/Pages/CustomerPage/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXJQYWdlXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PRN221/Project/NET1702_PRN221_MilkBaby/Source/Net1702_221_3_MilkBaby/MilkBabyRazorWebApp/Pages/CustomerPage/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXJQYWdlXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PRN221/Project/NET1702_PRN221_MilkBaby/Source/Net1702_221_3_MilkBaby/MilkBabyRazorWebApp/Pages/CustomerPage/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXJQYWdlXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PRN221/Project/NET1702_PRN221_MilkBaby/Source/Net1702_221_3_MilkBaby/MilkBabyRazorWebApp/Pages/CustomerPage/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXJQYWdlXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PRN221/Project/NET1702_PRN221_MilkBaby/Source/Net1702_221_3_MilkBaby/MilkBabyRazorWebApp/Pages/CustomerPage/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXJQYWdlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/PRN221/Project/NET1702_PRN221_MilkBaby/Source/Net1702_221_3_MilkBaby/MilkBabyRazorWebApp/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -36,6 +64,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/PRN221/Project/NET1702_PRN221_MilkBaby/Source/Net1702_221_3_MilkBaby/MilkBabyRazorWebApp/Pages/OrderItem.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJJdGVtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PRN221/Project/NET1702_PRN221_MilkBaby/Source/Net1702_221_3_MilkBaby/MilkBabyRazorWebApp/Pages/OrderItemPage/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJJdGVtUGFnZVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PRN221/Project/NET1702_PRN221_MilkBaby/Source/Net1702_221_3_MilkBaby/MilkBabyRazorWebApp/Pages/OrderItemPage/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJJdGVtUGFnZVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PRN221/Project/NET1702_PRN221_MilkBaby/Source/Net1702_221_3_MilkBaby/MilkBabyRazorWebApp/Pages/OrderItemPage/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJJdGVtUGFnZVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PRN221/Project/NET1702_PRN221_MilkBaby/Source/Net1702_221_3_MilkBaby/MilkBabyRazorWebApp/Pages/OrderItemPage/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJJdGVtUGFnZVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PRN221/Project/NET1702_PRN221_MilkBaby/Source/Net1702_221_3_MilkBaby/MilkBabyRazorWebApp/Pages/OrderItemPage/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJJdGVtUGFnZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/PRN221/Project/NET1702_PRN221_MilkBaby/Source/Net1702_221_3_MilkBaby/MilkBabyRazorWebApp/Pages/Privacy.cshtml]
