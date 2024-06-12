@@ -34,11 +34,6 @@
                 <span asp-validation-for="Review.ReviewText" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Review.ReviewDate" class="control-label"></label>
-                <input asp-for="Review.ReviewDate" class="form-control" type="date" />
-                <span asp-validation-for="Review.ReviewDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Review.ReviewImg" class="control-label"></label>
                 <input asp-for="Review.ReviewImg" class="form-control" />
                 <span asp-validation-for="Review.ReviewImg" class="text-danger"></span>
@@ -62,17 +57,12 @@
     <script>
         document.querySelector("form").addEventListener("submit", function (e) {
             const rating = document.querySelector('input[name="Review.Rating"]').value;
-            const reviewDate = document.querySelector('input[name="Review.ReviewDate"]').value;
 
             if (rating < 1 || rating > 5) {
                 e.preventDefault();
                 alert("Rating must be between 1 and 5.");
             }
 
-            if (!reviewDate) {
-                e.preventDefault();
-                alert("Review Date is required.");
-            }
         });
     </script>
 }

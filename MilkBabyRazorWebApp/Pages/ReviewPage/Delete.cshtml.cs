@@ -12,12 +12,17 @@ namespace MilkBabyRazorWebApp.Pages.ReviewPage
 {
     public class DeleteModel : PageModel
     {
-        private readonly IReviewBusiness business;
+        private readonly IReviewBusiness _reviewBusiness;
+        private readonly ICustomerBusiness _CustomerBusiness;
+        private readonly IProductBusiness _ProductBusiness;
 
         public DeleteModel()
         {
-            business ??= new ReviewBusiness();
+            _reviewBusiness ??= new ReviewBusiness();
+            _CustomerBusiness ??= new CustomerBusiness();
+            _ProductBusiness ??= new ProductBusiness();
         }
+    
 
         [BindProperty]
         public Review Review { get; set; } = default!;
@@ -29,7 +34,7 @@ namespace MilkBabyRazorWebApp.Pages.ReviewPage
                 return NotFound();
             }
 
-            var review = await business.GetById((Guid)id);
+            var review = await _reviewBusiness.GetById((Guid)id);
 
             if (review == null)
             {
@@ -38,6 +43,10 @@ namespace MilkBabyRazorWebApp.Pages.ReviewPage
             else
             {
                 Review = (Review)review.Data;
+                var customer = await _CustomerBusiness.GetById((Guid)Review.CustomerId);
+                var product = await _ProductBusiness.GetById((Guid)Review.ProductId);
+                Review.Customer = (Customer)customer.Data;
+                Review.Product = (Product)product.Data;
             }
             return Page();
         }
@@ -49,11 +58,11 @@ namespace MilkBabyRazorWebApp.Pages.ReviewPage
                 return NotFound();
             }
 
-            var review = await business.GetById((Guid)id);
+            var review = await _reviewBusiness.GetById((Guid)id);
             if (review != null)
             {
                 Review = (Review)review.Data;
-                await business.DeleteById((Guid)id);
+                await _reviewBusiness.DeleteById((Guid)id);
 
             }
 

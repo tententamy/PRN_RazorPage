@@ -14,10 +14,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Review[0].CustomerId)
+                @Html.DisplayNameFor(model => model.Review[0].Customer.CustomerName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Review[0].ProductId)
+                @Html.DisplayNameFor(model => model.Review[0].Product.ProductName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Review[0].Rating)
@@ -39,10 +39,10 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.CustomerId)
+                    @Html.DisplayFor(modelItem => item.Customer.CustomerName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ProductId)
+                    @Html.DisplayFor(modelItem => item.Product.ProductName)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Rating)
