@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using MilkBabyBusiness.Category;
 using MilkBabyData.Models;
 
-namespace MilkBabyRazorWebApp.Pages.ProductPage
+namespace MilkBabyRazorWebApp.Pages.ProductsPage
 {
     public class DetailsModel : PageModel
     {

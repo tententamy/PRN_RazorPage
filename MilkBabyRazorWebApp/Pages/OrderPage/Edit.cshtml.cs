@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using MilkBabyBusiness.Category;
 using MilkBabyData.Models;
 
-namespace MilkBabyRazorWebApp.Pages.OrderPage
+namespace MilkBabyRazorWebApp.Pages.OrdersPage
 {
     public class EditModel : PageModel
     {
@@ -55,6 +55,7 @@ namespace MilkBabyRazorWebApp.Pages.OrderPage
 
             try
             {
+                Order.OrderUpdatedDate = DateOnly.FromDateTime(DateTime.UtcNow);
                 await _business.Update(Order);
             }
             catch (DbUpdateConcurrencyException)
@@ -64,7 +65,5 @@ namespace MilkBabyRazorWebApp.Pages.OrderPage
 
             return RedirectToPage("./Index");
         }
-
-     
     }
 }

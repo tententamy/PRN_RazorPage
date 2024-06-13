@@ -31,7 +31,7 @@ public partial class Product
 
     public string ProductDimensions { get; set; }
 
-    public string ProductStatus { get; set; }
+    public bool? ProductStatus { get; set; }
 
     public DateOnly? ProductCreatedDate { get; set; }
 

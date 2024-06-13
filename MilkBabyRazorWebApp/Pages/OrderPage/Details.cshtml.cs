@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using MilkBabyBusiness.Category;
 using MilkBabyData.Models;
 
-namespace MilkBabyRazorWebApp.Pages.OrderPage
+namespace MilkBabyRazorWebApp.Pages.OrdersPage
 {
     public class DetailsModel : PageModel
     {
@@ -17,7 +17,7 @@ namespace MilkBabyRazorWebApp.Pages.OrderPage
 
         public DetailsModel()
         {
-           _business ??= new OrderBusiness();
+            _business ??= new OrderBusiness();
             _customer ??= new CustomerBusiness();
         }
 

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using MilkBabyBusiness.Category;
 using MilkBabyData.Models;
 
-namespace MilkBabyRazorWebApp.Pages.ProductPage
+namespace MilkBabyRazorWebApp.Pages.ProductsPage
 {
     public class DeleteModel : PageModel
     {
@@ -52,9 +52,9 @@ namespace MilkBabyRazorWebApp.Pages.ProductPage
             var product = await _business.GetById((Guid)id);
             if (product != null)
             {
-                Product =   (Product)product.Data;
+                Product = (Product)product.Data;
                 await _business.DeleteById((Guid)id);
-               
+
             }
 
             return RedirectToPage("./Index");

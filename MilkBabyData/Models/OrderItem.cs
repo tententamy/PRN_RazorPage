@@ -23,8 +23,6 @@ public partial class OrderItem
 
     public decimal? TotalPrice { get; set; }
 
-    public string OrderItemStatus { get; set; }
-
     public DateOnly? OrderItemCreatedDate { get; set; }
 
     public DateOnly? OrderItemUpdatedDate { get; set; }

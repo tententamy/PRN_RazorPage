@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using MilkBabyBusiness.Category;
 using MilkBabyData.Models;
 
-namespace MilkBabyRazorWebApp.Pages.OrderPage
+namespace MilkBabyRazorWebApp.Pages.OrdersPage
 {
     public class IndexModel : PageModel
     {
@@ -21,32 +21,67 @@ namespace MilkBabyRazorWebApp.Pages.OrderPage
             _customer ??= new CustomerBusiness();
         }
 
+        [BindProperty(SupportsGet = true)]
+        public string SearchKey { get; set; } = default!;
         public IList<Order> Order { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
-            var result = await business.GetAll();
-
-            if (result != null && result.Status > 0 && result.Data != null)
+            if (SearchKey != null)
             {
-                Order = result.Data as List<Order>;
+                var result = await business.GetByNameCustomer(SearchKey);
 
-                // Populate customer names based on CustomerId
-                foreach (var order in Order)
+                if (result != null && result.Status > 0 && result.Data != null)
                 {
-                    if (order.CustomerId != null)
+                    Order = result.Data as List<Order>;
+
+                    // Populate customer names based on CustomerId
+                    foreach (var order in Order)
                     {
-                        var customerResult = await _customer.GetById((Guid)order.CustomerId);
-                        if (customerResult != null && customerResult.Status > 0 && customerResult.Data != null)
+                        if (order.CustomerId != null)
                         {
-                            var customer = customerResult.Data as Customer;
-                            if (order.Customer != null)
+                            var customerResult = await _customer.GetById((Guid)order.CustomerId);
+                            if (customerResult != null && customerResult.Status > 0 && customerResult.Data != null)
                             {
-                                order.Customer.CustomerName = customer.CustomerName;
+                                var customer = customerResult.Data as Customer;
+                                if (order.Customer != null)
+                                {
+                                    order.Customer.CustomerName = customer.CustomerName;
+                                }
+                                else
+                                {
+                                    order.Customer = customer;
+                                }
                             }
-                            else
+                        }
+                    }
+                }
+            }
+            else
+            {
+                var result = await business.GetAll();
+
+                if (result != null && result.Status > 0 && result.Data != null)
+                {
+                    Order = result.Data as List<Order>;
+
+                    // Populate customer names based on CustomerId
+                    foreach (var order in Order)
+                    {
+                        if (order.CustomerId != null)
+                        {
+                            var customerResult = await _customer.GetById((Guid)order.CustomerId);
+                            if (customerResult != null && customerResult.Status > 0 && customerResult.Data != null)
                             {
-                                order.Customer = customer;
+                                var customer = customerResult.Data as Customer;
+                                if (order.Customer != null)
+                                {
+                                    order.Customer.CustomerName = customer.CustomerName;
+                                }
+                                else
+                                {
+                                    order.Customer = customer;
+                                }
                             }
                         }
                     }

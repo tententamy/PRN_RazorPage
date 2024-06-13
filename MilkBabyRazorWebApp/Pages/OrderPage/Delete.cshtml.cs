@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using MilkBabyBusiness.Category;
 using MilkBabyData.Models;
 
-namespace MilkBabyRazorWebApp.Pages.OrderPage
+namespace MilkBabyRazorWebApp.Pages.OrdersPage
 {
     public class DeleteModel : PageModel
     {

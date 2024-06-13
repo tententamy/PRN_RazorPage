@@ -12,7 +12,6 @@ namespace MilkBabyRazorWebApp.Pages.CustomerPage
 {
     public class DeleteModel : PageModel
     {
-        //private readonly MilkBabyData.Models.Net1702Prn221MilkBabyContext _context;
         private readonly ICustomerBusiness _customerBusiness;
 
         public DeleteModel()

@@ -35,6 +35,28 @@
                 <span asp-validation-for="OrderItem.Price" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="OrderItem.Discount" class="control-label"></label>
+                <input asp-for="OrderItem.Discount" class="form-control" />
+                <span asp-validation-for="OrderItem.Discount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OrderItem.Tax" class="control-label"></label>
+                <input asp-for="OrderItem.Tax" class="form-control" />
+                <span asp-validation-for="OrderItem.Tax" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OrderItem.TotalPrice" class="control-label"></label>
+                <input asp-for="OrderItem.TotalPrice" class="form-control" />
+                <span asp-validation-for="OrderItem.TotalPrice" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="OrderItem.OrderItemCreatedDate" />
+         @*    
+            <div class="form-group">
+                <label asp-for="OrderItem.OrderItemUpdatedDate" class="control-label"></label>
+                <input asp-for="OrderItem.OrderItemUpdatedDate" class="form-control" />
+                <span asp-validation-for="OrderItem.OrderItemUpdatedDate" class="text-danger"></span>
+            </div> *@
+            <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>

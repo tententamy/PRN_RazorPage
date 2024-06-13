@@ -1,4 +1,5 @@
-﻿using MilkBabyData.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using MilkBabyData.Models;
 
 namespace MilkBabyData.Repository
 {
@@ -8,5 +9,11 @@ namespace MilkBabyData.Repository
         public CustomerRepository(NET1702_PRN221_MilkBabyContext context) : base(context) => _context = context;
 
         ////TO-DO CODE HERE/////////////////
+        public async Task<List<Customer>> GetByNameAsync(String key)
+        {
+            return await _context.Customers
+                                 .Where(c => c.CustomerName.Contains(key))
+                                 .ToListAsync();
     }
+}
 }

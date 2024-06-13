@@ -24,7 +24,7 @@ namespace MilkBabyRazorWebApp.Pages
         public IActionResult OnPost()
         {
             this.Review.ReviewId = Guid.NewGuid();
-            this.Review.ReviewDate = DateOnly.FromDateTime(DateTime.UtcNow);
+            this.Review.ReviewCreatedDate = DateOnly.FromDateTime(DateTime.UtcNow);
             SaveReview();
             Reviews = GetReviews();
             return Page();
@@ -53,7 +53,7 @@ namespace MilkBabyRazorWebApp.Pages
                 existingReview.CustomerId = Review.CustomerId;
                 existingReview.Rating = Review.Rating;
                 existingReview.ReviewText = Review.ReviewText;
-                existingReview.ReviewDate = DateOnly.FromDateTime(DateTime.UtcNow);
+                existingReview.ReviewUpdatedDate = DateOnly.FromDateTime(DateTime.UtcNow);
                 existingReview.ReviewImg = Review.ReviewImg;
                 UpdateReview(existingReview);
             }

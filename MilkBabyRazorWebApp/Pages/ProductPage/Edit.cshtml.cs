@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using MilkBabyBusiness.Category;
 using MilkBabyData.Models;
 
-namespace MilkBabyRazorWebApp.Pages.ProductPage
+namespace MilkBabyRazorWebApp.Pages.ProductsPage
 {
     public class EditModel : PageModel
     {
@@ -32,13 +32,13 @@ namespace MilkBabyRazorWebApp.Pages.ProductPage
                 return NotFound();
             }
 
-            var product =  await _business.GetById((Guid)id);
+            var product = await _business.GetById((Guid)id);
             if (product == null)
             {
                 return NotFound();
             }
             Product = product.Data as Product;
-           ViewData["VendorId"] = new SelectList(vendorBusiness.GetAll().Result.Data as List<Vendor>, "VendorId", "VendorName");
+            ViewData["VendorId"] = new SelectList(vendorBusiness.GetAll().Result.Data as List<Vendor>, "VendorId", "VendorName");
             return Page();
         }
 
@@ -51,23 +51,24 @@ namespace MilkBabyRazorWebApp.Pages.ProductPage
                 return Page();
             }
 
-            
+
 
             try
             {
+                Product.ProductUpdatedDate = DateOnly.FromDateTime(DateTime.UtcNow);
                 await _business.Update(Product);
             }
             catch (DbUpdateConcurrencyException)
             {
-               
+
             }
 
             return RedirectToPage("./Index");
         }
 
-       /* private async bool ProductExists(Guid id)
-        {
-            return await _business.GetById((Guid) id);
-        }*/
+        /* private async bool ProductExists(Guid id)
+         {
+             return await _business.GetById((Guid) id);
+         }*/
     }
 }

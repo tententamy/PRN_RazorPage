@@ -17,13 +17,9 @@ public partial class Review
 
     public string ReviewText { get; set; }
 
-    public DateOnly? ReviewDate { get; set; }
-
     public string ReviewImg { get; set; }
 
     public string ReviewTitle { get; set; }
-
-    public string ReviewStatus { get; set; }
 
     public int? ReviewHelpfulCount { get; set; }
 

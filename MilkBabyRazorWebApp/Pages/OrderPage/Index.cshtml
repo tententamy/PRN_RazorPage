@@ -1,5 +1,5 @@
 ﻿@page
-@model MilkBabyRazorWebApp.Pages.OrderPage.IndexModel
+@model MilkBabyRazorWebApp.Pages.OrdersPage.IndexModel
 
 @{
     ViewData["Title"] = "Index";
@@ -7,9 +7,13 @@
 
 <h1>Index</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <a asp-page="Create" class="btn btn-success">Create New</a>
+    <form method="get" class="d-flex align-items-center">
+        <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search" name="SearchKey" value="@Model.SearchKey" style="width: 200px;">
+        <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+</div>
 <table class="table">
     <thead>
         <tr>
@@ -23,9 +27,33 @@
                 @Html.DisplayNameFor(model => model.Order[0].Voucher)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Order[0].Customer.CustomerName)
+                @Html.DisplayNameFor(model => model.Order[0].OrderStatus)
             </th>
-            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].OrderShippingAddress)
+            </th>
+          @*   <th>
+                @Html.DisplayNameFor(model => model.Order[0].OrderBillingAddress)
+            </th> *@
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].OrderPaymentMethod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].OrderShippingMethod)
+            </th>
+            @* <th>
+                @Html.DisplayNameFor(model => model.Order[0].OrderTrackingNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].OrderCreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].OrderUpdatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].Customer)
+            </th>
+            <th></th> *@
         </tr>
     </thead>
     <tbody>
@@ -41,8 +69,32 @@
                 @Html.DisplayFor(modelItem => item.Voucher)
             </td>
             <td>
-                    @Html.DisplayFor(modelItem => item.Customer.CustomerName)
+                @Html.DisplayFor(modelItem => item.OrderStatus)
             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderShippingAddress)
+            </td>
+          @*   <td>
+                @Html.DisplayFor(modelItem => item.OrderBillingAddress)
+            </td> *@
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderPaymentMethod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderShippingMethod)
+            </td>
+     @*        <td>
+                @Html.DisplayFor(modelItem => item.OrderTrackingNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderCreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderUpdatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.CustomerName)
+            </td> *@
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.OrderId">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.OrderId">Details</a> |

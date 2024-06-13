@@ -19,29 +19,53 @@ namespace MilkBabyRazorWebApp.Pages.OrderItemPage
 
         public IndexModel()
         {
-            _orderItemBusiness ??= new OrderItemBusiness();   
+            _orderItemBusiness ??= new OrderItemBusiness();
             _productBusiness ??= new ProductBusiness();
             _orderBusiness = new OrderBusiness();
         }
-
-        public IList<OrderItem> OrderItem { get;set; } = default!;
+        [BindProperty(SupportsGet = true)]
+        public string SearchKey { get; set; } = default!;
+        public IList<OrderItem> OrderItem { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
-            var result = await _orderItemBusiness.GetAll();
-            
-            if (result != null && result.Status > 0 && result.Data != null)
+            if (SearchKey != null)
             {
-                OrderItem = (List<OrderItem>)result.Data;
-               foreach (var item in OrderItem) 
+                var result = await _orderItemBusiness.GetByProductName(SearchKey);
+
+                if (result != null && result.Status > 0 && result.Data != null)
                 {
-                    var productResult = await _productBusiness.GetById((Guid)item.ProductId);
-                    var orderResult = await _orderBusiness.GetById((Guid)item.OrderId);
-                    //if (productResult != null ) 
-                    //{
+                    OrderItem = (List<OrderItem>)result.Data;
+                    foreach (var item in OrderItem)
+                    {
+                        var productResult = await _productBusiness.GetById((Guid)item.ProductId);
+                        var orderResult = await _orderBusiness.GetById((Guid)item.OrderId);
+                        //if (productResult != null ) 
+                        //{
                         item.Product = productResult.Data as Product;
                         item.Order = orderResult.Data as Order;
-                    //}
+                        //}
+                    }
+                }
+            }
+            else
+            {
+
+                var result = await _orderItemBusiness.GetAll();
+
+                if (result != null && result.Status > 0 && result.Data != null)
+                {
+                    OrderItem = (List<OrderItem>)result.Data;
+                    foreach (var item in OrderItem)
+                    {
+                        var productResult = await _productBusiness.GetById((Guid)item.ProductId);
+                        var orderResult = await _orderBusiness.GetById((Guid)item.OrderId);
+                        //if (productResult != null ) 
+                        //{
+                        item.Product = productResult.Data as Product;
+                        item.Order = orderResult.Data as Order;
+                        //}
+                    }
                 }
             }
         }

@@ -1,5 +1,5 @@
 ﻿@page
-@model MilkBabyRazorWebApp.Pages.ProductPage.EditModel
+@model MilkBabyRazorWebApp.Pages.ProductsPage.EditModel
 
 @{
     ViewData["Title"] = "Edit";
@@ -46,7 +46,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Product.ProductDateEnd" class="control-label"></label>
-                <input asp-for="Product.ProductDateEnd" class="form-control" type="date" />
+                <input asp-for="Product.ProductDateEnd" class="form-control" type="date"/>
                 <span asp-validation-for="Product.ProductDateEnd" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -59,6 +59,31 @@
                 <input asp-for="Product.ProductImg" class="form-control" />
                 <span asp-validation-for="Product.ProductImg" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="Product.ProductWeight" class="control-label"></label>
+                <input asp-for="Product.ProductWeight" class="form-control" />
+                <span asp-validation-for="Product.ProductWeight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.ProductDimensions" class="control-label"></label>
+                <input asp-for="Product.ProductDimensions" class="form-control" />
+                <span asp-validation-for="Product.ProductDimensions" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.ProductStatus" class="control-label"></label>
+                <select asp-for="Product.ProductStatus" class="form-control">
+                    <option value="true">Active</option>
+                    <option value="false">Unactive</option>
+                </select>
+                <span asp-validation-for="Product.ProductStatus" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Product.ProductCreatedDate" />
+           @*  
+            <div class="form-group">
+                <label asp-for="Product.ProductUpdatedDate" class="control-label"></label>
+                <input asp-for="Product.ProductUpdatedDate" class="form-control" />
+                <span asp-validation-for="Product.ProductUpdatedDate" class="text-danger"></span>
+            </div> *@
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>

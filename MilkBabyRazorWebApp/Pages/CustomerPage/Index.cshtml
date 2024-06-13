@@ -7,9 +7,15 @@
 
 <h1>Index</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <a asp-page="Create" class="btn btn-success">Create New</a>
+    <form method="get" class="d-flex align-items-center">
+        <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search" name="SearchKey" value="@Model.SearchKey" style="width: 200px;">
+        <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+</div>
+
 <table class="table">
     <thead>
         <tr>
@@ -25,13 +31,30 @@
             <th>
                 @Html.DisplayNameFor(model => model.Customer[0].CustomerAddress)
             </th>
-            <th>
+           @*  <th>
                 @Html.DisplayNameFor(model => model.Customer[0].CustomerPassword)
-            </th>
+            </th> *@
             <th>
                 @Html.DisplayNameFor(model => model.Customer[0].CustomerImg)
             </th>
-            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].CustomerBirthDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].CustomerGender)
+            </th>
+            @* <th>
+                @Html.DisplayNameFor(model => model.Customer[0].CustomerStatus)
+            </th> *@
+            @* <th>
+                @Html.DisplayNameFor(model => model.Customer[0].CustomerCreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].CustomerUpdatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].CustomerNotes)
+            </th> *@
         </tr>
     </thead>
     <tbody>
@@ -49,12 +72,30 @@
             <td>
                 @Html.DisplayFor(modelItem => item.CustomerAddress)
             </td>
-            <td>
+         @*    <td>
                 @Html.DisplayFor(modelItem => item.CustomerPassword)
-            </td>
+            </td> *@
             <td>
                 @Html.DisplayFor(modelItem => item.CustomerImg)
             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerBirthDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerGender)
+            </td>
+           @*  <td>
+                @Html.DisplayFor(modelItem => item.CustomerStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerCreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerUpdatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerNotes)
+            </td> *@
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.CustomerId">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.CustomerId">Details</a> |

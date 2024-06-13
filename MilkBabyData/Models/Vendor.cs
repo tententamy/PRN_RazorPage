@@ -21,7 +21,7 @@ public partial class Vendor
 
     public string VendorWebsite { get; set; }
 
-    public string VendorStatus { get; set; }
+    public bool? VendorStatus { get; set; }
 
     public DateOnly? VendorCreatedDate { get; set; }
 

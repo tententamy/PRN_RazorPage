@@ -7,9 +7,13 @@
 
 <h1>Index</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <a asp-page="Create" class="btn btn-success">Create New</a>
+    <form method="get" class="d-flex align-items-center">
+        <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search" name="SearchKey" value="@Model.SearchKey" style="width: 200px;">
+        <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+</div>
 <table class="table">
     <thead>
         <tr>
@@ -18,6 +22,21 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.OrderItem[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderItem[0].Discount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderItem[0].Tax)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderItem[0].TotalPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderItem[0].OrderItemCreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderItem[0].OrderItemUpdatedDate)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.OrderItem[0].Order)
@@ -36,6 +55,21 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Discount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tax)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderItemCreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderItemUpdatedDate)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Order.OrderId)

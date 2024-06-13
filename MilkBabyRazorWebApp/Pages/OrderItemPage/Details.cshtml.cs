@@ -43,7 +43,7 @@ namespace MilkBabyRazorWebApp.Pages.OrderItemPage
                 OrderItem = (OrderItem)orderitem.Data;
                 var productResult = await _productBusiness.GetById((Guid)OrderItem.ProductId);
                 var orderResult = await _orderBusiness.GetById((Guid)OrderItem.OrderId);
-              
+
                 OrderItem.Product = productResult.Data as Product;
                 OrderItem.Order = orderResult.Data as Order;
             }

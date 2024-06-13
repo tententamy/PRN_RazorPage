@@ -25,7 +25,7 @@ public partial class Customer
 
     public string CustomerGender { get; set; }
 
-    public string CustomerStatus { get; set; }
+    public bool? CustomerStatus { get; set; }
 
     public DateOnly? CustomerCreatedDate { get; set; }
 

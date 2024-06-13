@@ -50,6 +50,7 @@ namespace MilkBabyRazorWebApp.Pages.OrderItemPage
             {
                 return Page();
             }
+            OrderItem.OrderItemCreatedDate = DateOnly.FromDateTime(DateTime.UtcNow);
             OrderItem.OrderItemId = Guid.NewGuid();
             await _orderItemBusiness.Save(OrderItem);
 

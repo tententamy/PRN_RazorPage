@@ -35,7 +35,7 @@ namespace MilkBabyRazorWebApp.Pages.OrderItemPage
                 return NotFound();
             }
 
-            var orderitem =  await _orderItemBusiness.GetById((Guid)id);
+            var orderitem = await _orderItemBusiness.GetById((Guid)id);
             if (orderitem == null)
             {
                 return NotFound();
@@ -65,6 +65,7 @@ namespace MilkBabyRazorWebApp.Pages.OrderItemPage
 
             try
             {
+                OrderItem.OrderItemUpdatedDate = DateOnly.FromDateTime(DateTime.UtcNow);
                 await _orderItemBusiness.Update(OrderItem);
             }
             catch (DbUpdateConcurrencyException)
@@ -83,9 +84,9 @@ namespace MilkBabyRazorWebApp.Pages.OrderItemPage
             return RedirectToPage("./Index");
         }
 
-      /*  private bool OrderItemExists(Guid id)
-        {
-            return _context.OrderItems.Any(e => e.OrderItemId == id);
-        }*/
+        /*  private bool OrderItemExists(Guid id)
+          {
+              return _context.OrderItems.Any(e => e.OrderItemId == id);
+          }*/
     }
 }

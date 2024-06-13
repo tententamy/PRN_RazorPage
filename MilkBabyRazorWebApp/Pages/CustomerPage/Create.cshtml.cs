@@ -35,6 +35,7 @@ namespace MilkBabyRazorWebApp.Pages.CustomerPage
             {
                 return Page();
             }
+            Customer.CustomerCreatedDate = DateOnly.FromDateTime(DateTime.UtcNow);
             Customer.CustomerId = Guid.NewGuid();
             await _customerBusiness.Save(Customer);
 

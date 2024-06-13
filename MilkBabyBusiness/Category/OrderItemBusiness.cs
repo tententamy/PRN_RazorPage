@@ -17,6 +17,7 @@ namespace MilkBabyBusiness.Category
         Task<IBusinessResult> Save(OrderItem orderItem);
         Task<IBusinessResult> Update(OrderItem orderItem);
         Task<IBusinessResult> DeleteById(Guid id);
+        Task<IBusinessResult> GetByProductName(string key);
     }
 
     public class OrderItemBusiness : IOrderItemBusiness
@@ -147,6 +148,28 @@ namespace MilkBabyBusiness.Category
                 else
                 {
                     return new BusinessResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, product);
+                }
+            }
+            catch (Exception ex)
+            {
+                return new BusinessResult(Const.ERROR_EXCEPTION, ex.Message);
+            }
+        }
+
+        public async Task<IBusinessResult> GetByProductName(string key)
+        {
+            try
+            {
+                
+                var products = await _unitOfWork.OrderItemRepository.GetByProductNameAsync(key);
+
+                if (products == null)
+                {
+                    return new BusinessResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA__MSG);
+                }
+                else
+                {
+                    return new BusinessResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, products);
                 }
             }
             catch (Exception ex)

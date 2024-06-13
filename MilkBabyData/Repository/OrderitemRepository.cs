@@ -19,5 +19,12 @@ namespace MilkBabyData.Repository
                                  .Where(oi => oi.OrderId == orderId)
                                  .ToListAsync();
         }
+
+        public async Task<List<OrderItem>> GetByProductNameAsync(string key)
+        {
+            return await _context.OrderItems
+                                 .Where(oi => oi.Product.ProductName.Contains(key))
+                                 .ToListAsync();
+        }
     }
 }

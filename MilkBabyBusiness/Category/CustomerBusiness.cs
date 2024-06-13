@@ -11,6 +11,7 @@ public interface ICustomerBusiness
     Task<IBusinessResult> Save(Customer currency);
     Task<IBusinessResult> Update(Customer currency);
     Task<IBusinessResult> DeleteById(Guid code);
+    Task<IBusinessResult> GetByName(String key);
 }
 public class CustomerBusiness : ICustomerBusiness
 {
@@ -51,6 +52,30 @@ public class CustomerBusiness : ICustomerBusiness
         }
     }
 
+    public async Task<IBusinessResult> GetByName(String code)
+    {
+        try
+        {
+            #region Business rule
+            #endregion
+
+            //var currency = await _currencyRepository.GetByIdAsync(code);
+            var currency = await _unitOfWork.CustomerRepository.GetByNameAsync(code);
+
+            if (currency == null)
+            {
+                return new BusinessResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA__MSG);
+            }
+            else
+            {
+                return new BusinessResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, currency);
+            }
+        }
+        catch (Exception ex)
+        {
+            return new BusinessResult(Const.ERROR_EXCEPTION, ex.Message);
+        }
+    }
     public async Task<IBusinessResult> GetById(Guid code)
     {
         try

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using MilkBabyBusiness.Category;
 using MilkBabyData.Models;
 
-namespace MilkBabyRazorWebApp.Pages.ProductPage
+namespace MilkBabyRazorWebApp.Pages.ProductsPage
 {
     public class IndexModel : PageModel
     {
@@ -21,37 +21,72 @@ namespace MilkBabyRazorWebApp.Pages.ProductPage
             _vendor ??= new VendorBusiness();
         }
 
+        [BindProperty(SupportsGet = true)]
+        public string SearchKey { get; set; } = default!;
         public IList<Product> Product { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
-            var result = await _business.GetAll();
-
-            if (result != null && result.Status > 0 && result.Data != null)
+            if (SearchKey != null)
             {
-                Product = result.Data as List<Product>;
-
-                // Populate customer names based on CustomerId
-                foreach (var product in Product)
+                var result = await _business.GetByName(SearchKey);
+                if (result != null && result.Status > 0 && result.Data != null)
                 {
-                    if (product.VendorId != null)
+                    Product = result.Data as List<Product>;
+
+                    // Populate customer names based on CustomerId
+                    foreach (var product in Product)
                     {
-                        var productResult = await _vendor.GetById((Guid)product.VendorId);
-                        if (productResult != null && productResult.Status > 0 && productResult.Data != null)
+                        if (product.VendorId != null)
                         {
-                            var vendor = productResult.Data as Vendor;
-                            if (product.Vendor != null)
+                            var productResult = await _vendor.GetById((Guid)product.VendorId);
+                            if (productResult != null && productResult.Status > 0 && productResult.Data != null)
                             {
-                                product.Vendor.VendorName = vendor.VendorName;
-                            }
-                            else
-                            {
-                                product.Vendor = vendor;
+                                var vendor = productResult.Data as Vendor;
+                                if (product.Vendor != null)
+                                {
+                                    product.Vendor.VendorName = vendor.VendorName;
+                                }
+                                else
+                                {
+                                    product.Vendor = vendor;
+                                }
                             }
                         }
                     }
                 }
             }
+            else
+            {
+                var result = await _business.GetAll();
+
+                if (result != null && result.Status > 0 && result.Data != null)
+                {
+                    Product = result.Data as List<Product>;
+
+                    // Populate customer names based on CustomerId
+                    foreach (var product in Product)
+                    {
+                        if (product.VendorId != null)
+                        {
+                            var productResult = await _vendor.GetById((Guid)product.VendorId);
+                            if (productResult != null && productResult.Status > 0 && productResult.Data != null)
+                            {
+                                var vendor = productResult.Data as Vendor;
+                                if (product.Vendor != null)
+                                {
+                                    product.Vendor.VendorName = vendor.VendorName;
+                                }
+                                else
+                                {
+                                    product.Vendor = vendor;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
         }
     }
-}
+    }

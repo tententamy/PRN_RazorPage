@@ -1,5 +1,5 @@
 ﻿@page
-@model MilkBabyRazorWebApp.Pages.ProductPage.IndexModel
+@model MilkBabyRazorWebApp.Pages.ProductsPage.IndexModel
 
 @{
     ViewData["Title"] = "Index";
@@ -7,9 +7,14 @@
 
 <h1>Index</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <a asp-page="Create" class="btn btn-success">Create New</a>
+    <form method="get" class="d-flex align-items-center">
+        <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search" name="SearchKey" value="@Model.SearchKey" style="width: 200px;">
+        <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+</div>
+
 <table class="table">
     <thead>
         <tr>
@@ -37,10 +42,25 @@
             <th>
                 @Html.DisplayNameFor(model => model.Product[0].ProductImg)
             </th>
+       @*      <th>
+                @Html.DisplayNameFor(model => model.Product[0].ProductWeight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].ProductDimensions)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].ProductStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].ProductCreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].ProductUpdatedDate)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Product[0].Vendor)
             </th>
-            <th></th>
+            <th></th> *@
         </tr>
     </thead>
     <tbody>
@@ -70,9 +90,24 @@
             <td>
                 @Html.DisplayFor(modelItem => item.ProductImg)
             </td>
+           @*  <td>
+                @Html.DisplayFor(modelItem => item.ProductWeight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductDimensions)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductCreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductUpdatedDate)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Vendor.VendorName)
-            </td>
+            </td> *@
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ProductId">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.ProductId">Details</a> |

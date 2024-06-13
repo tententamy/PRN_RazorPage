@@ -13,7 +13,6 @@ namespace MilkBabyRazorWebApp.Pages.CustomerPage
 {
     public class EditModel : PageModel
     {
-        //private readonly MilkBabyData.Models.Net1702Prn221MilkBabyContext _context;
         private readonly ICustomerBusiness _customerBusiness;
 
         public EditModel()
@@ -31,7 +30,7 @@ namespace MilkBabyRazorWebApp.Pages.CustomerPage
                 return NotFound();
             }
 
-            var customer =  await _customerBusiness.GetById((Guid)id);
+            var customer = await _customerBusiness.GetById((Guid)id);
             if (customer == null)
             {
                 return NotFound();
@@ -53,6 +52,7 @@ namespace MilkBabyRazorWebApp.Pages.CustomerPage
 
             try
             {
+                Customer.CustomerUpdatedDate = DateOnly.FromDateTime(DateTime.UtcNow);
                 await _customerBusiness.Update(Customer);
             }
             catch (DbUpdateConcurrencyException)

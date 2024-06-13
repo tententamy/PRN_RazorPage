@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using MilkBabyBusiness.Category;
 using MilkBabyData.Models;
 
-namespace MilkBabyRazorWebApp.Pages.OrderPage
+namespace MilkBabyRazorWebApp.Pages.OrdersPage
 {
     public class CreateModel : PageModel
     {
@@ -23,7 +23,7 @@ namespace MilkBabyRazorWebApp.Pages.OrderPage
 
         public IActionResult OnGet()
         {
-        ViewData["CustomerId"] = new SelectList(_customer.GetAll().Result.Data as List<Customer>, "CustomerId", "CustomerName");
+            ViewData["CustomerId"] = new SelectList(_customer.GetAll().Result.Data as List<Customer>, "CustomerId", "CustomerName");
             return Page();
         }
 
@@ -40,6 +40,8 @@ namespace MilkBabyRazorWebApp.Pages.OrderPage
 
             Order.OrderId = Guid.NewGuid();
             Order.OrderDate = DateOnly.FromDateTime(DateTime.UtcNow);
+            Order.OrderUpdatedDate = DateOnly.FromDateTime(DateTime.UtcNow);
+            
             await _business.Save(Order);
 
             return RedirectToPage("./Index");

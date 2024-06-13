@@ -1,5 +1,5 @@
 ﻿@page
-@model MilkBabyRazorWebApp.Pages.OrderPage.EditModel
+@model MilkBabyRazorWebApp.Pages.OrdersPage.EditModel
 
 @{
     ViewData["Title"] = "Edit";
@@ -19,11 +19,11 @@
                 <select asp-for="Order.CustomerId" class="form-control" asp-items="ViewBag.CustomerId"></select>
                 <span asp-validation-for="Order.CustomerId" class="text-danger"></span>
             </div>
-            <div class="form-group">
+             <div class="form-group">
                 <label asp-for="Order.OrderDate" class="control-label"></label>
-                <input asp-for="Order.OrderDate" class="form-control" type="date" />
+                <input asp-for="Order.OrderDate" class="form-control" readonly/>
                 <span asp-validation-for="Order.OrderDate" class="text-danger"></span>
-            </div>
+            </div> 
             <div class="form-group">
                 <label asp-for="Order.TotalAmount" class="control-label"></label>
                 <input asp-for="Order.TotalAmount" class="form-control" />
@@ -34,6 +34,45 @@
                 <input asp-for="Order.Voucher" class="form-control" />
                 <span asp-validation-for="Order.Voucher" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="Order.OrderStatus" class="control-label"></label>
+                <select asp-for="Order.OrderStatus" class="form-control">
+                    <option value="true">Active</option>
+                    <option value="false">Unactive</option>
+                </select>
+                <span asp-validation-for="Order.OrderStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.OrderShippingAddress" class="control-label"></label>
+                <input asp-for="Order.OrderShippingAddress" class="form-control" />
+                <span asp-validation-for="Order.OrderShippingAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.OrderBillingAddress" class="control-label"></label>
+                <input asp-for="Order.OrderBillingAddress" class="form-control" />
+                <span asp-validation-for="Order.OrderBillingAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.OrderPaymentMethod" class="control-label"></label>
+                <input asp-for="Order.OrderPaymentMethod" class="form-control" />
+                <span asp-validation-for="Order.OrderPaymentMethod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.OrderShippingMethod" class="control-label"></label>
+                <input asp-for="Order.OrderShippingMethod" class="form-control" />
+                <span asp-validation-for="Order.OrderShippingMethod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.OrderTrackingNumber" class="control-label"></label>
+                <input asp-for="Order.OrderTrackingNumber" class="form-control" />
+                <span asp-validation-for="Order.OrderTrackingNumber" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Order.OrderCreatedDate" />
+          @*   <div class="form-group">
+                <label asp-for="Order.OrderUpdatedDate" class="control-label"></label>
+                <input asp-for="Order.OrderUpdatedDate" class="form-control" />
+                <span asp-validation-for="Order.OrderUpdatedDate" class="text-danger"></span>
+            </div> *@
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>

@@ -39,7 +39,7 @@
                 <td class="text-center">@review.CustomerId</td>
                 <td class="text-center">@review.Rating</td>
                 <td class="text-center">@review.ReviewText</td>
-                <td class="text-center">@review.ReviewDate?.ToString("yyyy-MM-dd")</td>
+                <td class="text-center">@review.ReviewCreatedDate?.ToString("yyyy-MM-dd")</td>
                 <td class="text-center">@review.ReviewImg</td>
                 <td class="text-center">
                     <button type="button" class="btn btn-danger" onclick="remove('@review.ReviewId')">Remove</button>

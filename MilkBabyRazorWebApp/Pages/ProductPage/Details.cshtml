@@ -1,5 +1,5 @@
 ﻿@page
-@model MilkBabyRazorWebApp.Pages.ProductPage.DetailsModel
+@model MilkBabyRazorWebApp.Pages.ProductsPage.DetailsModel
 
 @{
     ViewData["Title"] = "Details";
@@ -60,10 +60,40 @@
             @Html.DisplayFor(model => model.Product.ProductImg)
         </dd>
         <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Product.ProductWeight)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Product.ProductWeight)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Product.ProductDimensions)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Product.ProductDimensions)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Product.ProductStatus)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Product.ProductStatus)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Product.ProductCreatedDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Product.ProductCreatedDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Product.ProductUpdatedDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Product.ProductUpdatedDate)
+        </dd>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Product.Vendor)
         </dt>
         <dd class="col-sm-10">
-            @(Model.Product.Vendor != null ? Html.DisplayFor(model => model.Product.Vendor.VendorName) : "N/A")
+            @Html.DisplayFor(model => model.Product.Vendor.VendorName)
         </dd>
     </dl>
 </div>
