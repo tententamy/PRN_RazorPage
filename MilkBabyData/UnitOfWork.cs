@@ -16,11 +16,11 @@ namespace MilkBabyData
             private OrderItemRepository _orderItemRepository;
             private OrderRepository _orderRepository;
             private ReviewRepository _reviewRepository;
-            private Net1702Prn221MilkBabyContext _unitOfWorkContext;
+            private NET1702_PRN221_MilkBabyContext _unitOfWorkContext;
 
         public UnitOfWork()
         {
-            _unitOfWorkContext ??= new Net1702Prn221MilkBabyContext();
+            _unitOfWorkContext ??= new NET1702_PRN221_MilkBabyContext();
         }
 
         public ProductRepository ProductRepository

@@ -58,15 +58,11 @@ namespace MilkBabyRazorWebApp.Pages.ReviewPage
                 return Page();
             }
 
-            // Ensure ReviewDate is not null and is a valid date
-            if (Review.ReviewDate == null || Review.ReviewDate == default)
-            {
-                ModelState.AddModelError("Review.ReviewDate", "Review Date is required.");
-                return Page();
-            }
+          
 
             try
             {
+                Review.ReviewDate = DateOnly.FromDateTime(DateTime.UtcNow);
                 await _ReviewBusiness.Update(Review);
             }
             catch (Exception ex)

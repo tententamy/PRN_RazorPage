@@ -11,7 +11,7 @@ namespace MilkBabyData.Repository
     public class OrderItemRepository : GenericRepository<OrderItem>
     {
         public OrderItemRepository() { }
-        public OrderItemRepository(Net1702Prn221MilkBabyContext context) : base(context) => _context = context;
+        public OrderItemRepository(NET1702_PRN221_MilkBabyContext context) : base(context) => _context = context;
 
         public async Task<List<OrderItem>> GetByOrderIdAsync(Guid orderId)
         {

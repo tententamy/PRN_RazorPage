@@ -11,6 +11,6 @@ namespace MilkBabyData.Repository
     {
         ReviewRepository() { }
 
-        public ReviewRepository(Net1702Prn221MilkBabyContext context) : base(context) => _context = context;
+        public ReviewRepository(NET1702_PRN221_MilkBabyContext context) : base(context) => _context = context;
     }
 }

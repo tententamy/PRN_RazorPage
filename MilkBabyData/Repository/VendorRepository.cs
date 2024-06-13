@@ -11,7 +11,7 @@ namespace MilkBabyData.Repository
     {
         public VendorRepository() { }
 
-        public VendorRepository(Net1702Prn221MilkBabyContext context) : base(context) => _context = context;
+        public VendorRepository(NET1702_PRN221_MilkBabyContext context) : base(context) => _context = context;
     }
 }
 

@@ -10,6 +10,6 @@ namespace MilkBabyData.Repository
     public class OrderRepository : GenericRepository<Order>
     {
         public OrderRepository() { }
-        public OrderRepository(Net1702Prn221MilkBabyContext context) : base(context) => _context = context;
+        public OrderRepository(NET1702_PRN221_MilkBabyContext context) : base(context) => _context = context;
     }
 }

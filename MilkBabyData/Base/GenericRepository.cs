@@ -3,18 +3,18 @@ using MilkBabyData.Models;
 
 public class GenericRepository<T> where T : class
 {
-    protected Net1702Prn221MilkBabyContext _context;
+    protected NET1702_PRN221_MilkBabyContext _context;
     protected readonly DbSet<T> _dbSet;
 
     public GenericRepository()
     {
-        _context ??= new Net1702Prn221MilkBabyContext();
+        _context ??= new NET1702_PRN221_MilkBabyContext();
         _dbSet = _context.Set<T>();
     }
 
     #region Separating asign entity and save operators
 
-    public GenericRepository(Net1702Prn221MilkBabyContext context)
+    public GenericRepository(NET1702_PRN221_MilkBabyContext context)
     {
         _context = context;
         _dbSet = _context.Set<T>();
