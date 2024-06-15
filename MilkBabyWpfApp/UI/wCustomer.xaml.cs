@@ -28,75 +28,67 @@ namespace MilkBabyWpfApp.UI
             InitializeComponent();
             _business = new CustomerBusiness();
             LoadGridCustomers();
-
         }
+
         private async void ButtonSave_Click(object sender, RoutedEventArgs e)
         {
-            
-                try
+            try
+            {
+                Guid idTmp = new Guid();
+                Guid.TryParse(txtCustomerID.Text, out idTmp);
+
+                var item = await _business.GetById(idTmp);
+
+                if (item.Data == null)
                 {
-                    Guid idTmp = new Guid();
-                    Guid.TryParse(txtCustomerID.Text, out idTmp);
-
-                    var item = await _business.GetById(idTmp);
-
-                    if (item.Data == null)
+                    var customer = new Customer()
                     {
-                    var currency = new Customer()
-                    {
-                            CustomerId = Guid.NewGuid(),
-                            CustomerName = txtCustomerName.Text,
-                            CustomerEmail = txtCustomerEmail.Text,
-                            CustomerAddress = txtCustomerAddress.Text,
-                            CustomerPhone = txtCustomerPhone.Text,
-                            CustomerImg = txtCustomerImg.Text,
-                            CustomerPassword = txtCustomerPassword.Text,
-                        };
+                        CustomerId = Guid.NewGuid(),
+                        CustomerName = txtCustomerName.Text,
+                        CustomerEmail = txtCustomerEmail.Text,
+                        CustomerAddress = txtCustomerAddress.Text,
+                        CustomerPhone = txtCustomerPhone.Text,
+                        CustomerImg = txtCustomerImg.Text,
+                        CustomerPassword = txtCustomerPassword.Text,
+                        CustomerBirthDate = dpCustomerBirthDate.SelectedDate.HasValue ? DateOnly.FromDateTime(dpCustomerBirthDate.SelectedDate.Value) : null,
+                        CustomerGender = ((ComboBoxItem)cbCustomerGender.SelectedItem)?.Content?.ToString(),
+                        CustomerStatus = chkCustomerStatus.IsChecked ?? false
+                    };
 
-                        var result = await _business.Save(currency);
-                        MessageBox.Show(result.Message, "Save");
-                    }
-                    else
-                    {
-
-                    var currency = item.Data as Customer;
-                        //currency.CurrencyCode = txtCurrencyCode.Text;
-                        currency.CustomerName = txtCustomerName.Text;
-                        currency.CustomerAddress = txtCustomerAddress.Text;
-                        currency.CustomerEmail = txtCustomerEmail.Text;
-                        currency.CustomerPhone = txtCustomerPhone.Text;
-                        currency.CustomerPassword = txtCustomerPassword.Text;
-                        currency.CustomerImg = txtCustomerImg.Text;
-
-                        var result = await _business.Update(currency);
-                        MessageBox.Show(result.Message, "Update");
-                    }
-
-                    txtCustomerName.Text = string.Empty;
-                    txtCustomerAddress.Text = string.Empty;
-                    txtCustomerEmail.Text = string.Empty;
-                    txtCustomerPhone.Text = string.Empty;
-                    txtCustomerPassword.Text = string.Empty;
-                    txtCustomerImg.Text = string.Empty;
-                    this.LoadGridCustomers();
+                    var result = await _business.Save(customer);
+                    MessageBox.Show(result.Message, "Save");
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.ToString(), "Error");
+                    var customer = item.Data as Customer;
+                    customer.CustomerName = txtCustomerName.Text;
+                    customer.CustomerAddress = txtCustomerAddress.Text;
+                    customer.CustomerEmail = txtCustomerEmail.Text;
+                    customer.CustomerPhone = txtCustomerPhone.Text;
+                    customer.CustomerPassword = txtCustomerPassword.Text;
+                    customer.CustomerImg = txtCustomerImg.Text;
+                    customer.CustomerBirthDate = dpCustomerBirthDate.SelectedDate.HasValue ? DateOnly.FromDateTime(dpCustomerBirthDate.SelectedDate.Value) : null;
+                    customer.CustomerGender = ((ComboBoxItem)cbCustomerGender.SelectedItem)?.Content?.ToString();
+                    customer.CustomerStatus = chkCustomerStatus.IsChecked ?? false;
+
+                    var result = await _business.Update(customer);
+                    MessageBox.Show(result.Message, "Update");
                 }
 
-            
+                ClearForm();
+                LoadGridCustomers();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error");
+            }
         }
-        private void ButtonCancel_Click(object sender, RoutedEventArgs e) 
+
+        private void ButtonCancel_Click(object sender, RoutedEventArgs e)
         {
-            txtCustomerID.Text = string.Empty;
-            txtCustomerName.Text = string.Empty;
-            txtCustomerAddress.Text = string.Empty;
-            txtCustomerEmail.Text = string.Empty;
-            txtCustomerPhone.Text = string.Empty;
-            txtCustomerPassword.Text = string.Empty;
-            txtCustomerImg.Text = string.Empty;
+            ClearForm();
         }
+
         private async void grdCustomer_ButtonDelete_Click(object sender, RoutedEventArgs e)
         {
             if (grdCustomer.SelectedItem != null)
@@ -107,47 +99,56 @@ namespace MilkBabyWpfApp.UI
                     var result = await _business.DeleteById(customer.CustomerId);
                     MessageBox.Show(result.Message, "Delete");
 
-
-                    txtCustomerName.Text = string.Empty;
-                    txtCustomerAddress.Text = string.Empty;
-                    txtCustomerEmail.Text = string.Empty;
-                    txtCustomerPhone.Text = string.Empty;
-                    txtCustomerPassword.Text = string.Empty;
-                    txtCustomerImg.Text = string.Empty;
+                    ClearForm();
                     LoadGridCustomers();
                 }
             }
         }
-        private async void grdCustomer_MouseDouble_Click(object sender, RoutedEventArgs e) 
-            {
-                if (grdCustomer.SelectedItem != null)
-                {
-                    var customer = grdCustomer.SelectedItem as Customer;
-                    txtCustomerID.Text = customer.CustomerId.ToString();
-                    txtCustomerName.Text = customer.CustomerName;
-                    txtCustomerAddress.Text = customer.CustomerAddress;
-                    txtCustomerEmail.Text = customer.CustomerEmail;
-                    txtCustomerPhone.Text = customer.CustomerPhone;
-                    txtCustomerPassword.Text = customer.CustomerPassword;
-                    txtCustomerImg.Text = customer.CustomerImg;
 
-            }
-            }
-
-        private async void LoadGridCustomers() 
+        private async void grdCustomer_MouseDouble_Click(object sender, RoutedEventArgs e)
         {
-           
-                var result = await _business.GetAll();
+            if (grdCustomer.SelectedItem != null)
+            {
+                var customer = grdCustomer.SelectedItem as Customer;
+                txtCustomerID.Text = customer.CustomerId.ToString();
+                txtCustomerName.Text = customer.CustomerName;
+                txtCustomerAddress.Text = customer.CustomerAddress;
+                txtCustomerEmail.Text = customer.CustomerEmail;
+                txtCustomerPhone.Text = customer.CustomerPhone;
+                txtCustomerPassword.Text = customer.CustomerPassword;
+                txtCustomerImg.Text = customer.CustomerImg;
+                dpCustomerBirthDate.Text = customer.CustomerBirthDate.ToString();
+                cbCustomerGender.Text = customer.CustomerGender;
+                chkCustomerStatus.IsChecked = customer.CustomerStatus;
+            }
+        }
 
-                if (result.Status > 0 && result.Data != null)
-                {
-                    grdCustomer.ItemsSource = result.Data as List<Customer>;
-                }
-                else
-                {
-                    grdCustomer.ItemsSource = new List<Customer>();
-                }
-            
+        private async void LoadGridCustomers()
+        {
+            var result = await _business.GetAll();
+
+            if (result.Status > 0 && result.Data != null)
+            {
+                grdCustomer.ItemsSource = result.Data as List<Customer>;
+            }
+            else
+            {
+                grdCustomer.ItemsSource = new List<Customer>();
+            }
+        }
+
+        private void ClearForm()
+        {
+            txtCustomerID.Text = string.Empty;
+            txtCustomerName.Text = string.Empty;
+            txtCustomerAddress.Text = string.Empty;
+            txtCustomerEmail.Text = string.Empty;
+            txtCustomerPhone.Text = string.Empty;
+            txtCustomerPassword.Text = string.Empty;
+            txtCustomerImg.Text = string.Empty;
+            dpCustomerBirthDate.SelectedDate = null;
+            cbCustomerGender.SelectedIndex = -1;
+            chkCustomerStatus.IsChecked = false;
         }
     }
 }

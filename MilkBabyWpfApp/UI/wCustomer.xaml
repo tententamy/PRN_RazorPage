@@ -25,6 +25,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
@@ -50,45 +51,52 @@
 
                     <Label Grid.Column="4" Grid.Row="1" Content="Password" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
                     <TextBox Grid.Column="5" Grid.Row="1" x:Name="txtCustomerPassword" Height="25" Text="{Binding Path=CustomerPassword, Mode=TwoWay}" Margin="5" Width="180" HorizontalAlignment="Left"/>
-                </Grid>
 
+                    <!-- Row 3: Birth Date, Gender, Status -->
+                    <Label Grid.Column="0" Grid.Row="2" Content="Birth Date" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+                    <DatePicker Grid.Column="1" Grid.Row="2" x:Name="dpCustomerBirthDate" SelectedDate="{Binding Path=CustomerBirthDate, Mode=TwoWay}" Margin="5" Width="180" HorizontalAlignment="Left"/>
+
+                    <Label Grid.Column="2" Grid.Row="2" Content="Gender" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+                    <ComboBox Grid.Column="3" Grid.Row="2" x:Name="cbCustomerGender" SelectedValue="{Binding Path=CustomerGender, Mode=TwoWay}" Margin="5" Width="180" HorizontalAlignment="Left">
+                        <ComboBoxItem Content="Male"/>
+                        <ComboBoxItem Content="Female"/>
+                        <ComboBoxItem Content="Other"/>
+                    </ComboBox>
+
+                    <Label Grid.Column="4" Grid.Row="2" Content="Status" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+                    <CheckBox Grid.Column="5" Grid.Row="2" x:Name="chkCustomerStatus" IsChecked="{Binding Path=CustomerStatus, Mode=TwoWay}" Margin="5" Width="180" HorizontalAlignment="Left"/>
+                </Grid>
             </GroupBox>
+
             <StackPanel Height="40" Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button x:Name="ButtonSave" Content="Save" Height="30" Width="80" Click="ButtonSave_Click"/>
                 <Button x:Name="ButtonCancel" Content="Cancel" Height="30" Width="80" Click="ButtonCancel_Click"/>
             </StackPanel>
+
             <StackPanel Height="210">
                 <DataGrid x:Name="grdCustomer" AutoGenerateColumns="False" ItemsSource="{Binding Customer}" CanUserAddRows="False" Height="200" Margin="10" MouseDoubleClick="grdCustomer_MouseDouble_Click" SelectionMode="Single" SelectionUnit="FullRow">
                     <DataGrid.Columns>
-                        <!--<DataGridTextColumn Header="Code" Binding="{Binding Path=Id}" Visibility="Hidden"/>-->
                         <DataGridTextColumn Header="Code" Binding="{Binding Path=CustomerId}" Visibility="Visible"/>
-                        <DataGridTextColumn Header="Name" Binding="{Binding Path=CustomerName}" Width="100"  IsReadOnly="True"/>
-                        <DataGridTextColumn Header="Email" Binding="{Binding Path=CustomerEmail}" Width="50"  IsReadOnly="True"/>
-                        <DataGridTextColumn Header="Phone" Binding="{Binding Path=CustomerPhone}" Width="50"  IsReadOnly="True"/>
-                        <DataGridTextColumn Header="Address" Binding="{Binding Path=CustomerAddress}" Width="50"  IsReadOnly="True"/>
-                        <DataGridTextColumn Header="Image" Binding="{Binding Path=CustomerImg}" Width="50"  IsReadOnly="True"/>
-                        <DataGridTextColumn Header="Password" Binding="{Binding Path=CustomerPassword}" Width="50"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Path=CustomerName}" Width="100" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Email" Binding="{Binding Path=CustomerEmail}" Width="50" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Phone" Binding="{Binding Path=CustomerPhone}" Width="50" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Address" Binding="{Binding Path=CustomerAddress}" Width="50" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Image" Binding="{Binding Path=CustomerImg}" Width="50" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Password" Binding="{Binding Path=CustomerPassword}" Width="50" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Birth Date" Binding="{Binding Path=CustomerBirthDate}" Width="50" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Gender" Binding="{Binding Path=CustomerGender}" Width="50" IsReadOnly="True"/>
+                        <DataGridCheckBoxColumn Header="Status" Binding="{Binding Path=CustomerStatus}" Width="50" IsReadOnly="True"/>
                         <DataGridTemplateColumn Width="50">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Content="X" x:Name="ButtonDelete" CommandParameter="{Binding Path=CurrencyCode}" Click="grdCustomer_ButtonDelete_Click"/>
+                                    <Button Content="X" x:Name="ButtonDelete" CommandParameter="{Binding Path=CustomerId}" Click="grdCustomer_ButtonDelete_Click"/>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-
-                        <!--<DataGridTemplateColumn Width="50">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button Content="Delete" x:Name="ButtonDelete" CommandParameter="{Binding Path=Id}"
-                                Command="{Binding Path=DataContext.DeleteCommand, RelativeSource={RelativeSource FindAncestor,
-                                        AncestorType=Window}}"/>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>-->
-
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
         </StackPanel>
     </Grid>
+
 </Window>

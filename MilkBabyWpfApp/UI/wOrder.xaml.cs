@@ -36,7 +36,15 @@ namespace MilkBabyWpfApp.UI
                         CustomerId = Guid.Parse(txtOrderCustomerId.Text),
                         OrderDate = dpOrderDate.SelectedDate.HasValue ? DateOnly.FromDateTime(dpOrderDate.SelectedDate.Value) : DateOnly.FromDateTime(DateTime.Now),
                         TotalAmount = decimal.Parse(txtTotalAmount.Text),
-                        Voucher = txtVoucher.Text
+                        Voucher = txtVoucher.Text,
+                        OrderStatus = txtOrderStatus.Text,
+                        OrderShippingAddress = txtOrderShippingAddress.Text,
+                        OrderBillingAddress = txtOrderBillingAddress.Text,
+                        OrderPaymentMethod = txtOrderPaymentMethod.Text,
+                        OrderShippingMethod = txtOrderShippingMethod.Text,
+                        OrderTrackingNumber = txtOrderTrackingNumber.Text,
+                        OrderCreatedDate = DateOnly.FromDateTime(DateTime.Now),
+                        OrderUpdatedDate = DateOnly.FromDateTime(DateTime.Now)
                     };
 
                     var result = await _business.Save(order);
@@ -49,6 +57,13 @@ namespace MilkBabyWpfApp.UI
                     order.OrderDate = dpOrderDate.SelectedDate.HasValue ? DateOnly.FromDateTime(dpOrderDate.SelectedDate.Value) : DateOnly.FromDateTime(DateTime.Now);
                     order.TotalAmount = decimal.Parse(txtTotalAmount.Text);
                     order.Voucher = txtVoucher.Text;
+                    order.OrderStatus = txtOrderStatus.Text;
+                    order.OrderShippingAddress = txtOrderShippingAddress.Text;
+                    order.OrderBillingAddress = txtOrderBillingAddress.Text;
+                    order.OrderPaymentMethod = txtOrderPaymentMethod.Text;
+                    order.OrderShippingMethod = txtOrderShippingMethod.Text;
+                    order.OrderTrackingNumber = txtOrderTrackingNumber.Text;
+                    order.OrderUpdatedDate = DateOnly.FromDateTime(DateTime.Now);
 
                     var result = await _business.Update(order);
                     MessageBox.Show(result.Message, "Update");
@@ -94,6 +109,12 @@ namespace MilkBabyWpfApp.UI
                 dpOrderDate.SelectedDate = order.OrderDate?.ToDateTime(TimeOnly.MinValue);
                 txtTotalAmount.Text = order.TotalAmount.ToString();
                 txtVoucher.Text = order.Voucher;
+                txtOrderStatus.Text = order.OrderStatus;
+                txtOrderShippingAddress.Text = order.OrderShippingAddress;
+                txtOrderBillingAddress.Text = order.OrderBillingAddress;
+                txtOrderPaymentMethod.Text = order.OrderPaymentMethod;
+                txtOrderShippingMethod.Text = order.OrderShippingMethod;
+                txtOrderTrackingNumber.Text = order.OrderTrackingNumber;
             }
         }
 
@@ -118,6 +139,12 @@ namespace MilkBabyWpfApp.UI
             dpOrderDate.SelectedDate = null;
             txtTotalAmount.Text = string.Empty;
             txtVoucher.Text = string.Empty;
+            txtOrderStatus.Text = string.Empty;
+            txtOrderShippingAddress.Text = string.Empty;
+            txtOrderBillingAddress.Text = string.Empty;
+            txtOrderPaymentMethod.Text = string.Empty;
+            txtOrderShippingMethod.Text = string.Empty;
+            txtOrderTrackingNumber.Text = string.Empty;
         }
     }
 }

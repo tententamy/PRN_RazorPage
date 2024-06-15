@@ -17,10 +17,12 @@ namespace MilkBabyBusiness.Category
         Task<IBusinessResult> Save(Vendor vendor);
         Task<IBusinessResult> Update(Vendor vendor);
         Task<IBusinessResult> DeleteById(Guid id);
+        Task<IBusinessResult> Search(string searchTerm);
+
     }
 
     public class VendorBusiness : IVendorBusiness
-    { 
+    {
         private readonly UnitOfWork _unitOfWork;
 
         public VendorBusiness()
@@ -78,7 +80,7 @@ namespace MilkBabyBusiness.Category
 
         public async Task<IBusinessResult> Save(Vendor vendor)
         {
-    
+
             try
             {
                 int result = await _unitOfWork.VendorRepository.CreateAsync(vendor);
@@ -131,6 +133,26 @@ namespace MilkBabyBusiness.Category
             }
         }
 
-        
+        public async Task<IBusinessResult> Search(string searchTerm)
+        {
+            try
+            {
+                var vendors = await _unitOfWork.VendorRepository.SearchAsync(searchTerm);
+
+                if (!vendors.Any())
+                {
+                    return new BusinessResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA__MSG);
+                }
+                else
+                {
+                    return new BusinessResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, vendors.ToList());
+                }
+            }
+            catch (Exception ex)
+            {
+                return new BusinessResult(Const.ERROR_EXCEPTION, ex.Message);
+            }
+        }
+
     }
 }

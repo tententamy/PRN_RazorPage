@@ -36,7 +36,12 @@ namespace MilkBabyWpfApp.UI
                         OrderId = Guid.Parse(txtOrderId.Text),
                         ProductId = Guid.Parse(txtProductId.Text),
                         Quantity = int.Parse(txtQuantity.Text),
-                        Price = decimal.Parse(txtPrice.Text)
+                        Price = decimal.Parse(txtPrice.Text),
+                        Discount = decimal.Parse(txtDiscount.Text),
+                        Tax = decimal.Parse(txtTax.Text),
+                        TotalPrice = decimal.Parse(txtTotalPrice.Text),
+                        OrderItemCreatedDate = DateOnly.FromDateTime(DateTime.Now),
+                        OrderItemUpdatedDate = DateOnly.FromDateTime(DateTime.Now)
                     };
 
                     var result = await _business.Save(orderItem);
@@ -49,6 +54,11 @@ namespace MilkBabyWpfApp.UI
                     orderItem.ProductId = Guid.Parse(txtProductId.Text);
                     orderItem.Quantity = int.Parse(txtQuantity.Text);
                     orderItem.Price = decimal.Parse(txtPrice.Text);
+                    orderItem.Discount = decimal.Parse(txtDiscount.Text);
+                    orderItem.Tax = decimal.Parse(txtTax.Text);
+                    orderItem.TotalPrice = decimal.Parse(txtTotalPrice.Text);
+                    orderItem.OrderItemCreatedDate = DateOnly.Parse(txtCreatedDate.Text);
+                    orderItem.OrderItemUpdatedDate = DateOnly.FromDateTime(DateTime.Now);
 
                     var result = await _business.Update(orderItem);
                     MessageBox.Show(result.Message, "Update");
@@ -94,6 +104,11 @@ namespace MilkBabyWpfApp.UI
                 txtProductId.Text = orderItem.ProductId.ToString();
                 txtQuantity.Text = orderItem.Quantity.ToString();
                 txtPrice.Text = orderItem.Price.ToString();
+                txtDiscount.Text = orderItem.Discount.ToString();
+                txtTax.Text = orderItem.Tax.ToString();
+                txtTotalPrice.Text = orderItem.TotalPrice.ToString();
+                txtCreatedDate.Text = orderItem.OrderItemCreatedDate.ToString();
+                txtUpdatedDate.Text = orderItem.OrderItemUpdatedDate.ToString();
             }
         }
 
@@ -118,6 +133,11 @@ namespace MilkBabyWpfApp.UI
             txtProductId.Text = string.Empty;
             txtQuantity.Text = string.Empty;
             txtPrice.Text = string.Empty;
+            txtDiscount.Text = string.Empty;
+            txtTax.Text = string.Empty;
+            txtTotalPrice.Text = string.Empty;
+            txtCreatedDate.Text = string.Empty;
+            txtUpdatedDate.Text = string.Empty;
         }
     }
 }

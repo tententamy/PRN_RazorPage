@@ -20,6 +20,9 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
@@ -39,6 +42,27 @@
 
                     <Label Grid.Column="2" Grid.Row="1" Content="Voucher" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
                     <TextBox Grid.Column="3" Grid.Row="1" x:Name="txtVoucher" Height="25" Text="{Binding Path=Voucher, Mode=TwoWay}" Margin="5" Width="180" HorizontalAlignment="Left"/>
+
+                    <!-- Row 3: Order Status, Order Shipping Address -->
+                    <Label Grid.Column="0" Grid.Row="2" Content="Order Status" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+                    <TextBox Grid.Column="1" Grid.Row="2" x:Name="txtOrderStatus" Height="25" Text="{Binding Path=OrderStatus, Mode=TwoWay}" Margin="5" Width="180" HorizontalAlignment="Left"/>
+
+                    <Label Grid.Column="2" Grid.Row="2" Content="Shipping Address" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+                    <TextBox Grid.Column="3" Grid.Row="2" x:Name="txtOrderShippingAddress" Height="25" Text="{Binding Path=OrderShippingAddress, Mode=TwoWay}" Margin="5" Width="180" HorizontalAlignment="Left"/>
+
+                    <!-- Row 4: Order Billing Address, Order Payment Method -->
+                    <Label Grid.Column="0" Grid.Row="3" Content="Billing Address" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+                    <TextBox Grid.Column="1" Grid.Row="3" x:Name="txtOrderBillingAddress" Height="25" Text="{Binding Path=OrderBillingAddress, Mode=TwoWay}" Margin="5" Width="180" HorizontalAlignment="Left"/>
+
+                    <Label Grid.Column="2" Grid.Row="3" Content="Payment Method" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+                    <TextBox Grid.Column="3" Grid.Row="3" x:Name="txtOrderPaymentMethod" Height="25" Text="{Binding Path=OrderPaymentMethod, Mode=TwoWay}" Margin="5" Width="180" HorizontalAlignment="Left"/>
+
+                    <!-- Row 5: Order Shipping Method, Order Tracking Number -->
+                    <Label Grid.Column="0" Grid.Row="4" Content="Shipping Method" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+                    <TextBox Grid.Column="1" Grid.Row="4" x:Name="txtOrderShippingMethod" Height="25" Text="{Binding Path=OrderShippingMethod, Mode=TwoWay}" Margin="5" Width="180" HorizontalAlignment="Left"/>
+
+                    <Label Grid.Column="2" Grid.Row="4" Content="Tracking Number" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+                    <TextBox Grid.Column="3" Grid.Row="4" x:Name="txtOrderTrackingNumber" Height="25" Text="{Binding Path=OrderTrackingNumber, Mode=TwoWay}" Margin="5" Width="180" HorizontalAlignment="Left"/>
                 </Grid>
             </GroupBox>
 
@@ -55,6 +79,12 @@
                         <DataGridTextColumn Header="Order Date" Binding="{Binding Path=OrderDate}" Width="100" IsReadOnly="True"/>
                         <DataGridTextColumn Header="Total Amount" Binding="{Binding Path=TotalAmount}" Width="100" IsReadOnly="True"/>
                         <DataGridTextColumn Header="Voucher" Binding="{Binding Path=Voucher}" Width="100" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Order Status" Binding="{Binding Path=OrderStatus}" Width="100" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Shipping Address" Binding="{Binding Path=OrderShippingAddress}" Width="100" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Billing Address" Binding="{Binding Path=OrderBillingAddress}" Width="100" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Payment Method" Binding="{Binding Path=OrderPaymentMethod}" Width="100" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Shipping Method" Binding="{Binding Path=OrderShippingMethod}" Width="100" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Tracking Number" Binding="{Binding Path=OrderTrackingNumber}" Width="100" IsReadOnly="True"/>
                         <DataGridTemplateColumn Width="50">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
@@ -67,4 +97,5 @@
             </StackPanel>
         </StackPanel>
     </Grid>
+
 </Window>

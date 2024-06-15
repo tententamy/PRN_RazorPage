@@ -1,0 +1,134 @@
+﻿@page
+@model MilkBabyRazorWebApp.Pages.VendorPage.IndexModel
+
+@{
+	ViewData["Title"] = "Index";
+}
+
+<h1>Vendor Index</h1>
+
+
+<div style="display: flex; justify-content: space-between ">
+	<p class="btn btn-dark" style="margin: 0;">
+		<a style="text-decoration: none; color: white" asp-page="Create">Create New</a>
+	</p>
+	<form method="get" style="margin: 0;">
+		<div class="input-group">
+		@* 	<input class="form-control" asp-for="SearchTerm" /> *@
+			<input class="form-control"  type="text" id="searchInput" name="SearchTerm" value="@Model.SearchTerm" placeholder="Search...">
+			<div class="input-group-append">
+				<button type="submit" class="btn btn-primary">Search</button>
+			</div>
+		</div>
+	</form>
+</div>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.Vendor[0].VendorName) 
+			</th>
+			@* <th>
+				@Html.DisplayNameFor(model => model.Vendor[0].VendorAddress)
+			</th> *@
+			<th>
+				 @Html.DisplayNameFor(model => model.Vendor[0].VendorPhone) 
+			</th>
+			<th>
+				 @Html.DisplayNameFor(model => model.Vendor[0].VendorEmail) 
+			</th>
+			<th>
+				 @Html.DisplayNameFor(model => model.Vendor[0].VendorContactPerson)  
+			</th> 
+			@* <th>
+				@Html.DisplayNameFor(model => model.Vendor[0].VendorWebsite)
+			</th> 
+			 <th>
+				@Html.DisplayNameFor(model => model.Vendor[0].VendorStatus)
+			</th> 
+			@* <th>
+				@Html.DisplayNameFor(model => model.Vendor[0].VendorCreatedDate)
+			</th> 
+			 <th>
+				@Html.DisplayNameFor(model => model.Vendor[0].VendorUpdatedDate)
+			</th> 
+			 <th>
+				@Html.DisplayNameFor(model => model.Vendor[0].VendorNotes)
+			</th> *@
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model.Vendor)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.VendorName)
+				</td>
+				@* <td>
+					@Html.DisplayFor(modelItem => item.VendorAddress)
+				</td> *@
+				<td>
+					@Html.DisplayFor(modelItem => item.VendorPhone)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.VendorEmail)
+				</td>
+				 <td>
+					@Html.DisplayFor(modelItem => item.VendorContactPerson)
+				</td>
+				@*<td>
+					@Html.DisplayFor(modelItem => item.VendorWebsite)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.VendorStatus)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.VendorCreatedDate)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.VendorUpdatedDate)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.VendorNotes)
+				</td> *@
+				<td>
+					<a class="btn btn-outline-primary" asp-page="./Edit" asp-route-id="@item.VendorId">Edit</a> 
+					<a class="btn btn-outline-secondary" asp-page="./Details" asp-route-id="@item.VendorId">Details</a> 
+					<a class="btn btn-outline-danger" asp-page="./Delete" asp-route-id="@item.VendorId">Delete</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
+<script>
+	function searchFunction() {
+		var input, filter, table, tr, td, i, j, txtValue;
+		var columnsToSearch = [0, 1, 2, 3]; // Indices for VendorName, VendorPhone, VendorEmail, VendorContactPerson
+		input = document.getElementById("searchInput");
+		filter = input.value.toUpperCase();
+		table = document.querySelector(".table");
+		tr = table.getElementsByTagName("tr");
+
+		for (i = 0; i < tr.length; i++) {
+			var found = false;
+			for (j = 0; j < columnsToSearch.length; j++) {
+				td = tr[i].getElementsByTagName("td")[columnsToSearch[j]];
+				if (td) {
+					txtValue = td.textContent || td.innerText;
+					if (txtValue.toUpperCase().indexOf(filter) > -1) {
+						found = true;
+						break;
+					}
+				}
+			}
+			if (found) {
+				tr[i].style.display = "";
+			} else {
+				tr[i].style.display = "none";
+			}
+		}
+	}
+</script>

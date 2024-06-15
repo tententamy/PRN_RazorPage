@@ -1,0 +1,132 @@
+﻿@page
+@model MilkBabyRazorWebApp.Pages.VendorPage.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<style>
+    .inputEdit {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .f4, .l4 {
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding: 10px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-control {
+        height: 40px;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .btn-success {
+        width: 20%;
+        height: 40px;
+        font-size: 16px;
+        padding: 10px;
+    }
+    
+</style>
+
+<h1 class="text-center">Edit</h1>
+
+<h4>Vendor</h4>
+<hr />
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Vendor.VendorId" />
+                <div class="inputEdit">
+                    <div class="f4">
+                        <div class="form-group">
+                            <label asp-for="Vendor.VendorName" class="control-label">Name</label>
+                            <input asp-for="Vendor.VendorName" class="form-control" />
+                            <span asp-validation-for="Vendor.VendorName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Vendor.VendorAddress" class="control-label">Address</label>
+                            <input asp-for="Vendor.VendorAddress" class="form-control" />
+                            <span asp-validation-for="Vendor.VendorAddress" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Vendor.VendorPhone" class="control-label">Phone</label>
+                            <input asp-for="Vendor.VendorPhone" class="form-control" id="phone" oninput="this.value = this.value.replace(/[^0-9]/g, '');" />
+                            <span asp-validation-for="Vendor.VendorPhone" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Vendor.VendorEmail" class="control-label">Email</label>
+                            <input asp-for="Vendor.VendorEmail" class="form-control" />
+                            <span asp-validation-for="Vendor.VendorEmail" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="l4">
+                        <div class="form-group">
+                            <label asp-for="Vendor.VendorContactPerson" class="control-label">Contact Person</label>
+                            <input asp-for="Vendor.VendorContactPerson" class="form-control" />
+                            <span asp-validation-for="Vendor.VendorContactPerson" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Vendor.VendorWebsite" class="control-label">Website</label>
+                            <input asp-for="Vendor.VendorWebsite" class="form-control" />
+                            <span asp-validation-for="Vendor.VendorWebsite" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Vendor.VendorStatus" class="control-label">Status</label>
+                            <select asp-for="Vendor.VendorStatus" class="form-control">
+                                <option value="true">True</option>
+                                <option value="false">False</option>
+                            </select>
+                            <span asp-validation-for="Vendor.VendorStatus" class="text-danger"></span>
+                        </div>
+                     @*    <div class="form-group">
+                            <label asp-for="Vendor.VendorCreatedDate" class="control-label"></label>
+                            <input asp-for="Vendor.VendorCreatedDate" class="form-control" readonly />
+                            <span asp-validation-for="Vendor.VendorCreatedDate" class="text-danger"></span>
+                        </div> *@
+                        <div class="form-group">
+                            <label asp-for="Vendor.VendorNotes" class="control-label">Notes</label>
+                            <input asp-for="Vendor.VendorNotes" class="form-control" />
+                            <span asp-validation-for="Vendor.VendorNotes" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: center;" class="form-group">
+                    <input type="submit" value="Save" class="btn btn-success" id="btnSave"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-outline-secondary" asp-page="./Index">Back to List</a>
+</div>
+<script>
+    document.getElementById('btnSave').addEventListener('click', function () {
+        Swal.fire({
+            title: "Good job!",
+            text: "You clicked the button!",
+            icon: "success"
+        }) 
+    });
+
+</script>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+ 
