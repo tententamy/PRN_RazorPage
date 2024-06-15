@@ -12,5 +12,16 @@ namespace MilkBabyData.Repository
         ReviewRepository() { }
 
         public ReviewRepository(NET1702_PRN221_MilkBabyContext context) : base(context) => _context = context;
+        public async Task<IEnumerable<Review>> SearchAsync(string searchTerm)
+        {
+            return await Task.Run(() =>
+                _context.Reviews.Where(r =>
+                    r.Customer.CustomerName.Contains(searchTerm, StringComparison.OrdinalIgnoreCase) ||
+                    r.Product.ProductName.Contains(searchTerm, StringComparison.OrdinalIgnoreCase) ||
+                    r.ReviewTitle.Contains(searchTerm, StringComparison.OrdinalIgnoreCase) ||
+                    r.ReviewText.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
+                .ToList()
+            );
+        }
     }
 }

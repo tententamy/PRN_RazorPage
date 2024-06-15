@@ -5,7 +5,6 @@ using MilkBabyData.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MilkBabyBusiness.Category
@@ -17,7 +16,9 @@ namespace MilkBabyBusiness.Category
         Task<IBusinessResult> Save(Review review);
         Task<IBusinessResult> Update(Review review);
         Task<IBusinessResult> DeleteById(Guid id);
+        Task<IBusinessResult> Search(string searchTerm);
     }
+
     public class ReviewBusiness : IReviewBusiness
     {
         private readonly UnitOfWork _unitOfWork;
@@ -126,6 +127,27 @@ namespace MilkBabyBusiness.Category
             catch (Exception ex)
             {
                 return new BusinessResult(Const.ERROR_EXCEPTION, ex.ToString());
+            }
+        }
+
+        public async Task<IBusinessResult> Search(string searchTerm)
+        {
+            try
+            {
+                var reviews = await _unitOfWork.ReviewRepository.SearchAsync(searchTerm);
+
+                if (!reviews.Any())
+                {
+                    return new BusinessResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA__MSG);
+                }
+                else
+                {
+                    return new BusinessResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, reviews.ToList());
+                }
+            }
+            catch (Exception ex)
+            {
+                return new BusinessResult(Const.ERROR_EXCEPTION, ex.Message);
             }
         }
     }

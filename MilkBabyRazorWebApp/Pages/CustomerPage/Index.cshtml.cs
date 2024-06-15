@@ -23,6 +23,13 @@ namespace MilkBabyRazorWebApp.Pages.CustomerPage
         public string SearchKey { get; set; } = default!;
         public IList<Customer> Customer { get; set; } = default!;
 
+        [BindProperty(SupportsGet = true)]
+        public int PageNumber { get; set; } = 1;
+
+        public int PageSize { get; set; } = 2;
+
+        public int TotalPages { get; set; }
+
         public async Task OnGetAsync()
         {
             if (SearchKey != null)
@@ -31,6 +38,8 @@ namespace MilkBabyRazorWebApp.Pages.CustomerPage
                 if (result != null && result.Status > 0 && result.Data != null)
                 {
                     Customer = result.Data as List<Customer>;
+                    TotalPages = (int)Math.Ceiling(Customer.Count / (double)PageSize);
+                    Customer = Customer.Skip((PageNumber - 1) * PageSize).Take(PageSize).ToList();
                 }
             }
             else 
@@ -39,7 +48,9 @@ namespace MilkBabyRazorWebApp.Pages.CustomerPage
                     if (result != null && result.Status > 0 && result.Data != null)
                     {
                         Customer = result.Data as List<Customer>;
-                    }
+                    TotalPages = (int)Math.Ceiling(Customer.Count / (double)PageSize);
+                    Customer = Customer.Skip((PageNumber - 1) * PageSize).Take(PageSize).ToList();
+                }
             }
         }
     }

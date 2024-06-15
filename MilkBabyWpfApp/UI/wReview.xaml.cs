@@ -37,7 +37,7 @@ namespace MilkBabyWpfApp.UI
                         CustomerId = Guid.Parse(txtCustomerId.Text),
                         Rating = int.Parse(txtRating.Text),
                         ReviewText = txtReviewText.Text,
-                        ReviewDate = dpReviewDate.SelectedDate.HasValue ? DateOnly.FromDateTime(dpReviewDate.SelectedDate.Value) : DateOnly.FromDateTime(DateTime.Now),
+                        ReviewCreatedDate = dpReviewDate.SelectedDate.HasValue ? DateOnly.FromDateTime(dpReviewDate.SelectedDate.Value) : DateOnly.FromDateTime(DateTime.Now),
                         ReviewImg = txtReviewImg.Text
                     };
 
@@ -51,7 +51,7 @@ namespace MilkBabyWpfApp.UI
                     review.CustomerId = Guid.Parse(txtCustomerId.Text);
                     review.Rating = int.Parse(txtRating.Text);
                     review.ReviewText = txtReviewText.Text;
-                    review.ReviewDate = dpReviewDate.SelectedDate.HasValue ? DateOnly.FromDateTime(dpReviewDate.SelectedDate.Value) : DateOnly.FromDateTime(DateTime.Now);
+                    review.ReviewCreatedDate = dpReviewDate.SelectedDate.HasValue ? DateOnly.FromDateTime(dpReviewDate.SelectedDate.Value) : DateOnly.FromDateTime(DateTime.Now);
                     review.ReviewImg = txtReviewImg.Text;
 
                     var result = await _business.Update(review);
@@ -98,7 +98,7 @@ namespace MilkBabyWpfApp.UI
                 txtCustomerId.Text = review.CustomerId.ToString();
                 txtRating.Text = review.Rating.ToString();
                 txtReviewText.Text = review.ReviewText;
-                dpReviewDate.SelectedDate = review.ReviewDate?.ToDateTime(new TimeOnly(0, 0));
+                dpReviewDate.SelectedDate = review.ReviewCreatedDate?.ToDateTime(new TimeOnly(0, 0));
                 txtReviewImg.Text = review.ReviewImg;
             }
         }

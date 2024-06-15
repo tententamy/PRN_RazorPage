@@ -55,6 +55,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Customer[0].CustomerNotes)
             </th> *@
+            <th>    </th>
         </tr>
     </thead>
     <tbody>
@@ -105,3 +106,23 @@
 }
     </tbody>
 </table>
+<nav aria-label="Page navigation">
+    <ul class="pagination">
+        <li class="page-item @(Model.PageNumber <= 1 ? "disabled" : "")">
+            <a class="page-link" asp-page="./Index" asp-route-PageNumber="@(Model.PageNumber - 1)" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        @for (var i = 1; i <= Model.TotalPages; i++)
+        {
+            <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                <a class="page-link" asp-page="./Index" asp-route-PageNumber="@i">@i</a>
+            </li>
+        }
+        <li class="page-item @(Model.PageNumber >= Model.TotalPages ? "disabled" : "")">
+            <a class="page-link" asp-page="./Index" asp-route-PageNumber="@(Model.PageNumber + 1)" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>
