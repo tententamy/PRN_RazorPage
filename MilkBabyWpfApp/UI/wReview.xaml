@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MilkBabyWpfApp.UI"
         mc:Ignorable="d"
-        Title="wReview" Height="450" Width="1200">
+        Title="wReview" Height="600" Width="1200">
     <Grid>
         <StackPanel Orientation="Vertical">
             <GroupBox Header="Review Form" Margin="10">
@@ -20,18 +20,21 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
                     <!-- Review ID (hidden) -->
                     <TextBox Grid.Column="0" Grid.Row="0" x:Name="txtReviewId" Text="{Binding Path=ReviewId, Mode=TwoWay}" Visibility="Collapsed"/>
 
-                    <!-- Row 1: Product ID, Customer ID -->
-                    <Label Grid.Column="0" Grid.Row="0" Content="Product ID" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
-                    <TextBox Grid.Column="1" Grid.Row="0" x:Name="txtProductId" Height="25" Text="{Binding Path=ProductId, Mode=TwoWay}" Margin="5" Width="180" HorizontalAlignment="Left"/>
+                    <!-- Row 1: Product, Customer -->
+                    <Label Grid.Column="0" Grid.Row="0" Content="Product" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+                    <ComboBox Grid.Column="1" Grid.Row="0" x:Name="cbProduct" ItemsSource="{Binding Products}" DisplayMemberPath="ProductName" SelectedValuePath="ProductId" Width="180" HorizontalAlignment="Left" Margin="5"/>
 
-                    <Label Grid.Column="2" Grid.Row="0" Content="Customer ID" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
-                    <TextBox Grid.Column="3" Grid.Row="0" x:Name="txtCustomerId" Height="25" Text="{Binding Path=CustomerId, Mode=TwoWay}" Margin="5" Width="180" HorizontalAlignment="Left"/>
+                    <Label Grid.Column="2" Grid.Row="0" Content="Customer" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+                    <ComboBox Grid.Column="3" Grid.Row="0" x:Name="cbCustomer" ItemsSource="{Binding Customers}" DisplayMemberPath="CustomerName" SelectedValuePath="CustomerId" Width="180" HorizontalAlignment="Left" Margin="5"/>
 
                     <!-- Row 2: Rating, Review Text -->
                     <Label Grid.Column="0" Grid.Row="1" Content="Rating" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
@@ -40,12 +43,26 @@
                     <Label Grid.Column="2" Grid.Row="1" Content="Review Text" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
                     <TextBox Grid.Column="3" Grid.Row="1" x:Name="txtReviewText" Height="25" Text="{Binding Path=ReviewText, Mode=TwoWay}" Margin="5" Width="180" HorizontalAlignment="Left"/>
 
-                    <!-- Row 3: Review Date, Review Img -->
-                    <Label Grid.Column="0" Grid.Row="2" Content="Review Date" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
-                    <DatePicker Grid.Column="1" Grid.Row="2" x:Name="dpReviewDate" Height="25" SelectedDate="{Binding Path=ReviewDate, Mode=TwoWay}" Margin="5" Width="180" HorizontalAlignment="Left"/>
+                    <!-- Row 3: Review Image, Review Title -->
+                    <Label Grid.Column="0" Grid.Row="2" Content="Review Image" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+                    <TextBox Grid.Column="1" Grid.Row="2" x:Name="txtReviewImage" Height="25" Text="{Binding Path=ReviewImg, Mode=TwoWay}" Margin="5" Width="180" HorizontalAlignment="Left"/>
 
-                    <Label Grid.Column="2" Grid.Row="2" Content="Review Image" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
-                    <TextBox Grid.Column="3" Grid.Row="2" x:Name="txtReviewImg" Height="25" Text="{Binding Path=ReviewImg, Mode=TwoWay}" Margin="5" Width="180" HorizontalAlignment="Left"/>
+                    <Label Grid.Column="2" Grid.Row="2" Content="Review Title" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+                    <TextBox Grid.Column="3" Grid.Row="2" x:Name="txtReviewTitle" Height="25" Text="{Binding Path=ReviewTitle, Mode=TwoWay}" Margin="5" Width="180" HorizontalAlignment="Left"/>
+
+                    <!-- Row 4: Helpful Count, Not Helpful Count -->
+                    <Label Grid.Column="0" Grid.Row="3" Content="Helpful Count" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+                    <TextBox Grid.Column="1" Grid.Row="3" x:Name="txtReviewHelpfulCount" Height="25" Text="{Binding Path=ReviewHelpfulCount, Mode=TwoWay}" Margin="5" Width="180" HorizontalAlignment="Left"/>
+
+                    <Label Grid.Column="2" Grid.Row="3" Content="Not Helpful Count" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+                    <TextBox Grid.Column="3" Grid.Row="3" x:Name="txtReviewNotHelpfulCount" Height="25" Text="{Binding Path=ReviewNotHelpfulCount, Mode=TwoWay}" Margin="5" Width="180" HorizontalAlignment="Left"/>
+
+                    <!-- Row 5: Created Date, Updated Date -->
+                    <Label Grid.Column="0" Grid.Row="4" Content="Created Date" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+                    <DatePicker Grid.Column="1" Grid.Row="4" x:Name="dpReviewCreatedDate" SelectedDate="{Binding Path=ReviewCreatedDate, Mode=TwoWay}" Margin="5" Width="180" HorizontalAlignment="Left" IsEnabled="False"/>
+
+                    <Label Grid.Column="2" Grid.Row="4" Content="Updated Date" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+                    <DatePicker Grid.Column="3" Grid.Row="4" x:Name="dpReviewUpdatedDate" SelectedDate="{Binding Path=ReviewUpdatedDate, Mode=TwoWay}" Margin="5" Width="180" HorizontalAlignment="Left" IsEnabled="False"/>
                 </Grid>
             </GroupBox>
 
@@ -62,15 +79,21 @@
                         <DataGridTextColumn Header="Customer ID" Binding="{Binding Path=CustomerId}" Width="100" IsReadOnly="True"/>
                         <DataGridTextColumn Header="Rating" Binding="{Binding Path=Rating}" Width="100" IsReadOnly="True"/>
                         <DataGridTextColumn Header="Review Text" Binding="{Binding Path=ReviewText}" Width="100" IsReadOnly="True"/>
-                        <DataGridTextColumn Header="Review Date" Binding="{Binding Path=ReviewDate}" Width="100" IsReadOnly="True"/>
                         <DataGridTextColumn Header="Review Image" Binding="{Binding Path=ReviewImg}" Width="100" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Review Title" Binding="{Binding Path=ReviewTitle}" Width="100" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Helpful Count" Binding="{Binding Path=ReviewHelpfulCount}" Width="100" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Not Helpful Count" Binding="{Binding Path=ReviewNotHelpfulCount}" Width="100" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Created Date" Binding="{Binding Path=ReviewCreatedDate}" Width="100" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Updated Date" Binding="{Binding Path=ReviewUpdatedDate}" Width="100" IsReadOnly="True"/>
+
                         <DataGridTemplateColumn Width="50">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Content="X" x:Name="ButtonDeleteReview" CommandParameter="{Binding Path=ReviewId}" Click="grdReview_ButtonDelete_Click"/>
+                                    <Button Content="X" Click="ButtonDeleteReview_Click"/>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
+
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>

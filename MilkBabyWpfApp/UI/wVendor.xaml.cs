@@ -18,6 +18,8 @@ namespace MilkBabyWpfApp.UI
             LoadGridVendors();
         }
 
+
+
         private async void ButtonSaveVendor_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -35,7 +37,12 @@ namespace MilkBabyWpfApp.UI
                         VendorName = txtVendorName.Text,
                         VendorAddress = txtVendorAddress.Text,
                         VendorPhone = txtVendorPhone.Text,
-                        VendorEmail = txtVendorEmail.Text
+                        VendorEmail = txtVendorEmail.Text,
+                        VendorContactPerson = txtVendorContactPerson.Text,
+                        VendorWebsite = txtVendorWebsite.Text,
+                        VendorCreatedDate =  DateOnly.FromDateTime(DateTime.UtcNow),
+                        VendorNotes = txtVendorNotes.Text,
+                        VendorStatus = chkVendorStatus.IsChecked ?? false,
                     };
 
                     var result = await _business.Save(vendor);
@@ -48,7 +55,11 @@ namespace MilkBabyWpfApp.UI
                     vendor.VendorAddress = txtVendorAddress.Text;
                     vendor.VendorPhone = txtVendorPhone.Text;
                     vendor.VendorEmail = txtVendorEmail.Text;
-
+                    vendor.VendorContactPerson = txtVendorContactPerson.Text;
+                    vendor.VendorWebsite = txtVendorWebsite.Text;
+                    vendor.VendorUpdatedDate = DateOnly.FromDateTime(DateTime.UtcNow);
+                    vendor.VendorNotes = txtVendorNotes.Text;
+                    vendor.VendorStatus = chkVendorStatus.IsChecked ?? false;
                     var result = await _business.Update(vendor);
                     MessageBox.Show(result.Message, "Update");
                 }
@@ -93,6 +104,12 @@ namespace MilkBabyWpfApp.UI
                 txtVendorAddress.Text = vendor.VendorAddress;
                 txtVendorPhone.Text = vendor.VendorPhone;
                 txtVendorEmail.Text = vendor.VendorEmail;
+                txtVendorContactPerson.Text = vendor.VendorContactPerson;
+                txtVendorWebsite.Text = vendor.VendorWebsite;
+                chkVendorStatus.IsChecked = vendor.VendorStatus;
+                txtVendorNotes.Text = vendor.VendorNotes;
+                dpVendorCreatedDate.Text = vendor.VendorCreatedDate.ToString();
+                dpVendorUpdatedDate.Text = vendor.VendorUpdatedDate.ToString();
             }
         }
 
@@ -117,6 +134,11 @@ namespace MilkBabyWpfApp.UI
             txtVendorAddress.Text = string.Empty;
             txtVendorPhone.Text = string.Empty;
             txtVendorEmail.Text = string.Empty;
+            txtVendorContactPerson.Text = string.Empty;
+            txtVendorWebsite.Text = string.Empty;
+            dpVendorCreatedDate.Text = string.Empty;
+            dpVendorUpdatedDate.Text = string.Empty;
+            txtVendorNotes.Text = string.Empty;
         }
     }
 }

@@ -19,12 +19,6 @@
     <Compile Update="UI\wOrderItem.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UI\wReview.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="UI\wVendor.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="MainWindow.xaml">

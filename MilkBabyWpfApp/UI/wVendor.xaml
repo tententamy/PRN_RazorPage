@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MilkBabyWpfApp.UI"
         mc:Ignorable="d"
-        Title="wVendor" Height="450" Width="800">
+        Title="wVendor" Height="450" Width="1400">
     <Grid>
         <StackPanel Orientation="Vertical">
             <GroupBox Header="Vendor Form" Margin="10">
@@ -21,6 +21,11 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
                     <!-- Vendor ID (hidden) -->
@@ -30,17 +35,38 @@
                     <Label Grid.Column="0" Grid.Row="0" Content="Vendor Name" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
                     <TextBox Grid.Column="1" Grid.Row="0" x:Name="txtVendorName" Height="25" Text="{Binding Path=VendorName, Mode=TwoWay}" Margin="5" Width="180" HorizontalAlignment="Left"/>
 
+                    <Label Grid.Column="2" Grid.Row="0" Content="Contact Person" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+                    <TextBox Grid.Column="3" Grid.Row="0" x:Name="txtVendorContactPerson" Height="25" Text="{Binding Path=VendorContactPerson, Mode=TwoWay}" Margin="5" Width="180" HorizontalAlignment="Left"/>
+
                     <!-- Row 2: Vendor Address -->
                     <Label Grid.Column="0" Grid.Row="1" Content="Vendor Address" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
                     <TextBox Grid.Column="1" Grid.Row="1" x:Name="txtVendorAddress" Height="25" Text="{Binding Path=VendorAddress, Mode=TwoWay}" Margin="5" Width="180" HorizontalAlignment="Left"/>
+
+                    <Label Grid.Column="2" Grid.Row="1" Content="Vendor Website" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+                    <TextBox Grid.Column="3" Grid.Row="1" x:Name="txtVendorWebsite" Height="25" Text="{Binding Path=VendorWebsite, Mode=TwoWay}" Margin="5" Width="180" HorizontalAlignment="Left"/>
 
                     <!-- Row 3: Vendor Phone -->
                     <Label Grid.Column="0" Grid.Row="2" Content="Vendor Phone" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
                     <TextBox Grid.Column="1" Grid.Row="2" x:Name="txtVendorPhone" Height="25" Text="{Binding Path=VendorPhone, Mode=TwoWay}" Margin="5" Width="180" HorizontalAlignment="Left"/>
 
+                    <Label Grid.Column="2" Grid.Row="2" Content="Vendor Status" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+                    <CheckBox Grid.Column="3" Grid.Row="2" x:Name="chkVendorStatus" IsChecked="{Binding Path=VendorStatus, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+
                     <!-- Row 4: Vendor Email -->
                     <Label Grid.Column="0" Grid.Row="3" Content="Vendor Email" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
                     <TextBox Grid.Column="1" Grid.Row="3" x:Name="txtVendorEmail" Height="25" Text="{Binding Path=VendorEmail, Mode=TwoWay}" Margin="5" Width="180" HorizontalAlignment="Left"/>
+
+                    <Label Grid.Column="2" Grid.Row="3" Content="Created Date" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+                    <DatePicker Grid.Column="3" Grid.Row="3" x:Name="dpVendorCreatedDate" SelectedDate="{Binding Path=VendorCreatedDate, Mode=TwoWay}" Margin="5" HorizontalAlignment="Left" IsEnabled="False" />
+
+                    <Label Grid.Column="2" Grid.Row="4" Content="Updated Date" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+                    <DatePicker Grid.Column="3" Grid.Row="4" x:Name="dpVendorUpdatedDate" SelectedDate="{Binding Path=VendorUpdatedDate, Mode=TwoWay}" Margin="5" HorizontalAlignment="Left"  IsEnabled="False"/>
+
+                    <!-- Row5: Vendor note -->
+                    <Label Grid.Column="0" Grid.Row="4" Content="Vendor Note" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+                    <TextBox Grid.Column="1" Grid.Row="4" x:Name="txtVendorNotes" Height="25" Text="{Binding Path=VendorNotes, Mode=TwoWay}" Margin="5" Width="180" HorizontalAlignment="Left"/>
+
+                  
                 </Grid>
             </GroupBox>
 
@@ -52,11 +78,18 @@
             <StackPanel Height="210">
                 <DataGrid x:Name="grdVendor" AutoGenerateColumns="False" ItemsSource="{Binding Vendors}" CanUserAddRows="False" Height="200" Margin="10" MouseDoubleClick="grdVendor_MouseDoubleClick" SelectionMode="Single" SelectionUnit="FullRow">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Vendor ID" Binding="{Binding Path=VendorId}" Width="100" IsReadOnly="True"/>
+                        <!--<DataGridTextColumn Header="Vendor ID" Binding="{Binding Path=VendorId}" Width="100" IsReadOnly="True"/>-->
                         <DataGridTextColumn Header="Vendor Name" Binding="{Binding Path=VendorName}" Width="150" IsReadOnly="True"/>
                         <DataGridTextColumn Header="Vendor Address" Binding="{Binding Path=VendorAddress}" Width="150" IsReadOnly="True"/>
                         <DataGridTextColumn Header="Vendor Phone" Binding="{Binding Path=VendorPhone}" Width="100" IsReadOnly="True"/>
                         <DataGridTextColumn Header="Vendor Email" Binding="{Binding Path=VendorEmail}" Width="150" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Vendor Contact Person" Binding="{Binding Path=VendorContactPerson}" Width="150" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Vendor Website" Binding="{Binding Path=VendorWebsite}" Width="150" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Vendor Status" Binding="{Binding Path=VendorStatus}" Width="100" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Vendor Notes" Binding="{Binding Path=VendorNotes}" Width="150" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Vendor CreatedDate" Binding="{Binding Path=VendorCreatedDate}" Width="150" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Vendor UpdatedDate" Binding="{Binding Path=VendorUpdatedDate}" Width="150" IsReadOnly="True"/>
+
                         <DataGridTemplateColumn Width="50">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
