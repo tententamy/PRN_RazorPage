@@ -19,9 +19,6 @@
     <Compile Update="UI\wOrderItem.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UI\wProduct.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="UI\wReview.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

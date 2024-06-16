@@ -1,75 +1,53 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Xml.Linq;
 using MilkBabyBusiness.Category;
 using MilkBabyData.Models;
 
 namespace MilkBabyWpfApp.UI
 {
-    /// <summary>
-    /// Interaction logic for wProduct.xaml
-    /// </summary>
     public partial class wProduct : Window
     {
-
         private readonly ProductBusiness _business;
-        private readonly OrderItemBusiness _orderItemBusiness;
+
         public wProduct()
         {
             InitializeComponent();
             _business = new ProductBusiness();
             LoadGridProducts();
-
         }
+
         private async void ButtonSave_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                Guid idTmp = new Guid();
+                Guid idTmp = Guid.Empty;
                 Guid.TryParse(txtProductId.Text, out idTmp);
                 var item = await _business.GetById(idTmp);
                 DateOnly? startDate = dpDateStart.SelectedDate.HasValue ? DateOnly.FromDateTime(dpDateStart.SelectedDate.Value) : null;
                 DateOnly? endDate = dpDateEnd.SelectedDate.HasValue ? DateOnly.FromDateTime(dpDateEnd.SelectedDate.Value) : null;
 
-                if (item.Data == null)
-                {
-                    var product = new Product()
-                    {
-                        ProductId = Guid.NewGuid(),
-                        ProductName = txtName.Text,
-                        ProductPrice = decimal.Parse(txtPrice.Text),
-                        ProductQuantity = int.Parse(txtQuantity.Text),
-                        ProductDescription = txtDesription.Text,
-                        ProductDateStart = startDate ?? DateOnly.MinValue,
-                        ProductDateEnd = endDate ?? DateOnly.MinValue
-                    };
-                    var result = await _business.Save(product);
-                    MessageBox.Show(result.Message, "Save");
-                }
-                else
-                {
-                    var product = item.Data as Product;
-                    product.ProductName = txtName.Text;
-                    product.ProductPrice = decimal.Parse(txtPrice.Text);
-                    product.ProductQuantity = int.Parse(txtQuantity.Text);
-                    product.ProductDescription = txtDesription.Text;
-                    product.ProductDateStart = startDate ?? DateOnly.MinValue;
-                    product.ProductDateEnd = endDate ?? DateOnly.MinValue;
-                    var result = await _business.Update(product);
-                    MessageBox.Show(result.Message, "Update");
-                }
+                var product = item.Data as Product ?? new Product { ProductId = Guid.NewGuid() };
+
+                product.ProductName = txtName.Text;
+                product.ProductCategory = txtCategory.Text;
+                product.ProductPrice = decimal.TryParse(txtPrice.Text, out decimal price) ? price : 0;
+                product.ProductQuantity = int.TryParse(txtQuantity.Text, out int quantity) ? quantity : 0;
+                product.ProductWeight = decimal.TryParse(txtWeight.Text, out decimal weight) ? weight : 0;
+                product.ProductDimensions = txtDimensions.Text;
+                product.ProductDescription = txtDescription.Text;
+                product.ProductDateStart = startDate ?? DateOnly.MinValue;
+                product.ProductDateEnd = endDate ?? DateOnly.MinValue;
+                product.ProductStatus = chkStatus.IsChecked ?? false;
+                product.ProductImg = txtImageUrl.Text;
+
+                var result = item.Data == null
+                    ? await _business.Save(product)
+                    : await _business.Update(product);
+
+                MessageBox.Show(result.Message, item.Data == null ? "Save" : "Update");
                 LoadGridProducts();
                 ClearTextBoxes();
             }
@@ -79,83 +57,73 @@ namespace MilkBabyWpfApp.UI
             }
         }
 
-        private void ButtonCancel_Click(object sender, RoutedEventArgs e) { }
+        private void ButtonCancel_Click(object sender, RoutedEventArgs e)
+        {
+            ClearTextBoxes();
+        }
+
         private async void grdProduct_ButtonDelete_Click(object sender, RoutedEventArgs e)
         {
-
             try
             {
-                var button = sender as Button;
-                if (button != null && button.CommandParameter != null)
+                if (sender is Button button && button.CommandParameter is Guid productId)
                 {
-                    Guid productId = (Guid)button.CommandParameter;
-
-
                     MessageBoxResult result = MessageBox.Show("Are you sure you want to delete this product?", "Confirm Deletion", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     if (result == MessageBoxResult.Yes)
                     {
                         var deleteResult = await _business.DeleteById(productId);
-                        if (deleteResult.Status > 0)
-                        {
-                            MessageBox.Show(deleteResult.Message, "Delete");
-                            LoadGridProducts();
-                        }
-                        else
-                        {
-                            MessageBox.Show(deleteResult.Message, "Error");
-                        }
+                        MessageBox.Show(deleteResult.Message, deleteResult.Status > 0 ? "Delete" : "Error");
+                        if (deleteResult.Status > 0) LoadGridProducts();
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Error");
+                MessageBox.Show(ex.Message, "Error");
             }
-
         }
-        private async void grdProduct_MouseDouble_Click(object sender, RoutedEventArgs e)
-        {
 
-            if (grdProduct.SelectedItem != null)
+        private void grdProduct_MouseDouble_Click(object sender, MouseButtonEventArgs e)
+        {
+            if (grdProduct.SelectedItem is Product product)
             {
-                var product = grdProduct.SelectedItem as Product;
                 txtProductId.Text = product.ProductId.ToString();
                 txtName.Text = product.ProductName;
+                txtCategory.Text = product.ProductCategory;
                 txtPrice.Text = product.ProductPrice.ToString();
                 txtQuantity.Text = product.ProductQuantity.ToString();
-                txtDesription.Text = product.ProductDescription;
-                dpDateStart.Text = product.ProductDateStart.ToString();
-                dpDateEnd.Text = product.ProductDateEnd.ToString();
+                txtWeight.Text = product.ProductWeight.ToString();
+                txtDimensions.Text = product.ProductDimensions;
+                txtDescription.Text = product.ProductDescription;
+                dpDateStart.SelectedDate = product.ProductDateStart.HasValue ? product.ProductDateStart.Value.ToDateTime(TimeOnly.MinValue) : (DateTime?)null;
+                dpDateEnd.SelectedDate = product.ProductDateEnd.HasValue ? product.ProductDateEnd.Value.ToDateTime(TimeOnly.MinValue) : (DateTime?)null;
+                chkStatus.IsChecked = product.ProductStatus;
+                txtImageUrl.Text = product.ProductImg;
             }
         }
 
         private async void LoadGridProducts()
         {
-
             var result = await _business.GetAll();
-
-            if (result.Status > 0 && result.Data != null)
-            {
-                grdProduct.ItemsSource = result.Data as List<Product>;
-            }
-            else
-            {
-                grdProduct.ItemsSource = new List<Product>();
-            }
-
+            grdProduct.ItemsSource = result.Status > 0 && result.Data != null
+                ? result.Data as List<Product>
+                : new List<Product>();
         }
 
         private void ClearTextBoxes()
         {
-            txtProductId.Text = string.Empty;
-            txtName.Text = string.Empty;
-            txtPrice.Text = string.Empty;
-            txtDesription.Text = string.Empty;
-            txtQuantity.Text = string.Empty;
-            dpDateStart.Text = string.Empty;
-            dpDateEnd.Text = string.Empty;
+            txtProductId.Clear();
+            txtName.Clear();
+            txtCategory.Clear();
+            txtPrice.Clear();
+            txtQuantity.Clear();
+            txtWeight.Clear();
+            txtDimensions.Clear();
+            txtDescription.Clear();
+            dpDateStart.SelectedDate = null;
+            dpDateEnd.SelectedDate = null;
+            chkStatus.IsChecked = false;
+            txtImageUrl.Clear();
         }
-
-
     }
 }
