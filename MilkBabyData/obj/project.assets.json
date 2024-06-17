@@ -4415,11 +4415,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyData\\MilkBabyData.csproj",
+      "projectUniqueName": "D:\\PRN221\\Project\\NET1702_PRN221_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyData\\MilkBabyData.csproj",
       "projectName": "MilkBabyData",
-      "projectPath": "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyData\\MilkBabyData.csproj",
+      "projectPath": "D:\\PRN221\\Project\\NET1702_PRN221_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyData\\MilkBabyData.csproj",
       "packagesPath": "C:\\Users\\NGOC MINH\\.nuget\\packages\\",
-      "outputPath": "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyData\\obj\\",
+      "outputPath": "D:\\PRN221\\Project\\NET1702_PRN221_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyData\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\NGOC MINH\\AppData\\Roaming\\NuGet\\NuGet.Config",

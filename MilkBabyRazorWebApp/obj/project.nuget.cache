@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lixgixuTiN0JE2lbyuQdAo8SSxVZ8bFbQZ+bbbsL+yssc1o8iI2J7lk/lTeaE80eswOgZMRB7DnlWoDqx9ZLLA==",
+  "dgSpecHash": "gBgWfQ7B6NDWrljIwM7Cd1w2FQOMlExEOvhfu6LNvfwnQKl+M/HBl8/wiAPb+zolnYPthe2jozpFBVJiRYBaaA==",
   "success": true,
-  "projectFilePath": "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyRazorWebApp\\MilkBabyRazorWebApp.csproj",
+  "projectFilePath": "D:\\PRN221\\Project\\NET1702_PRN221_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyRazorWebApp\\MilkBabyRazorWebApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\NGOC MINH\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\NGOC MINH\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

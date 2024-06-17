@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MilkBabyConsoleApp", "MilkB
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MilkBabyCommon", "MilkBabyCommon\MilkBabyCommon.csproj", "{F3294733-2B89-4A8C-BA7D-770C53AA4208}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilkBabyWpfApp", "MilkBabyWpfApp\MilkBabyWpfApp.csproj", "{DCA0C671-B0AF-4DC9-BCD4-F4F20B5D9F28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MilkBabyWpfApp", "MilkBabyWpfApp\MilkBabyWpfApp.csproj", "{DCA0C671-B0AF-4DC9-BCD4-F4F20B5D9F28}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

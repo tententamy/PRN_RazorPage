@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Pru_Project\PRN_RazorPage\MilkBabyWpfApp\obj\Debug\net8.0-windows\
+D:\PRN221\Project\NET1702_PRN221_MilkBaby\Source\Net1702_221_3_MilkBaby\MilkBabyWpfApp\obj\Debug\net8.0-windows\
 MilkBabyWpfApp
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-D:\Pru_Project\PRN_RazorPage\MilkBabyWpfApp\App.xaml
+D:\PRN221\Project\NET1702_PRN221_MilkBaby\Source\Net1702_221_3_MilkBaby\MilkBabyWpfApp\App.xaml
 71192530149
 
 12-1880776272
-247-1686287665
+2471553219130
 MainWindow.xaml;UI\wCustomer.xaml;UI\wOrder.xaml;UI\wOrderItem.xaml;UI\wProduct.xaml;UI\wReview.xaml;UI\wVendor.xaml;
 
-True
+False
 
