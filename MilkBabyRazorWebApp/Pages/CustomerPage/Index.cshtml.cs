@@ -19,9 +19,15 @@ namespace MilkBabyRazorWebApp.Pages.CustomerPage
         {
             customerBusiness ??= new CustomerBusiness();
         }
+
         [BindProperty(SupportsGet = true)]
-        public string SearchKey { get; set; } = default!;
+        public string nameKey { get; set; } = default!;
+        [BindProperty(SupportsGet = true)]
+        public string emailKey { get; set; } = default!;
+        [BindProperty(SupportsGet = true)]
+        public string addressKey { get; set; } = default!;
         public IList<Customer> Customer { get; set; } = default!;
+
 
         [BindProperty(SupportsGet = true)]
         public int PageNumber { get; set; } = 1;
@@ -32,9 +38,9 @@ namespace MilkBabyRazorWebApp.Pages.CustomerPage
 
         public async Task OnGetAsync()
         {
-            if (SearchKey != null)
+            if (nameKey == null && emailKey == null && addressKey == null)
             {
-                var result = await customerBusiness.GetByName(SearchKey);
+                var result = await customerBusiness.GetAll();
                 if (result != null && result.Status > 0 && result.Data != null)
                 {
                     Customer = result.Data as List<Customer>;
@@ -43,15 +49,16 @@ namespace MilkBabyRazorWebApp.Pages.CustomerPage
                 }
             }
             else 
-            { 
-                    var result = await customerBusiness.GetAll();
-                    if (result != null && result.Status > 0 && result.Data != null)
-                    {
-                        Customer = result.Data as List<Customer>;
+            {
+                var result = await customerBusiness.Search(nameKey,emailKey,addressKey);
+                if (result != null && result.Status > 0 && result.Data != null)
+                {
+                    Customer = result.Data as List<Customer>;
                     TotalPages = (int)Math.Ceiling(Customer.Count / (double)PageSize);
                     Customer = Customer.Skip((PageNumber - 1) * PageSize).Take(PageSize).ToList();
                 }
             }
+            }
         }
     }
-}
+

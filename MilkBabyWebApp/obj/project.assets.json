@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\PRN221\\Project\\NET1702_PRN221_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyWebApp\\MilkBabyWebApp.csproj",
+      "projectUniqueName": "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyWebApp\\MilkBabyWebApp.csproj",
       "projectName": "MilkBabyWebApp",
-      "projectPath": "D:\\PRN221\\Project\\NET1702_PRN221_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyWebApp\\MilkBabyWebApp.csproj",
+      "projectPath": "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyWebApp\\MilkBabyWebApp.csproj",
       "packagesPath": "C:\\Users\\NGOC MINH\\.nuget\\packages\\",
-      "outputPath": "D:\\PRN221\\Project\\NET1702_PRN221_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyWebApp\\obj\\",
+      "outputPath": "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyWebApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\NGOC MINH\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -11,7 +11,7 @@ public interface ICustomerBusiness
     Task<IBusinessResult> Save(Customer currency);
     Task<IBusinessResult> Update(Customer currency);
     Task<IBusinessResult> DeleteById(Guid code);
-    Task<IBusinessResult> GetByName(String key);
+    Task<IBusinessResult> Search(string nameKey, string emailKey, string addressKey);
 }
 public class CustomerBusiness : ICustomerBusiness
 {
@@ -52,7 +52,7 @@ public class CustomerBusiness : ICustomerBusiness
         }
     }
 
-    public async Task<IBusinessResult> GetByName(String code)
+    public async Task<IBusinessResult> Search(string nameKey, string emailKey, string addressKey)
     {
         try
         {
@@ -60,7 +60,7 @@ public class CustomerBusiness : ICustomerBusiness
             #endregion
 
             //var currency = await _currencyRepository.GetByIdAsync(code);
-            var currency = await _unitOfWork.CustomerRepository.GetByNameAsync(code);
+            var currency = await _unitOfWork.CustomerRepository.GetByMultipleCriteriaAsync(nameKey, emailKey, addressKey);
 
             if (currency == null)
             {

@@ -11,7 +11,9 @@
 <div class="d-flex justify-content-between align-items-center mb-3">
     <a asp-page="Create" class="btn btn-success">Create New</a>
     <form method="get" class="d-flex align-items-center">
-        <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search" name="SearchKey" value="@Model.SearchKey" style="width: 200px;">
+        <input class="form-control mr-2" type="search" placeholder="Search Name" aria-label="Search" name="nameKey" value="@Model.nameKey" style="width: 200px;">
+        <input class="form-control mr-2" type="search" placeholder="Search Email" aria-label="Search" name="emailKey" value="@Model.emailKey" style="width: 200px;">
+        <input class="form-control mr-2" type="search" placeholder="Search Address" aria-label="Search" name="addressKey" value="@Model.addressKey" style="width: 200px;">
         <button class="btn btn-primary" type="submit">Search</button>
     </form>
 </div>
