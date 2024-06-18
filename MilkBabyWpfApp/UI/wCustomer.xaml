@@ -31,7 +31,6 @@
 
                     <!-- ID (hidden) -->
                     <TextBox Grid.Column="0" Grid.Row="0" x:Name="txtCustomerID" Text="{Binding Path=Customer.ID, Mode=TwoWay}" Visibility="Collapsed"/>
-                    <TextBox Grid.Column="0" Grid.Row="0" x:Name="txtCreatedDate" Text="{Binding Path=CustomerCreateaDate, Mode=TwoWay}" Visibility="Collapsed"/>
 
                     <!-- Row 1: Name, Email, Address -->
                     <Label Grid.Column="0" Grid.Row="0" Content="Name" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
@@ -79,14 +78,16 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Code" Binding="{Binding Path=CustomerId}" Visibility="Visible"/>
                         <DataGridTextColumn Header="Name" Binding="{Binding Path=CustomerName}" Width="100" IsReadOnly="True"/>
-                        <DataGridTextColumn Header="Email" Binding="{Binding Path=CustomerEmail}" Width="50" IsReadOnly="True"/>
-                        <DataGridTextColumn Header="Phone" Binding="{Binding Path=CustomerPhone}" Width="50" IsReadOnly="True"/>
-                        <DataGridTextColumn Header="Address" Binding="{Binding Path=CustomerAddress}" Width="50" IsReadOnly="True"/>
-                        <DataGridTextColumn Header="Image" Binding="{Binding Path=CustomerImg}" Width="50" IsReadOnly="True"/>
-                        <DataGridTextColumn Header="Password" Binding="{Binding Path=CustomerPassword}" Width="50" IsReadOnly="True"/>
-                        <DataGridTextColumn Header="Birth Date" Binding="{Binding Path=CustomerBirthDate}" Width="50" IsReadOnly="True"/>
-                        <DataGridTextColumn Header="Gender" Binding="{Binding Path=CustomerGender}" Width="50" IsReadOnly="True"/>
-                        <DataGridCheckBoxColumn Header="Status" Binding="{Binding Path=CustomerStatus}" Width="50" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Email" Binding="{Binding Path=CustomerEmail}" Width="100" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Phone" Binding="{Binding Path=CustomerPhone}" Width="100" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Address" Binding="{Binding Path=CustomerAddress}" Width="100" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Image" Binding="{Binding Path=CustomerImg}" Width="100" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Password" Binding="{Binding Path=CustomerPassword}" Width="100" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Birth Date" Binding="{Binding Path=CustomerBirthDate}" Width="100" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Gender" Binding="{Binding Path=CustomerGender}" Width="100" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Create Date" Binding="{Binding Path=CustomerCreatedDate}" Width="100" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Update Date" Binding="{Binding Path=CustomerUpdatedDate}" Width="100" IsReadOnly="True"/>
+                        <DataGridCheckBoxColumn Header="Status" Binding="{Binding Path=CustomerStatus}" Width="100" IsReadOnly="True"/>
                         <DataGridTemplateColumn Width="50">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
@@ -98,6 +99,6 @@
                 </DataGrid>
             </StackPanel>
         </StackPanel>
-    </Grid>
+    </Grid> 
 
 </Window>

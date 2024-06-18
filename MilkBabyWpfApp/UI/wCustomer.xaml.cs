@@ -72,7 +72,7 @@ namespace MilkBabyWpfApp.UI
                     customer.CustomerBirthDate = dpCustomerBirthDate.SelectedDate.HasValue ? DateOnly.FromDateTime(dpCustomerBirthDate.SelectedDate.Value) : null;
                     customer.CustomerGender = ((ComboBoxItem)cbCustomerGender.SelectedItem)?.Content?.ToString();
                     customer.CustomerStatus = chkCustomerStatus.IsChecked ?? false;
-                    customer.CustomerCreatedDate = DateOnly.Parse(txtCreatedDate.Text);
+                    //customer.CustomerCreatedDate = DateOnly.Parse(txtCreateDate.Text);
                     customer.CustomerUpdatedDate = DateOnly.FromDateTime(DateTime.Now);
 
                     var result = await _business.Update(customer);
