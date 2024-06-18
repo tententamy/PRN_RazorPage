@@ -7,6 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="Pages\OrderPage\Create.cshtml" />
+    <None Include="Pages\OrderPage\Delete.cshtml" />
+    <None Include="Pages\OrderPage\Details.cshtml" />
+    <None Include="Pages\OrderPage\Edit.cshtml" />
+    <None Include="Pages\OrderPage\Index.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\MilkBabyBusiness\MilkBabyBusiness.csproj" />
     <ProjectReference Include="..\MilkBabyData\MilkBabyData.csproj" />
   </ItemGroup>

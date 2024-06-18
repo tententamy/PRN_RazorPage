@@ -18,6 +18,7 @@ namespace MilkBabyBusiness.Category
         Task<IBusinessResult> Update(OrderItem orderItem);
         Task<IBusinessResult> DeleteById(Guid id);
         Task<IBusinessResult> GetByProductName(string key);
+        Task<IBusinessResult> Search(string productName, int? quantity, decimal? price, decimal? discount);
     }
 
     public class OrderItemBusiness : IOrderItemBusiness
@@ -160,7 +161,7 @@ namespace MilkBabyBusiness.Category
         {
             try
             {
-                
+
                 var products = await _unitOfWork.OrderItemRepository.GetByProductNameAsync(key);
 
                 if (products == null)
@@ -170,6 +171,26 @@ namespace MilkBabyBusiness.Category
                 else
                 {
                     return new BusinessResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, products);
+                }
+            }
+            catch (Exception ex)
+            {
+                return new BusinessResult(Const.ERROR_EXCEPTION, ex.Message);
+            }
+        }
+        public async Task<IBusinessResult> Search(string productName, int? quantity, decimal? price, decimal? discount)
+        {
+            try
+            {
+                var orderItems = await _unitOfWork.OrderItemRepository.GetByMultipleCriteriaAsync(productName, quantity, price, discount);
+
+                if (orderItems == null)
+                {
+                    return new BusinessResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA__MSG);
+                }
+                else
+                {
+                    return new BusinessResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, orderItems);
                 }
             }
             catch (Exception ex)

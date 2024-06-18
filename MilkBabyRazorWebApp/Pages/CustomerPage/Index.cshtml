@@ -99,11 +99,11 @@
             <td>
                 @Html.DisplayFor(modelItem => item.CustomerNotes)
             </td> *@
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.CustomerId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.CustomerId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.CustomerId">Delete</a>
-            </td>
+                <td style="display: flex">
+                    <a class="btn btn-outline-primary" asp-page="./Edit" asp-route-id="@item.CustomerId">Edit</a>
+                    <a class="btn btn-outline-secondary" asp-page="./Details" asp-route-id="@item.CustomerId">Details</a>
+                    <a class="btn btn-outline-danger" asp-page="./Delete" asp-route-id="@item.CustomerId">Delete</a>
+                </td>
         </tr>
 }
     </tbody>

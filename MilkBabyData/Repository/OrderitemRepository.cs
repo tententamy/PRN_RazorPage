@@ -26,5 +26,14 @@ namespace MilkBabyData.Repository
                                  .Where(oi => oi.Product.ProductName.Contains(key))
                                  .ToListAsync();
         }
+        public async Task<List<OrderItem>> GetByMultipleCriteriaAsync(string productName, int? quantity, decimal? price, decimal? discount)
+        {
+            return await _context.OrderItems
+                                 .Where(oi => (string.IsNullOrEmpty(productName) || oi.Product.ProductName.Contains(productName)) &&
+                                              (!quantity.HasValue || oi.Quantity == quantity.Value) &&
+                                              (!price.HasValue || oi.Price == price.Value) &&
+                                              (!discount.HasValue || oi.Discount == discount.Value))
+                                 .ToListAsync();
+        }
     }
 }

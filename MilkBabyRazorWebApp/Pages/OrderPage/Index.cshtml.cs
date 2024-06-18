@@ -20,73 +20,44 @@ namespace MilkBabyRazorWebApp.Pages.OrdersPage
             business ??= new OrderBusiness();
             _customer ??= new CustomerBusiness();
         }
+        [BindProperty(SupportsGet = true)]
+        public int PageNumber { get; set; } = 1;
+
+        public int PageSize { get; set; } = 2;
+
+        public int TotalPages { get; set; }
 
         [BindProperty(SupportsGet = true)]
         public string SearchKey { get; set; } = default!;
+        [BindProperty(SupportsGet = true)]
+        public string SearchStatus { get; set; } = default!;
+        [BindProperty(SupportsGet = true)]
+        public string SearchAddress { get; set; } = default!;
+        public string SearchVoucher { get; set; } = default!;
         public IList<Order> Order { get; set; } = default!;
-
         public async Task OnGetAsync()
         {
-            if (SearchKey != null)
+            if (string.IsNullOrEmpty(SearchAddress) && string.IsNullOrEmpty(SearchStatus) && string.IsNullOrEmpty(SearchVoucher))
             {
-                var result = await business.GetByNameCustomer(SearchKey);
-
+                var result = await business.GetAll();
                 if (result != null && result.Status > 0 && result.Data != null)
                 {
                     Order = result.Data as List<Order>;
-
-                    // Populate customer names based on CustomerId
-                    foreach (var order in Order)
-                    {
-                        if (order.CustomerId != null)
-                        {
-                            var customerResult = await _customer.GetById((Guid)order.CustomerId);
-                            if (customerResult != null && customerResult.Status > 0 && customerResult.Data != null)
-                            {
-                                var customer = customerResult.Data as Customer;
-                                if (order.Customer != null)
-                                {
-                                    order.Customer.CustomerName = customer.CustomerName;
-                                }
-                                else
-                                {
-                                    order.Customer = customer;
-                                }
-                            }
-                        }
-                    }
+                    TotalPages = (int)Math.Ceiling(Order.Count / (double)PageSize);
+                    Order = Order.Skip((PageNumber - 1) * PageSize).Take(PageSize).ToList();
                 }
             }
             else
             {
-                var result = await business.GetAll();
-
+                var result = await business.Search(SearchAddress, SearchStatus, SearchVoucher);
                 if (result != null && result.Status > 0 && result.Data != null)
                 {
                     Order = result.Data as List<Order>;
-
-                    // Populate customer names based on CustomerId
-                    foreach (var order in Order)
-                    {
-                        if (order.CustomerId != null)
-                        {
-                            var customerResult = await _customer.GetById((Guid)order.CustomerId);
-                            if (customerResult != null && customerResult.Status > 0 && customerResult.Data != null)
-                            {
-                                var customer = customerResult.Data as Customer;
-                                if (order.Customer != null)
-                                {
-                                    order.Customer.CustomerName = customer.CustomerName;
-                                }
-                                else
-                                {
-                                    order.Customer = customer;
-                                }
-                            }
-                        }
-                    }
+                    TotalPages = (int)Math.Ceiling(Order.Count / (double)PageSize);
+                    Order = Order.Skip((PageNumber - 1) * PageSize).Take(PageSize).ToList();
                 }
             }
         }
-    }
+    
+}
 }

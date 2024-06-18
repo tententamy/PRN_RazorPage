@@ -10,79 +10,70 @@
 <h4>Customer</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-8">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            @* <div class="form-group">
-                <label asp-for="Customer.CustomerId" class="control-label"></label>
-                <input asp-for="Customer.CustomerId" class="form-control" />
-                <span asp-validation-for="Customer.CustomerId" class="text-danger"></span>
-            </div> *@
-            <div class="form-group">
-                <label asp-for="Customer.CustomerName" class="control-label"></label>
-                <input asp-for="Customer.CustomerName" class="form-control" />
-                <span asp-validation-for="Customer.CustomerName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Customer.CustomerEmail" class="control-label"></label>
-                <input asp-for="Customer.CustomerEmail" class="form-control" />
-                <span asp-validation-for="Customer.CustomerEmail" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Customer.CustomerPhone" class="control-label"></label>
-                <input asp-for="Customer.CustomerPhone" class="form-control" />
-                <span asp-validation-for="Customer.CustomerPhone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Customer.CustomerAddress" class="control-label"></label>
-                <input asp-for="Customer.CustomerAddress" class="form-control" />
-                <span asp-validation-for="Customer.CustomerAddress" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Customer.CustomerPassword" class="control-label"></label>
-                <input asp-for="Customer.CustomerPassword" class="form-control" />
-                <span asp-validation-for="Customer.CustomerPassword" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Customer.CustomerImg" class="control-label"></label>
-                <input asp-for="Customer.CustomerImg" class="form-control" />
-                <span asp-validation-for="Customer.CustomerImg" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Customer.CustomerBirthDate" class="control-label"></label>
-                <input asp-for="Customer.CustomerBirthDate" class="form-control" type="date"/>
-                <span asp-validation-for="Customer.CustomerBirthDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Customer.CustomerGender" class="control-label"></label>
-                <select asp-for="Customer.CustomerGender" class="form-control">
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Others">Others</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label asp-for="Customer.CustomerStatus" class="control-label"></label>
-                <select asp-for="Customer.CustomerStatus" class="form-control">
-                    <option value="true">Active</option>
-                    <option value="false">Unactive</option>
-                </select>
-                <span asp-validation-for="Customer.CustomerStatus" class="text-danger"></span>
-            </div>
-            @* <div class="form-group">
-                <label asp-for="Customer.CustomerCreatedDate" class="control-label"></label>
-                <input asp-for="Customer.CustomerCreatedDate" class="form-control" />
-                <span asp-validation-for="Customer.CustomerCreatedDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Customer.CustomerUpdatedDate" class="control-label"></label>
-                <input asp-for="Customer.CustomerUpdatedDate" class="form-control" />
-                <span asp-validation-for="Customer.CustomerUpdatedDate" class="text-danger"></span>
-            </div> *@
-            <div class="form-group">
-                <label asp-for="Customer.CustomerNotes" class="control-label"></label>
-                <input asp-for="Customer.CustomerNotes" class="form-control" />
-                <span asp-validation-for="Customer.CustomerNotes" class="text-danger"></span>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Customer.CustomerName" class="control-label"></label>
+                        <input asp-for="Customer.CustomerName" class="form-control" />
+                        <span asp-validation-for="Customer.CustomerName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Customer.CustomerEmail" class="control-label"></label>
+                        <input asp-for="Customer.CustomerEmail" class="form-control" />
+                        <span asp-validation-for="Customer.CustomerEmail" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Customer.CustomerPhone" class="control-label"></label>
+                        <input asp-for="Customer.CustomerPhone" class="form-control" />
+                        <span asp-validation-for="Customer.CustomerPhone" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Customer.CustomerAddress" class="control-label"></label>
+                        <input asp-for="Customer.CustomerAddress" class="form-control" />
+                        <span asp-validation-for="Customer.CustomerAddress" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Customer.CustomerPassword" class="control-label"></label>
+                        <input asp-for="Customer.CustomerPassword" class="form-control" />
+                        <span asp-validation-for="Customer.CustomerPassword" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Customer.CustomerImg" class="control-label"></label>
+                        <input asp-for="Customer.CustomerImg" class="form-control" />
+                        <span asp-validation-for="Customer.CustomerImg" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Customer.CustomerBirthDate" class="control-label"></label>
+                        <input asp-for="Customer.CustomerBirthDate" class="form-control" type="date" />
+                        <span asp-validation-for="Customer.CustomerBirthDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Customer.CustomerGender" class="control-label"></label>
+                        <select asp-for="Customer.CustomerGender" class="form-control">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Customer.CustomerStatus" class="control-label"></label>
+                        <select asp-for="Customer.CustomerStatus" class="form-control">
+                            <option value="true">Active</option>
+                            <option value="false">Unactive</option>
+                        </select>
+                        <span asp-validation-for="Customer.CustomerStatus" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Customer.CustomerNotes" class="control-label"></label>
+                        <input asp-for="Customer.CustomerNotes" class="form-control" />
+                        <span asp-validation-for="Customer.CustomerNotes" class="text-danger"></span>
+                    </div>
+                </div>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -96,5 +87,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
