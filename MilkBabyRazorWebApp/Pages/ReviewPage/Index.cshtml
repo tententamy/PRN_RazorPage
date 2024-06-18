@@ -6,8 +6,10 @@
 <div class="table-container">
     <div>
         <form method="get">
-            <input type="text" id="searchInput" name="SearchTerm" value="@Model.SearchTerm" placeholder="Search...">
-            <button type="button" class="btn btn-primary" onclick="searchFunction()">Search</button>
+            <input type="text" id="customerNameKey" name="searchCustomer" value="@Model.searchCustomer" placeholder="Customer Name">
+            <input type="text" id="productNameKey" name="searchProduct" value="@Model.searchProduct" placeholder="Product Name">
+            <input type="text" id="reviewTitleKey" name="searchTitle" value="@Model.searchTitle" placeholder="Review Title">
+            <button type="submit" class="btn btn-primary">Search</button>
             <a asp-page="./Index" class="btn btn-info">Reset</a>
         </form>
     </div>
@@ -31,56 +33,61 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model.Review)
+            @if (Model.Review != null)
+            {
+                @foreach (var item in Model.Review)
+                {
+                    <tr>
+                        <td>@(item.Customer != null ? item.Customer.CustomerName : "")</td>
+                        <td>@(item.Product != null ? item.Product.ProductName : "")</td>
+                        <td>@item.ReviewTitle</td>
+                        <td>@item.ReviewText</td>
+                        <td>@item.ReviewImg</td>
+                        <td>@item.Rating</td>
+                        <td>@item.ReviewHelpfulCount</td>
+                        <td>@item.ReviewNotHelpfulCount</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a asp-page="./Edit" asp-route-id="@item.ReviewId" class="btn btn-primary">Edit</a>
+                                <a asp-page="./Details" asp-route-id="@item.ReviewId" class="btn btn-info">Details</a>
+                                <a asp-page="./Delete" asp-route-id="@item.ReviewId" class="btn btn-danger">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+            else
             {
                 <tr>
-                    <td>@item.Customer.CustomerName</td>
-                    <td>@item.Product.ProductName</td>
-                    <td>@item.ReviewTitle</td>
-                    <td>@item.ReviewText</td>
-                    <td>@item.ReviewImg</td>
-                    <td>@item.Rating</td>
-                    <td>@item.ReviewHelpfulCount</td>
-                    <td>@item.ReviewNotHelpfulCount</td>
-                    <td>
-                        <div class="btn-group" role="group">
-                            <a asp-page="./Edit" asp-route-id="@item.ReviewId" class="btn btn-primary">Edit</a>
-                            <a asp-page="./Details" asp-route-id="@item.ReviewId" class="btn btn-info">Details</a>
-                            <a asp-page="./Delete" asp-route-id="@item.ReviewId" class="btn btn-danger">Delete</a>
-                        </div>
-                    </td>
+                    <td colspan="9" class="text-center">No records found.</td>
                 </tr>
             }
         </tbody>
+
     </table>
 </div>
 
-<script>
-    function searchFunction() {
-        var input, filter, table, tr, td, i, j, txtValue;
-        var columnsToSearch = [0, 1, 2, 3, 4, 5, 6, 7]; // Chỉ số cột cần tìm kiếm: 0 - Customer Name, 1 - Product Name, 2 - Review Title, 3 - Review Text, 4 - Review Image, 5 - Rating, 6 - Helpful Count, 7 - Not Helpful Count
-        input = document.getElementById("searchInput");
-        filter = input.value.toUpperCase();
-        table = document.querySelector(".table");
-        tr = table.getElementsByTagName("tr");
 
-        for (i = 0; i < tr.length; i++) {
-            var found = false;
-            for (j = 0; j < columnsToSearch.length; j++) {
-                td = tr[i].getElementsByTagName("td")[columnsToSearch[j]];
-                if (td) {
-                    txtValue = td.textContent || td.innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        found = true;
-                        break;
-                    }
-                }
-            }
-            if (found) {
-                tr[i].style.display = "";
-            } else {
-                tr[i].style.display = "none";
+<nav aria-label="Page navigation">
+    <ul class="pagination">
+        <li class="page-item @(Model.PageNumber <= 1 ? "disabled" : "")">
+            <a class="page-link" asp-page="./Index" asp-route-PageNumber="@(Model.PageNumber - 1)" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        @if (Model.TotalPages > 0)
+        {
+            @for (var i = 1; i <= Model.TotalPages; i++)
+            {
+                <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                    <a class="page-link" asp-page="./Index" asp-route-PageNumber="@i">@i</a>
+                </li>
             }
         }
-    }
-</script>
+        <li class="page-item @(Model.PageNumber >= Model.TotalPages || Model.TotalPages == 0 ? "disabled" : "")">
+            <a class="page-link" asp-page="./Index" asp-route-PageNumber="@(Model.PageNumber + 1)" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>

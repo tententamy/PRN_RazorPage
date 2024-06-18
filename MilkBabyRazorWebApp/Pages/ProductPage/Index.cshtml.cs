@@ -22,71 +22,49 @@ namespace MilkBabyRazorWebApp.Pages.ProductsPage
         }
 
         [BindProperty(SupportsGet = true)]
-        public string SearchKey { get; set; } = default!;
+        public string nameKey { get; set; } = default!;
+        [BindProperty(SupportsGet = true)]
+        public string desKey { get; set; } = default!;
+        [BindProperty(SupportsGet = true)]
+        public string cateKey { get; set; } = default!;
         public IList<Product> Product { get; set; } = default!;
+
+
+        [BindProperty(SupportsGet = true)]
+        public int PageNumber { get; set; } = 1;
+
+        public int PageSize { get; set; } = 2;
+
+        public int TotalPages { get; set; }
 
         public async Task OnGetAsync()
         {
-            if (SearchKey != null)
+            if (nameKey == null && desKey == null && cateKey == null)
             {
-                var result = await _business.GetByName(SearchKey);
+                var result = await _business.GetAll();
                 if (result != null && result.Status > 0 && result.Data != null)
                 {
                     Product = result.Data as List<Product>;
-
-                    // Populate customer names based on CustomerId
-                    foreach (var product in Product)
-                    {
-                        if (product.VendorId != null)
-                        {
-                            var productResult = await _vendor.GetById((Guid)product.VendorId);
-                            if (productResult != null && productResult.Status > 0 && productResult.Data != null)
-                            {
-                                var vendor = productResult.Data as Vendor;
-                                if (product.Vendor != null)
-                                {
-                                    product.Vendor.VendorName = vendor.VendorName;
-                                }
-                                else
-                                {
-                                    product.Vendor = vendor;
-                                }
-                            }
-                        }
-                    }
+                    TotalPages = (int)Math.Ceiling(Product.Count / (double)PageSize);
+                    Product = Product.Skip((PageNumber - 1) * PageSize).Take(PageSize).ToList();
                 }
             }
             else
             {
-                var result = await _business.GetAll();
-
+                var result = await _business.Search(nameKey, desKey, cateKey);
                 if (result != null && result.Status > 0 && result.Data != null)
                 {
                     Product = result.Data as List<Product>;
-
-                    // Populate customer names based on CustomerId
-                    foreach (var product in Product)
-                    {
-                        if (product.VendorId != null)
-                        {
-                            var productResult = await _vendor.GetById((Guid)product.VendorId);
-                            if (productResult != null && productResult.Status > 0 && productResult.Data != null)
-                            {
-                                var vendor = productResult.Data as Vendor;
-                                if (product.Vendor != null)
-                                {
-                                    product.Vendor.VendorName = vendor.VendorName;
-                                }
-                                else
-                                {
-                                    product.Vendor = vendor;
-                                }
-                            }
-                        }
-                    }
+                    TotalPages = (int)Math.Ceiling(Product.Count / (double)PageSize);
+                    Product = Product.Skip((PageNumber - 1) * PageSize).Take(PageSize).ToList();
                 }
             }
-
         }
     }
-    }
+ }
+
+
+        
+
+
+      

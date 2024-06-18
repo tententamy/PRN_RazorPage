@@ -31,6 +31,7 @@
 
                     <!-- ID (hidden) -->
                     <TextBox Grid.Column="0" Grid.Row="0" x:Name="txtCustomerID" Text="{Binding Path=Customer.ID, Mode=TwoWay}" Visibility="Collapsed"/>
+                    <TextBox Grid.Column="0" Grid.Row="0" x:Name="txtCreatedDate" Text="{Binding Path=CustomerCreateaDate, Mode=TwoWay}" Visibility="Collapsed"/>
 
                     <!-- Row 1: Name, Email, Address -->
                     <Label Grid.Column="0" Grid.Row="0" Content="Name" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>

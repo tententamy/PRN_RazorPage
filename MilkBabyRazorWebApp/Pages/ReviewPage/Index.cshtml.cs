@@ -24,17 +24,45 @@ namespace MilkBabyRazorWebApp.Pages.ReviewPage
         public IList<Review> Review { get; set; } = new List<Review>();
 
         [BindProperty(SupportsGet = true)]
-        public string SearchTerm { get; set; }
+        public string searchCustomer { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string searchProduct { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string searchTitle { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public int PageNumber { get; set; } = 1;
+
+        public int PageSize { get; set; } = 3;
+
+        public int TotalPages { get; set; }
 
         public async Task OnGetAsync()
         {
-            if (string.IsNullOrEmpty(SearchTerm))
+            if (!string.IsNullOrEmpty(searchCustomer) || !string.IsNullOrEmpty(searchProduct) || !string.IsNullOrEmpty(searchTitle))
             {
-                await LoadReviewsAsync();
+                await SearchReviewsAsync();
             }
             else
             {
-                await SearchReviewsAsync(SearchTerm);
+                await LoadReviewsAsync();
+            }
+        }
+
+        private async Task SearchReviewsAsync()
+        {
+            var result = await _ReviewBusiness.Search(searchCustomer, searchProduct, searchTitle);
+            if (result != null && result.Status > 0 && result.Data != null)
+            {
+                Review = result.Data as List<Review>;
+                /*TotalPages = (int)Math.Ceiling(Review.Count / (double)PageSize);
+                Review = Review.Skip((PageNumber - 1) * PageSize).Take(PageSize).ToList();*/
+                foreach (var item in Review)
+                {
+                    await LoadAssociatedData(item);
+                }
+                TotalPages = (int)Math.Ceiling(Review.Count / (double)PageSize);
+                Review = Review.Skip((PageNumber - 1) * PageSize).Take(PageSize).ToList();
             }
         }
 
@@ -44,23 +72,14 @@ namespace MilkBabyRazorWebApp.Pages.ReviewPage
             if (result != null && result.Status > 0 && result.Data != null)
             {
                 Review = result.Data as List<Review>;
+                /*TotalPages = (int)Math.Ceiling(Review.Count / (double)PageSize);
+                Review = Review.Skip((PageNumber - 1) * PageSize).Take(PageSize).ToList();*/
                 foreach (var item in Review)
                 {
                     await LoadAssociatedData(item);
                 }
-            }
-        }
-
-        private async Task SearchReviewsAsync(string searchTerm)
-        {
-            var result = await _ReviewBusiness.Search(searchTerm);
-            if (result != null && result.Status > 0 && result.Data != null)
-            {
-                Review = result.Data as List<Review>;
-                foreach (var item in Review)
-                {
-                    await LoadAssociatedData(item);
-                }
+                TotalPages = (int)Math.Ceiling(Review.Count / (double)PageSize);
+                Review = Review.Skip((PageNumber - 1) * PageSize).Take(PageSize).ToList();
             }
         }
 

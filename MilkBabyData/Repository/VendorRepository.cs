@@ -14,16 +14,14 @@ namespace MilkBabyData.Repository
 
         public VendorRepository(NET1702_PRN221_MilkBabyContext context) : base(context) => _context = context;
 
-        public async Task<IEnumerable<Vendor>> SearchAsync(string searchTerm)
+        public async Task<IEnumerable<Vendor>> SearchAsync(string searchName, string searchCP, string searchWeb)
         {
-            var lowerCaseSearchTerm = searchTerm.ToLower();
             return await _context.Vendors
-                .Where(r =>
-                    r.VendorName.ToLower().Contains(lowerCaseSearchTerm) ||
-                    r.VendorContactPerson.ToLower().Contains(lowerCaseSearchTerm) ||
-                    r.VendorEmail.ToLower().Contains(lowerCaseSearchTerm))
+                .Where(v =>
+                    (string.IsNullOrEmpty(searchName) || v.VendorName.ToLower().Contains(searchName.ToLower())) &&
+                    (string.IsNullOrEmpty(searchCP) || v.VendorContactPerson.ToLower().Contains(searchCP.ToLower())) &&
+                    (string.IsNullOrEmpty(searchWeb) || v.VendorWebsite.ToLower().Contains(searchWeb.ToLower())))
                 .ToListAsync();
         }
     }
 }
-

@@ -14,96 +14,60 @@ namespace MilkBabyRazorWebApp.Pages.VendorPage
 {
 	public class IndexModel : PageModel
 	{
-		//  private readonly MilkBabyData.Models.Net1702Prn221MilkBabyContext _context;
+
 		private readonly IVendorBusiness _VendorBusiness;
-
-
-
 
 		public IndexModel()
 		{
 			_VendorBusiness ??= new VendorBusiness();
 		}
+		public IList<Vendor> Vendor { get; set; } = default!;
 
-
-		//   public IList<Vendor> Vendor { get; set; } = default!;
-		public IList<Vendor> Vendor { get; set; } = new List<Vendor>();
+		[BindProperty(SupportsGet = true)]
+		public string SearchName { get; set; } = default!;
 
 
 		[BindProperty(SupportsGet = true)]
-		public string SearchTerm { get; set; }
+		public string SearchCP { get; set; } = default!;
 
 
+		[BindProperty(SupportsGet = true)]
+		public string SearchWeb { get; set; } = default!;
+
+
+		[BindProperty(SupportsGet = true)]
+		public int PageNumber { get; set; } = 1;
+
+		public int PageSize { get; set; } = 3;
+
+		public int TotalPages { get; set; }
 
 		public async Task OnGetAsync()
 		{
-			if (string.IsNullOrEmpty(SearchTerm))
+
+			if (SearchName == null && SearchCP == null && SearchWeb == null)
 			{
-				await LoadVendorAsync();
+				var result = await _VendorBusiness.GetAll();
+				if (result != null && result.Status > 0 && result.Data != null)
+				{
+					Vendor = result.Data as List<Vendor>;
+					TotalPages = (int)Math.Ceiling(Vendor.Count / (double)PageSize);
+					Vendor = Vendor.Skip((PageNumber - 1) * PageSize).Take(PageSize).ToList();
+				}
 			}
 			else
 			{
-				await SearchVendorsAsync(SearchTerm);
-			}
-		}
-
-		private async Task LoadVendorAsync()
-		{
-			var result = await _VendorBusiness.GetAll();
-			if (result != null && result.Status > 0 && result.Data != null)
-			{
-				Vendor = result.Data as List<Vendor>;
-				  foreach (var item in Vendor)
+				var result = await _VendorBusiness.Search(SearchName, SearchCP, SearchWeb);
+				if (result != null && result.Status > 0 && result.Data != null)
 				{
-					await LoadAssociatedData(item);
+					Vendor = result.Data as List<Vendor>;
+					TotalPages = (int)Math.Ceiling(Vendor.Count / (double)PageSize);
+					Vendor = Vendor.Skip((PageNumber - 1) * PageSize).Take(PageSize).ToList();
+
 				}
 			}
-		}
-
-		private async Task SearchVendorsAsync(string searchTerm)
-		{
-			var result = await _VendorBusiness.Search(searchTerm);
-			if (result != null && result.Status > 0 && result.Data != null)
-			{
-				Vendor = result.Data as List<Vendor>;
-				foreach (var item in Vendor)
-				{
-					await LoadAssociatedData(item);
-				}
-			}
-		}
-
-		private async Task LoadAssociatedData(Vendor vendor)
-		{
-			var vendorResult = await _VendorBusiness.GetById((Guid)vendor.VendorId);
-
-
-			if (vendorResult != null && vendorResult.Data != null)
-			{
-				vendor = vendorResult.Data as Vendor;
-
-			}
 
 		}
-
-		//public void OnGet()
-		//      {
-		//          Vendor = (IList<Vendor>)vendorRepository.SearchAsync(SearchTerm);
-
-
-
-		//}
-
-		//public async Task OnGetAsync()
-		//{
-		//    var result = await business.GetAll();
-		//    if (result != null && result.Status > 0 && result.Data != null)
-		//    {
-		//        Vendor = result.Data as IList<Vendor>;
-		//    }
-
-		//}
-
 
 	}
 }

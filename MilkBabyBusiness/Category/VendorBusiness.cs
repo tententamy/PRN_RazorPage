@@ -17,7 +17,7 @@ namespace MilkBabyBusiness.Category
         Task<IBusinessResult> Save(Vendor vendor);
         Task<IBusinessResult> Update(Vendor vendor);
         Task<IBusinessResult> DeleteById(Guid id);
-        Task<IBusinessResult> Search(string searchTerm);
+        Task<IBusinessResult> Search(string searchName, string searchCP, string searchWeb);
 
     }
 
@@ -103,6 +103,7 @@ namespace MilkBabyBusiness.Category
         {
             try
             {
+
                 await _unitOfWork.VendorRepository.UpdateAsync(vendor);
                 return new BusinessResult(Const.SUCCESS_UPDATE_CODE, Const.SUCCESS_UPDATE_MSG);
             }
@@ -133,11 +134,11 @@ namespace MilkBabyBusiness.Category
             }
         }
 
-        public async Task<IBusinessResult> Search(string searchTerm)
+        public async Task<IBusinessResult> Search(string searchName, string searchCP, string searchWeb)
         {
             try
             {
-                var vendors = await _unitOfWork.VendorRepository.SearchAsync(searchTerm);
+                var vendors = await _unitOfWork.VendorRepository.SearchAsync(searchName, searchCP, searchWeb);
 
                 if (!vendors.Any())
                 {
@@ -145,7 +146,7 @@ namespace MilkBabyBusiness.Category
                 }
                 else
                 {
-                    return new BusinessResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, vendors.ToList());
+                    return new BusinessResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, vendors);
                 }
             }
             catch (Exception ex)

@@ -9,10 +9,12 @@ namespace MilkBabyData.Repository
 
         public ProductRepository(NET1702_PRN221_MilkBabyContext context) : base(context) => _context = context;
 
-        public async Task<List<Product>> GetByProductNameAsync(String key)
+        public async Task<List<Product>> SearchAsync(string nameKey, string desKey, string cateKey)
         {
             return await _context.Products
-                                 .Where(c => c.ProductName.Contains(key))
+                                 .Where(p => (string.IsNullOrEmpty(nameKey) || p.ProductName.Contains(nameKey)) &&
+                                             (string.IsNullOrEmpty(desKey) || p.ProductDescription.Contains(desKey)) &&
+                                             (string.IsNullOrEmpty(cateKey) || p.ProductCategory.Contains(cateKey)))
                                  .ToListAsync();
         }
     }

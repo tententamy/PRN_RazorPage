@@ -19,7 +19,7 @@ namespace MilkBabyBusiness.Category
         Task<IBusinessResult> Save(Product product);
         Task<IBusinessResult> Update(Product product);
         Task<IBusinessResult> DeleteById(Guid id);
-        Task<IBusinessResult> GetByName(String key);
+        Task<IBusinessResult> Search(string nameKey, string desKey, string cateKey);
     }
 
     public class ProductBusiness : IProductBusiness
@@ -133,22 +133,19 @@ namespace MilkBabyBusiness.Category
             }
         }
 
-        public async Task<IBusinessResult> GetByName(string key)
+        public async Task<IBusinessResult> Search(string nameKey, string desKey, string cateKey)
         {
             try
             {
-                #region Business rule
-                #endregion
 
-                var products = await _unitOfWork.ProductRepository.GetByProductNameAsync(key);
-
-                if (products == null)
+                var product = await _unitOfWork.ProductRepository.SearchAsync(nameKey, desKey, cateKey);
+                if (product == null)
                 {
                     return new BusinessResult(Const.WARNING_NO_DATA_CODE, Const.WARNING_NO_DATA__MSG);
                 }
                 else
                 {
-                    return new BusinessResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, products);
+                    return new BusinessResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, product);
                 }
             }
             catch (Exception ex)

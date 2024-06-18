@@ -16,7 +16,7 @@ namespace MilkBabyBusiness.Category
         Task<IBusinessResult> Save(Review review);
         Task<IBusinessResult> Update(Review review);
         Task<IBusinessResult> DeleteById(Guid id);
-        Task<IBusinessResult> Search(string searchTerm);
+        Task<IBusinessResult> Search(string searchCustomer, string searchProduct, string searchTitle);
     }
 
     public class ReviewBusiness : IReviewBusiness
@@ -130,11 +130,11 @@ namespace MilkBabyBusiness.Category
             }
         }
 
-        public async Task<IBusinessResult> Search(string searchTerm)
+        public async Task<IBusinessResult> Search(string searchCustomer, string searchProduct, string searchTitle)
         {
             try
             {
-                var reviews = await _unitOfWork.ReviewRepository.SearchAsync(searchTerm);
+                var reviews = await _unitOfWork.ReviewRepository.SearchAsync(searchCustomer, searchProduct, searchTitle);
 
                 if (!reviews.Any())
                 {
@@ -142,7 +142,7 @@ namespace MilkBabyBusiness.Category
                 }
                 else
                 {
-                    return new BusinessResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, reviews.ToList());
+                    return new BusinessResult(Const.SUCCESS_READ_CODE, Const.SUCCESS_READ_MSG, reviews);
                 }
             }
             catch (Exception ex)

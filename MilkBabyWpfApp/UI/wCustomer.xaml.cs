@@ -52,7 +52,9 @@ namespace MilkBabyWpfApp.UI
                         CustomerPassword = txtCustomerPassword.Text,
                         CustomerBirthDate = dpCustomerBirthDate.SelectedDate.HasValue ? DateOnly.FromDateTime(dpCustomerBirthDate.SelectedDate.Value) : null,
                         CustomerGender = ((ComboBoxItem)cbCustomerGender.SelectedItem)?.Content?.ToString(),
-                        CustomerStatus = chkCustomerStatus.IsChecked ?? false
+                        CustomerStatus = chkCustomerStatus.IsChecked ?? false,
+                        CustomerCreatedDate = DateOnly.FromDateTime(DateTime.Now),
+                        CustomerUpdatedDate = DateOnly.FromDateTime(DateTime.Now)
                     };
 
                     var result = await _business.Save(customer);
@@ -70,6 +72,8 @@ namespace MilkBabyWpfApp.UI
                     customer.CustomerBirthDate = dpCustomerBirthDate.SelectedDate.HasValue ? DateOnly.FromDateTime(dpCustomerBirthDate.SelectedDate.Value) : null;
                     customer.CustomerGender = ((ComboBoxItem)cbCustomerGender.SelectedItem)?.Content?.ToString();
                     customer.CustomerStatus = chkCustomerStatus.IsChecked ?? false;
+                    customer.CustomerCreatedDate = DateOnly.Parse(txtCreatedDate.Text);
+                    customer.CustomerUpdatedDate = DateOnly.FromDateTime(DateTime.Now);
 
                     var result = await _business.Update(customer);
                     MessageBox.Show(result.Message, "Update");
@@ -120,6 +124,7 @@ namespace MilkBabyWpfApp.UI
                 dpCustomerBirthDate.Text = customer.CustomerBirthDate.ToString();
                 cbCustomerGender.Text = customer.CustomerGender;
                 chkCustomerStatus.IsChecked = customer.CustomerStatus;
+
             }
         }
 

@@ -15,7 +15,9 @@
 	<form method="get" style="margin: 0;">
 		<div class="input-group">
 		@* 	<input class="form-control" asp-for="SearchTerm" /> *@
-			<input class="form-control"  type="text" id="searchInput" name="SearchTerm" value="@Model.SearchTerm" placeholder="Search...">
+			<input class="form-control" type="text" id="searchInput" name="SearchName" value="@Model.SearchName" placeholder="Search Name...">
+			<input class="form-control" type="text" id="searchInput" name="SearchCP" value="@Model.SearchCP" placeholder="Search Contact Person...">
+			<input class="form-control" type="text" id="searchInput" name="SearchWeb" value="@Model.SearchWeb" placeholder="Search Website...">
 			<div class="input-group-append">
 				<button type="submit" class="btn btn-primary">Search</button>
 			</div>
@@ -41,16 +43,16 @@
 			<th>
 				 @Html.DisplayNameFor(model => model.Vendor[0].VendorContactPerson)  
 			</th> 
-			@* <th>
+			 <th>
 				@Html.DisplayNameFor(model => model.Vendor[0].VendorWebsite)
 			</th> 
 			 <th>
 				@Html.DisplayNameFor(model => model.Vendor[0].VendorStatus)
 			</th> 
-			@* <th>
+			  <th>
 				@Html.DisplayNameFor(model => model.Vendor[0].VendorCreatedDate)
-			</th> 
-			 <th>
+			</th>  
+			@* <th>
 				@Html.DisplayNameFor(model => model.Vendor[0].VendorUpdatedDate)
 			</th> 
 			 <th>
@@ -78,22 +80,22 @@
 				 <td>
 					@Html.DisplayFor(modelItem => item.VendorContactPerson)
 				</td>
-				@*<td>
+				<td>
 					@Html.DisplayFor(modelItem => item.VendorWebsite)
 				</td>
 				<td>
 					@Html.DisplayFor(modelItem => item.VendorStatus)
-				</td>
+				</td> 
 				<td>
 					@Html.DisplayFor(modelItem => item.VendorCreatedDate)
-				</td>
-				<td>
+				</td> 
+				@*<td>
 					@Html.DisplayFor(modelItem => item.VendorUpdatedDate)
 				</td>
 				<td>
 					@Html.DisplayFor(modelItem => item.VendorNotes)
 				</td> *@
-				<td>
+				<td style="display: flex">
 					<a class="btn btn-outline-primary" asp-page="./Edit" asp-route-id="@item.VendorId">Edit</a> 
 					<a class="btn btn-outline-secondary" asp-page="./Details" asp-route-id="@item.VendorId">Details</a> 
 					<a class="btn btn-outline-danger" asp-page="./Delete" asp-route-id="@item.VendorId">Delete</a>
@@ -102,7 +104,26 @@
 		}
 	</tbody>
 </table>
-
+<nav aria-label="Page navigation">
+	<ul class="pagination">
+		<li class="page-item @(Model.PageNumber <= 1 ? "disabled" : "")">
+			<a class="page-link" asp-page="./Index" asp-route-PageNumber="@(Model.PageNumber - 1)" aria-label="Previous">
+				<span aria-hidden="true">&laquo;</span>
+			</a>
+		</li>
+		@for (var i = 1; i <= Model.TotalPages; i++)
+		{
+			<li class="page-item @(i == Model.PageNumber ? "active" : "")">
+				<a class="page-link" asp-page="./Index" asp-route-PageNumber="@i">@i</a>
+			</li>
+		}
+		<li class="page-item @(Model.PageNumber >= Model.TotalPages ? "disabled" : "")">
+			<a class="page-link" asp-page="./Index" asp-route-PageNumber="@(Model.PageNumber + 1)" aria-label="Next">
+				<span aria-hidden="true">&raquo;</span>
+			</a>
+		</li>
+	</ul>
+</nav>
 <script>
 	function searchFunction() {
 		var input, filter, table, tr, td, i, j, txtValue;

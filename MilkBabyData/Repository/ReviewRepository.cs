@@ -1,4 +1,5 @@
-﻿using MilkBabyData.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using MilkBabyData.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,16 +13,18 @@ namespace MilkBabyData.Repository
         ReviewRepository() { }
 
         public ReviewRepository(NET1702_PRN221_MilkBabyContext context) : base(context) => _context = context;
-        public async Task<IEnumerable<Review>> SearchAsync(string searchTerm)
+
+
+        public async Task<IEnumerable<Review>> SearchAsync(string searchCustomer, string searchProduct, string searchTitle)
         {
-            return await Task.Run(() =>
-                _context.Reviews.Where(r =>
-                    r.Customer.CustomerName.Contains(searchTerm, StringComparison.OrdinalIgnoreCase) ||
-                    r.Product.ProductName.Contains(searchTerm, StringComparison.OrdinalIgnoreCase) ||
-                    r.ReviewTitle.Contains(searchTerm, StringComparison.OrdinalIgnoreCase) ||
-                    r.ReviewText.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
-                .ToList()
-            );
+            return await _context.Reviews
+                .Where(r =>
+                    (string.IsNullOrEmpty(searchCustomer) || r.Customer.CustomerName.ToLower().Contains(searchCustomer.ToLower())) &&
+                    (string.IsNullOrEmpty(searchProduct) || r.Product.ProductName.ToLower().Contains(searchProduct.ToLower())) &&
+                    (string.IsNullOrEmpty(searchTitle) || r.ReviewTitle.ToLower().Contains(searchTitle.ToLower())))
+                .ToListAsync();
         }
+
+
     }
 }

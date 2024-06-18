@@ -7,13 +7,14 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MilkBabyBusiness.Category;
+using MilkBabyData;
 using MilkBabyData.Models;
 
 namespace MilkBabyRazorWebApp.Pages.VendorPage
 {
     public class EditModel : PageModel
     {
-        //    private readonly MilkBabyData.Models.Net1702Prn221MilkBabyContext _context;
+        
         private readonly IVendorBusiness _vendorBusiness;
 
         public EditModel()
@@ -23,7 +24,8 @@ namespace MilkBabyRazorWebApp.Pages.VendorPage
 
 
         [BindProperty]
-        public Vendor Vendor { get; set; } = default!;
+      
+        public Vendor Vendor { get; set; } = new Vendor();
 
         public async Task<IActionResult> OnGetAsync(Guid? id)
         {
@@ -31,9 +33,11 @@ namespace MilkBabyRazorWebApp.Pages.VendorPage
             {
                 return NotFound();
             }
+           
 
-            var vendor = await _vendorBusiness.GetById((Guid)id);
-            if (vendor == null)
+			var vendor = await _vendorBusiness.GetById((Guid)id);
+
+            if (vendor == null || vendor.Data == null)
             {
                 return NotFound();
             }
@@ -41,36 +45,47 @@ namespace MilkBabyRazorWebApp.Pages.VendorPage
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see https://aka.ms/RazorPagesCRUD.
+       
         public async Task<IActionResult> OnPostAsync()
         {
-            Vendor.VendorUpdatedDate = DateOnly.FromDateTime(DateTime.UtcNow);
-            if (!ModelState.IsValid)
+			 
+			Vendor.VendorUpdatedDate = DateOnly.FromDateTime(DateTime.UtcNow);
+			if (!ModelState.IsValid)
             {
                 return Page();
             }
-
-            //   _context.Attach(Vendor).State = EntityState.Modified;
-
-            try
+            var existingVendorResult = await _vendorBusiness.GetById(Vendor.VendorId);
+            if (existingVendorResult?.Data is Vendor existingVendor)
             {
-                await _vendorBusiness.Update(Vendor);
-            }
-            catch (DbUpdateConcurrencyException)
-            {
+                existingVendor.VendorId = Vendor.VendorId;
+                existingVendor.VendorName = Vendor.VendorName;
+                existingVendor.VendorEmail = Vendor.VendorEmail;
+                existingVendor.VendorPhone = Vendor.VendorPhone;    
+                existingVendor.VendorContactPerson = Vendor.VendorContactPerson;
+                existingVendor.VendorWebsite = Vendor.VendorWebsite;
+                existingVendor.VendorStatus = Vendor.VendorStatus;
+               // existingVendor.VendorCreatedDate = DateOnly.FromDateTime(DateTime.UtcNow);
+                existingVendor.VendorUpdatedDate = DateOnly.FromDateTime(DateTime.UtcNow);
+                existingVendor.VendorNotes = Vendor.VendorNotes;
 
-                throw;
+				try
+				{
 
-            }
+					await _vendorBusiness.Update(existingVendor);
+				}
+				catch (DbUpdateConcurrencyException)
+				{
+
+					throw;
+
+				}
+			}
+
+
+           
 
             return RedirectToPage("./Index");
         }
-        /*
-      private bool VendorExists(Guid id)
-       {
-           return _context.Vendors.Any(e => e.VendorId == id);
-        }
-        */
+       
     }
 }
