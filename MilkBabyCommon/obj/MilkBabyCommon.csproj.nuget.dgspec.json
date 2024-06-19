@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\PRN221\\Project\\NET1702_PRN221_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyCommon\\MilkBabyCommon.csproj": {}
+    "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyCommon\\MilkBabyCommon.csproj": {}
   },
   "projects": {
-    "D:\\PRN221\\Project\\NET1702_PRN221_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyCommon\\MilkBabyCommon.csproj": {
+    "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyCommon\\MilkBabyCommon.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\PRN221\\Project\\NET1702_PRN221_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyCommon\\MilkBabyCommon.csproj",
+        "projectUniqueName": "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyCommon\\MilkBabyCommon.csproj",
         "projectName": "MilkBabyCommon",
-        "projectPath": "D:\\PRN221\\Project\\NET1702_PRN221_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyCommon\\MilkBabyCommon.csproj",
+        "projectPath": "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyCommon\\MilkBabyCommon.csproj",
         "packagesPath": "C:\\Users\\NGOC MINH\\.nuget\\packages\\",
-        "outputPath": "D:\\PRN221\\Project\\NET1702_PRN221_MilkBaby\\Source\\Net1702_221_3_MilkBaby\\MilkBabyCommon\\obj\\",
+        "outputPath": "D:\\Pru_Project\\PRN_RazorPage\\MilkBabyCommon\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\NGOC MINH\\AppData\\Roaming\\NuGet\\NuGet.Config",
