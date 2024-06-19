@@ -48,7 +48,6 @@
         color: white;
     }
 
-    /* Additional CSS for the table */
     .table th, .table td {
         vertical-align: middle;
     }
@@ -96,7 +95,7 @@
     }
 </style>
 
-<h1>Index</h1>
+<h1>@ViewData["Title"]</h1>
 
 <div class="d-flex justify-content-between align-items-center mb-3">
     <a asp-page="Create" class="btn custom-create-button">Create New</a>
@@ -105,10 +104,10 @@
             <input class="form-control custom-search-input" type="search" placeholder="Search Product Name" aria-label="Search Product Name" name="nameKey" value="@Model.nameKey">
         </div>
         <div class="form-group mr-2">
-            <input class="form-control custom-search-input" type="search" placeholder="Search Vendor Name" aria-label="Search Description" name="desKey" value="@Model.desKey">
+            <input class="form-control custom-search-input" type="search" placeholder="Search Vendor Name" aria-label="Search Vendor Name" name="desKey" value="@Model.desKey">
         </div>
         <div class="form-group mr-2">
-            <input class="form-control custom-search-input" type="search" placeholder="Search Product Description" aria-label="Search Category" name="cateKey" value="@Model.cateKey">
+            <input class="form-control custom-search-input" type="search" placeholder="Search Product Description" aria-label="Search Product Description" name="cateKey" value="@Model.cateKey">
         </div>
         <button class="btn custom-search-button" type="submit">Search</button>
         <a asp-page="./Index" asp-route-nameKey="" asp-route-desKey="" asp-route-cateKey="" class="btn btn-secondary ml-2">Clear Filters</a>
